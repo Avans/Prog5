@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MusicCollectionMVVM
 {
+    //The model
     public class Song
     {
         public int Id { get; set; }

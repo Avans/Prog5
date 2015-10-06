@@ -7,6 +7,7 @@ using System.Windows.Input;
 
 namespace MusicCollectionMVVM
 {
+    //The Relay command
     public class RelayCommand : ICommand
     {
         private Action<object> action;
