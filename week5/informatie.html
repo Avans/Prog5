@@ -305,7 +305,7 @@ public partial class Product
 						<li>DataSource - <b>(LocalDb)\v11.0</b> OF <b>localhost</b></li>
 						<li>Initial Catalog - <b>"Naam Database"</b></li>
 						<li>Integrated Security - <b>SSPI</b></li>
-						<li>providerName - <b>System.Data.SqlClient"<b></li>
+						<li>providerName - <b>System.Data.SqlClient"</b></li>
 					</ul>
 						
 
@@ -324,7 +324,36 @@ public partial class Product
 				
 				<h4>Database Initializer</h4>
 			
+				<p>
+					Nu Entity Framework weet waar hij de database kan vinden, moeten we hem nog vertellen wat hij met deze database moet doen. 
+					Er zijn verschillende mogelijkheden zoals elke build een nieuwe database deployen. 
+					Wij willen de database droppen en createn bij elke change (<b>DropCreateDatabaseIfModelChanges</b>).
+				</p>
 				
+				<p>Hiervoor kunnen we onze eigen klasse schrijven die ook meteen extra acties op onze nieuwe database kan uitvoeren, 
+					zoals test data toevoegen. Super praktisch!</p>
+					
+				<!-- Code snippet -->
+				<pre class="prettyprint linenums">	
+class MyDbInitializer : DropCreateDatabaseIfModelChanges<MyContext>
+{
+  protected override void Seed(MyContext context)
+  {
+    //Seed data zodat je database niet leeg is
+    context.Products.Add(new Product() { Name = "Kip", Descr = "Friend chicken" });
+    context.SaveChanges();
+  }
+}</pre>			
+				<p>Om deze klasse zijn werk te laten doen moeten we onze <b>app.config</b> nog even aanpassen.</p>
+				
+				<!-- Code snippet -->
+				<pre class="prettyprint linenums">	
+&lt;contexts&gt;
+  &lt;context type="ProductCrud.Domain.MyContext, ProductCrud"&gt;
+  &lt;databaseInitializer type="ProductCrud.Domain.MyDbInitializer, ProductCrud" /&gt;    
+  &lt;/context&gt;
+&lt;/contexts&gt;</pre>
+
 			</section>
 		</article>
 		
