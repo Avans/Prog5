@@ -101,18 +101,30 @@
 			
 				
 			<section class="easy sub">
-				<h3>Select</h3>
 				
-				<p>Voordat je deze opdracht gaat maken moet je vanuit het model (MyModel.edmx) een database genereren.</p>
+				<div class="row">
+					<div class="col-md-6">
+						
+						
+						<p>Voordat je deze opdracht gaat maken moet je vanuit het model (MyModel.edmx) een database genereren.</p>
+						
+						<p>Open de .edmx file en klik met rechtermuisknop op het schema. Nu krijg je de optie "Generate Database from Model...".</p>
+						
+						<p>Begin bij de eerste stap en kies als server <b>(localdb)\v11.0</b>. Hierna moet je de naam van de database invullen. </p>
+						
+							
+						<p>Deze wizard genereerd voor jou een script. Run dit script en je hebt een database!</p>
+						
+						<img src="week5/img/myScript.png" class="responsive"/><br><br>
+						
 				
-				<p>Open de .edmx file en klik met rechtermuisknop op het schema. Nu krijg je de optie "Generate Database from Model...".
-				</p>
+					</div>
+					
+					<div class="col-md-6">
+							<img src="week5/img/wizard.png" class="responsive"/>
+					</div>
+				</div>
 				
-				<p>Doorloop de wizzard en kies of je de database op 'localhost' of '(localdb)\v11.0' wilt hebben.</p>
-				
-				<p>Deze wizard genereerd voor jou een script. Run dit script en je hebt een database!</p>
-				
-				<img src="week5/img/myScript.png" width="200px"/><br><br>
 				
 				<p>Vul de onderstaande methodes in met je zelfgeschreven logica. Deze methodes vind je terug in de klasse MyDatabase
 					<ul>
@@ -121,6 +133,10 @@
 						<li>ShowAllPlayersInTeam</li>
 					</ul>
 				</p>
+	
+				
+	
+			
 				
 				<p>Waarom wordt de klasse <b>MyModelContainer</b> meegegeven via de constructor? Bespreek dit met een andere student</p>
 				
