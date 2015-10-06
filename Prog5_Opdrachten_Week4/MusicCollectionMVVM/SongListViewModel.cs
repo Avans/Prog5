@@ -1,19 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MusicCollectionMVVM
 {
-    public class SongListviewModel
+    //The View Model
+    public class SongListviewModel : INotifyPropertyChanged
     {
-        ISongRepository songRepository;
-
-        public SongViewModel SongViewModel { get; set; }
-
+        private ISongRepository songRepository;
+        private SongViewModel _songViewModel;
+        public SongViewModel SelectedSong
+        {
+            get { return _songViewModel; }
+            set
+            {
+                _songViewModel = value;
+                OnPropertyChanged("SelectedSong");
+            }
+        }
         public ObservableCollection<SongViewModel> Songs { get; set; }
 
         public ICommand AddSong { get; set; }
@@ -23,7 +33,7 @@ namespace MusicCollectionMVVM
             songRepository = new DummySongRepository();
             var songList = songRepository.ToList().Select(s => new SongViewModel(s));
 
-            SongViewModel = new SongViewModel();
+            SelectedSong = new SongViewModel();
             Songs = new ObservableCollection<SongViewModel>(songList);
 
 
@@ -36,12 +46,23 @@ namespace MusicCollectionMVVM
         {
             var svm = new SongViewModel();
 
-            svm.Artist = SongViewModel.Artist;
-            svm.Id = SongViewModel.Id;
-            svm.Title = SongViewModel.Title;
+            svm.Artist = SelectedSong.Artist;
+            svm.Id = SelectedSong.Id;
+            svm.Title = SelectedSong.Title;
 
             Songs.Add(svm);
             
+        }
+
+        //Magic!
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

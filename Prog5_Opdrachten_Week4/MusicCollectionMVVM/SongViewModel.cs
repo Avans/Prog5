@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MusicCollectionMVVM
 {
+    //The View Model
     public class SongViewModel : INotifyPropertyChanged
     {
 
