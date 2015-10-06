@@ -247,20 +247,84 @@ namespace DomainModel
 					Het tweede object waar we gebruik van gaan maken is de klasse <b>DbSet</b>. 
 					Dit is een generieke lijst van objecten die uiteindelijk gemapt gaan worden op een Tabel in je database. 
 					Deze kun je gebruiken in je eigen versie van <b>DbContext</b>.
+					Let hier op de constructie met de <b>:base('')</b>. Hier wordt de naam van de connectie string aangegeven.
 				</p>
 				
 				<!-- Code snippet -->
 				<pre class="prettyprint linenums">
-public class MijnDatabaseContext : DbContext
+public class MyContext : DbContext
 {
-	public DbSet<Product> Products { get; set; }
+   public MyContext() : base("name=MyContext")
+   {
+
+   }
+   
+   public DbSet&lt;Product&gt; Products { get; set; }
 }</pre>
 										
+				<h4>POCO's</h4>
 				
 				<p>
-					Nadat je een DbContext met wat DbSets hebt aangemaakt binnen het Entity Framework, kun je je solution gaan compilen. 
-					Dit is een interessant punt, want tijdens de compile slag gaat Entity Framework kijken of hij een database moet genereren. 
+					In je <b>DbSet</b> verwijs je naar een POCO object. Dit is een <b>partial</b> klasse die 
+					representatief is voor de bijbehorende database tabel. Er zijn <b>attributen</b> die hier handig zijn. 
 				</p>
+				<ul>
+					<li><b>[Key]</b></li>
+					<li><b>[Table("Table Name")]</b></li>
+				</ul>
+
+				<!-- Code snippet -->
+				<pre class="prettyprint linenums">
+[Table("Product")]
+public partial class Product
+{
+    [Key]
+    public int Id { get; set; }
+    public String Name { get; set; }
+    public String Descr { get; set; }
+    public String ImageUrl { get; set; }
+}</pre>
+			
+				<p>
+					Nu onze klasse klaar zijn kunnen we onze Database gaan deployen. 
+					Wat moeten we hiervoor doen?
+				</p>
+				
+				<ol>
+					<li>Connection string toevoegen met de naam <b>MyContext</b>.
+					<li>Database Initialier aanmaken</li>
+				</ol>
+				
+				<h4>Connection String</h4>
+				
+				<p>
+					Onze connection string kunnen we uit een server explorer halen maar we kunnen hem ook zelf aanmaken. 
+					De string bestaat uit 4 onderdelen. 
+				</p>
+					<ul>
+						<li>DataSource - <b>(LocalDb)\v11.0</b> OF <b>localhost</b></li>
+						<li>Initial Catalog - <b>"Naam Database"</b></li>
+						<li>Integrated Security - <b>SSPI</b></li>
+						<li>providerName - <b>System.Data.SqlClient"<b></li>
+					</ul>
+						
+
+					
+				<!-- Code snippet -->
+				<pre class="prettyprint linenums">
+&lt;connectionStrings&gt;
+  &lt;add name="MyContext" 
+    connectionString="
+        Data Source=(LocalDb)\v11.0;
+        Initial Catalog=MyContext;
+        Integrated Security=SSPI;
+    " 
+    providerName="System.Data.SqlClient"/ &gt;
+&lt;/connectionStrings&gt;</pre>
+				
+				<h4>Database Initializer</h4>
+			
+				
 			</section>
 		</article>
 		
