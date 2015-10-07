@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/03/2015 14:31:33
--- Generated from EDMX file: C:\Users\Linksonder\Documents\1. GitHub\Prog5\Prog5_Opdrachten_Week4\Prog5_Opdrachten_Week5\DataLogger\MyModel.edmx
+-- Date Created: 10/06/2015 17:11:33
+-- Generated from EDMX file: C:\Users\Linksonder\Documents\1. GitHub\Prog5\Prog5_Opdrachten_Week5\DataLogger\MyModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [TeamLadderDB];
+USE [LeagueOfLedjens];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO

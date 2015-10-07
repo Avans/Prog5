@@ -301,8 +301,13 @@ img.responsive{
 	display:block;
 }
 
+.btn-fab > i{
+	margin-top:5px;
+}
+
 @media screen and (max-width: 480px) {
     img.responsive {
        max-width:70%;
     }
 }
+

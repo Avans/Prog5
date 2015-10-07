@@ -3,6 +3,7 @@ var routesConfig = require('./config/routes');
 var overviewCtrl = require("./controllers/overviewCtrl");
 var twentytwenty = require('./directives/twentytwenty');
 var hoverCtrl= require('./controllers/hoverCtrl');
+var slideCtrl = require("./controllers/slideCtrl");
 
 var app = angular.module('Prog5', ["PointyPony", "ui.router", "ngAnimate"]);
 
@@ -12,6 +13,7 @@ app.constant('appConfig', {
 
 app.controller('hoverCtrl', hoverCtrl);
 app.controller('overviewCtrl', overviewCtrl);
+app.controller('slideCtrl', slideCtrl);
 app.directive('twentytwenty', twentytwenty);
 app.config(routesConfig);
 

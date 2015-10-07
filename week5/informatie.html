@@ -200,18 +200,25 @@ namespace DomainModel
 		
 		<article class="sample shadow-z-1" id="codefirst">
 			<section class="header">
-				<span>Code First</span>
+				<span>Code First - Stappenplan</span>
 			</section>
+			
+
+			
 			<section class="main">
 				<p>
 					Dit is een van de favoriete manier van de studenten van vorig jaar.
 					Je hoeft je geen zorgen meer te maken over databases, maar doet alles vanuit de code.
 					Wat hebben we nodig om dit voor elkaar te krijgen?
 				</p>
+<!--				
+						<h2>Regular</h2>
+<button class="btn btn-fab btn-raised btn-inverse "><i class="mdi-navigation-arrow-forward"></i></button>
+				-->
+				
 			</section>
 			<section class="hard sub">
 			
-				
 				<div class="row text-center">
 					<div class="col-md-6">
 						
@@ -298,7 +305,8 @@ public partial class Product
 				<h4>Connection String</h4>
 				
 				<p>
-					Onze connection string kunnen we uit een server explorer halen maar we kunnen hem ook zelf aanmaken. 
+					De eerder gemaakte <b>DbContext</b> klasse gaat in de <b>app.config</b> op zoek naar een connection string. 
+					Deze connection string kunnen we uit een server explorer halen maar we kunnen hem ook zelf aanmaken. 
 					De string bestaat uit 4 onderdelen. 
 				</p>
 					<ul>
@@ -335,7 +343,7 @@ public partial class Product
 					
 				<!-- Code snippet -->
 				<pre class="prettyprint linenums">	
-class MyDbInitializer : DropCreateDatabaseIfModelChanges<MyContext>
+class MyDbInitializer : DropCreateDatabaseIfModelChanges&lt;MyContext&gt;
 {
   protected override void Seed(MyContext context)
   {
@@ -354,6 +362,8 @@ class MyDbInitializer : DropCreateDatabaseIfModelChanges<MyContext>
   &lt;/context&gt;
 &lt;/contexts&gt;</pre>
 
+
+				<p>En klaar is kees! Veel plezier met je Code First Setup</p>
 			</section>
 		</article>
 		
