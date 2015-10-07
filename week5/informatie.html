@@ -200,18 +200,25 @@ namespace DomainModel
 		
 		<article class="sample shadow-z-1" id="codefirst">
 			<section class="header">
-				<span>Code First</span>
+				<span>Code First - Stappenplan</span>
 			</section>
+			
+
+			
 			<section class="main">
 				<p>
 					Dit is een van de favoriete manier van de studenten van vorig jaar.
 					Je hoeft je geen zorgen meer te maken over databases, maar doet alles vanuit de code.
 					Wat hebben we nodig om dit voor elkaar te krijgen?
 				</p>
+<!--				
+						<h2>Regular</h2>
+<button class="btn btn-fab btn-raised btn-inverse "><i class="mdi-navigation-arrow-forward"></i></button>
+				-->
+				
 			</section>
 			<section class="hard sub">
 			
-				
 				<div class="row text-center">
 					<div class="col-md-6">
 						
@@ -247,20 +254,116 @@ namespace DomainModel
 					Het tweede object waar we gebruik van gaan maken is de klasse <b>DbSet</b>. 
 					Dit is een generieke lijst van objecten die uiteindelijk gemapt gaan worden op een Tabel in je database. 
 					Deze kun je gebruiken in je eigen versie van <b>DbContext</b>.
+					Let hier op de constructie met de <b>:base('')</b>. Hier wordt de naam van de connectie string aangegeven.
 				</p>
 				
 				<!-- Code snippet -->
 				<pre class="prettyprint linenums">
-public class MijnDatabaseContext : DbContext
+public class MyContext : DbContext
 {
-	public DbSet<Product> Products { get; set; }
+   public MyContext() : base("name=MyContext")
+   {
+
+   }
+   
+   public DbSet&lt;Product&gt; Products { get; set; }
 }</pre>
 										
+				<h4>POCO's</h4>
 				
 				<p>
-					Nadat je een DbContext met wat DbSets hebt aangemaakt binnen het Entity Framework, kun je je solution gaan compilen. 
-					Dit is een interessant punt, want tijdens de compile slag gaat Entity Framework kijken of hij een database moet genereren. 
+					In je <b>DbSet</b> verwijs je naar een POCO object. Dit is een <b>partial</b> klasse die 
+					representatief is voor de bijbehorende database tabel. Er zijn <b>attributen</b> die hier handig zijn. 
 				</p>
+				<ul>
+					<li><b>[Key]</b></li>
+					<li><b>[Table("Table Name")]</b></li>
+				</ul>
+
+				<!-- Code snippet -->
+				<pre class="prettyprint linenums">
+[Table("Product")]
+public partial class Product
+{
+    [Key]
+    public int Id { get; set; }
+    public String Name { get; set; }
+    public String Descr { get; set; }
+    public String ImageUrl { get; set; }
+}</pre>
+			
+				<p>
+					Nu onze klasse klaar zijn kunnen we onze Database gaan deployen. 
+					Wat moeten we hiervoor doen?
+				</p>
+				
+				<ol>
+					<li>Connection string toevoegen met de naam <b>MyContext</b>.
+					<li>Database Initialier aanmaken</li>
+				</ol>
+				
+				<h4>Connection String</h4>
+				
+				<p>
+					De eerder gemaakte <b>DbContext</b> klasse gaat in de <b>app.config</b> op zoek naar een connection string. 
+					Deze connection string kunnen we uit een server explorer halen maar we kunnen hem ook zelf aanmaken. 
+					De string bestaat uit 4 onderdelen. 
+				</p>
+					<ul>
+						<li>DataSource - <b>(LocalDb)\v11.0</b> OF <b>localhost</b></li>
+						<li>Initial Catalog - <b>"Naam Database"</b></li>
+						<li>Integrated Security - <b>SSPI</b></li>
+						<li>providerName - <b>System.Data.SqlClient"</b></li>
+					</ul>
+						
+
+					
+				<!-- Code snippet -->
+				<pre class="prettyprint linenums">
+&lt;connectionStrings&gt;
+  &lt;add name="MyContext" 
+    connectionString="
+        Data Source=(LocalDb)\v11.0;
+        Initial Catalog=MyContext;
+        Integrated Security=SSPI;
+    " 
+    providerName="System.Data.SqlClient"/ &gt;
+&lt;/connectionStrings&gt;</pre>
+				
+				<h4>Database Initializer</h4>
+			
+				<p>
+					Nu Entity Framework weet waar hij de database kan vinden, moeten we hem nog vertellen wat hij met deze database moet doen. 
+					Er zijn verschillende mogelijkheden zoals elke build een nieuwe database deployen. 
+					Wij willen de database droppen en createn bij elke change (<b>DropCreateDatabaseIfModelChanges</b>).
+				</p>
+				
+				<p>Hiervoor kunnen we onze eigen klasse schrijven die ook meteen extra acties op onze nieuwe database kan uitvoeren, 
+					zoals test data toevoegen. Super praktisch!</p>
+					
+				<!-- Code snippet -->
+				<pre class="prettyprint linenums">	
+class MyDbInitializer : DropCreateDatabaseIfModelChanges&lt;MyContext&gt;
+{
+  protected override void Seed(MyContext context)
+  {
+    //Seed data zodat je database niet leeg is
+    context.Products.Add(new Product() { Name = "Kip", Descr = "Friend chicken" });
+    context.SaveChanges();
+  }
+}</pre>			
+				<p>Om deze klasse zijn werk te laten doen moeten we onze <b>app.config</b> nog even aanpassen.</p>
+				
+				<!-- Code snippet -->
+				<pre class="prettyprint linenums">	
+&lt;contexts&gt;
+  &lt;context type="ProductCrud.Domain.MyContext, ProductCrud"&gt;
+  &lt;databaseInitializer type="ProductCrud.Domain.MyDbInitializer, ProductCrud" /&gt;    
+  &lt;/context&gt;
+&lt;/contexts&gt;</pre>
+
+
+				<p>En klaar is kees! Veel plezier met je Code First Setup</p>
 			</section>
 		</article>
 		

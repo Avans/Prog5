@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Linksonder\Documents\1. GitHub\Prog5\Prog5_Opdrachten_Week4\Prog5_Opdrachten_Week5\DataLogger\MyModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Linksonder\Documents\1. GitHub\Prog5\Prog5_Opdrachten_Week5\DataLogger\MyModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

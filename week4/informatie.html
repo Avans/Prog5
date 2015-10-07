@@ -92,20 +92,18 @@
 								
 				<p>De volgende onderdelen komen voor in een MvvM <strong>CRUD</strong> applicatie. </p>
 			
-				<div class="row">
-					<div class="col-md-6">
-						<h4>Model</h4>
-						
-						<p>
-							Hoe ziet een MvvM applicatie er nu uit? Laten we beginnen met het <strong>Model</strong>, 
-							een klassiek <strong>POCO</strong> object wat je zo een database in kan schuiven. 
-							Om dit object te tonen in de view moeten we ons aan de spelregels houden. 
-							De eerste stap is het maken van een <strong>View Model</strong> die we toegang geven tot dit object.
-						</p>
-					</div>
-					<div class="col-md-6">
-						
-						<pre class="prettyprint linenums">
+
+				<h4>Model</h4>
+				
+				<p>
+					Hoe ziet een MvvM applicatie er nu uit? Laten we beginnen met het <strong>Model</strong>, 
+					een klassiek <strong>POCO</strong> object wat je zo een database in kan schuiven. 
+					Om dit object te tonen in de view moeten we ons aan de spelregels houden. 
+					De eerste stap is het maken van een <strong>View Model</strong> die we toegang geven tot dit object.
+				</p>
+	
+				
+				<pre class="prettyprint linenums">
 public class Song
 {
   public int Id { get; set; }
@@ -115,31 +113,27 @@ public class Song
   public string Title { get; set; }
 }</pre>
 							
-					</div>
-				</div>
-				
+			
 				<hr>
 				
-				<div class="row">
-					<div class="col-md-6">
-						<h4>View Model</h4>
-						<p>
-							Het View Model accepteert dit model als een parameter in de constructor. Is er geen object aanwezig dan maakt het View model zelf 
-							een nieuwe instantie aan van het model. 
-						</p>
-						<p>
-							De properties op het model kunnen we toegankelijk maken via <strong>properties</strong> op het View Model. 
-							Dit lijkt misschien onpraktisch maar het is eigenlijk heel handig. Eventuele wijzigingen op het model hebben geen rechtstreekse 
-							invloed op de <strong>View</strong>. Daarnaast kunnen we eventueel nog checks doen op het model voor we de waarde doorgeven aan de view. 
-						</p>
-						
-						<p>
-						Dit view Model kan ook business logica bevatten die je wilt hergebruiken over meerdere views. 
-							Het zou <strong>niet</strong> netjes zijn als je deze logica op de POCO objecten zou defini&euml;ren, aangezien het dan geen POCO objecten meer zijn!
-						</p>
-					</div>
-					<div class="col-md-6">
-						<pre class="prettyprint linenums">
+
+				<h4>View Model</h4>
+				<p>
+					Het View Model accepteert dit model als een parameter in de constructor. Is er geen object aanwezig dan maakt het View model zelf 
+					een nieuwe instantie aan van het model. 
+				</p>
+				<p>
+					De properties op het model kunnen we toegankelijk maken via <strong>properties</strong> op het View Model. 
+					Dit lijkt misschien onpraktisch maar het is eigenlijk heel handig. Eventuele wijzigingen op het model hebben geen rechtstreekse 
+					invloed op de <strong>View</strong>. Daarnaast kunnen we eventueel nog checks doen op het model voor we de waarde doorgeven aan de view. 
+				</p>
+				
+				<p>
+				Dit view Model kan ook business logica bevatten die je wilt hergebruiken over meerdere views. 
+					Het zou <strong>niet</strong> netjes zijn als je deze logica op de POCO objecten zou defini&euml;ren, aangezien het dan geen POCO objecten meer zijn!
+				</p>
+
+				<pre class="prettyprint linenums">
 							
 public class SongViewModel : INotifyPropertyChanged
 {
@@ -156,11 +150,10 @@ public class SongViewModel : INotifyPropertyChanged
   }
 }</pre>
 
-					</div>
-				</div>
+
 				
-					<h4>View Model Container</h4>
-					<p>
+				<h4>View Model Container</h4>
+				<p>
 					Een <strong>CRUD</strong> applicatie vereist de volgende Functionaliteit:
 						<ul>
 							<li>Een lijst van objecten</li>
@@ -180,7 +173,7 @@ public class SongViewModel : INotifyPropertyChanged
 				</p>
 			
 				
-						<pre class="prettyprint linenums">
+				<pre class="prettyprint linenums">
 public class SongListviewModel
 {
   ISongRepository songRepository;
@@ -209,23 +202,19 @@ public class SongListviewModel
 }</pre>
 				
 				<hr>
-				
-				
-				<div class="row">
-					<div class="col-md-6">
-						<h4>View</h4>
-			
-						<p>
-							Omdat we in het View Model gebruik hebben gemaakt van een <strong> ObservableCollection</strong> kunnen we nu 
-							rechtstreeks tegen deze collectie aan binden. Dit doen we via een <strong>DataGrid</strong>. 
-						</p>
-						<p>
-							De Collection kunnen we rechtstreeks aan de <strong>ItemSource</strong> van deze DataGrid binden. 
-							De kolommen kunnen individueel worden aangegeven, alsmede aan welke property deze gebonden moet worden.
-						</p>
-			
-					</div>
-					<div class="col-md-6">
+					
+
+				<h4>View</h4>
+	
+				<p>
+					Omdat we in het View Model gebruik hebben gemaakt van een <strong> ObservableCollection</strong> kunnen we nu 
+					rechtstreeks tegen deze collectie aan binden. Dit doen we via een <strong>DataGrid</strong>. 
+				</p>
+				<p>
+					De Collection kunnen we rechtstreeks aan de <strong>ItemSource</strong> van deze DataGrid binden. 
+					De kolommen kunnen individueel worden aangegeven, alsmede aan welke property deze gebonden moet worden.
+				</p>
+
 						
 						<pre class="prettyprint linenums">
 &lt;DataGrid AutoGenerateColumns=&quot;False&quot; 
@@ -246,8 +235,7 @@ public class SongListviewModel
 	
 &lt;/DataGrid&gt;</pre>
 						
-					</div>
-				</div>
+
 				
 			</section>
 		</article>
@@ -373,20 +361,18 @@ public class SongListviewModel
 			
 			<section class="main">			
 			
-				<div class="row">
-					<div class="col-md-6">
 
-						<p>
-							Een <STRONG>RelayCommand</STRONG> is een zelfgemaakte generieke versie is van het ICommand. 
-							Dit Command kan worden hergebruikt over meerdere View Models en heeft als parameter een functie als een delegate, die bij de <strong>Execute</strong>  methode van het RelayCommand object wordt uitgevoerd. 
-						</p>
-					
-						<p>
-							Een <strong>delegate</strong> is een type dat een referentie naar een methode bevat. De delegate kan deze methode voor je uitvoeren. 
-							Meer informatie over delegates vind je in de bronnen onderaan deze pagina.
-						</p>
-					</div>
-					<div class="col-md-6">
+
+				<p>
+					Een <STRONG>RelayCommand</STRONG> is een zelfgemaakte generieke versie is van het ICommand. 
+					Dit Command kan worden hergebruikt over meerdere View Models en heeft als parameter een functie als een delegate, die bij de <strong>Execute</strong>  methode van het RelayCommand object wordt uitgevoerd. 
+				</p>
+			
+				<p>
+					Een <strong>delegate</strong> is een type dat een referentie naar een methode bevat. De delegate kan deze methode voor je uitvoeren. 
+					Meer informatie over delegates vind je in de bronnen onderaan deze pagina.
+				</p>
+
 						
 						<pre class="prettyprint linenums">
 public class RelayCommand : ICommand
@@ -410,8 +396,7 @@ public class RelayCommand : ICommand
 
   public event EventHandler CanExecuteChanged;
 }</pre>
-					</div>
-				</div>
+			
 			
 			</section>
 		</article>
