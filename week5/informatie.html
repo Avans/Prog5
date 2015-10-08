@@ -1,7 +1,7 @@
 <div class="col-md-6">
 		
 		<section class="preHeader">
-		 	<h2>Lesstof week 5 - Entity Framework</h2>
+		 	<h2>Lesstof week 5 - &quot;Entity Framework&quot;</h2>
 		</section>
 		
 		<article class="sample shadow-z-1" id="inleiding">
@@ -19,12 +19,12 @@
 				
 				<img src="week5/img/domain_3.png" class="responsive" />
 				<p>
-					Om dit voorelkaar te krijgen op een mooie manier, hebben we een domein model nodig die we
+					Om dit voor elkaar te krijgen op een mooie manier, hebben we een domein model nodig die we
 					kunnen mappen op een database. Je kunt de logica voor het mappen van je data zelf bouwen of je
 					gebruikt hier voor een Object Relational Mapper (ORM).
 				</p>
 				<p>
-				Wij gaan gebruik maken van het ORM Entity Framework.
+				Wij gaan gebruik maken van het ORM &quot;Entity Framework&quot;.
 				Hieronder staat alvast een kleine review en later gaan we
 				meer in op de details.
 				</p>
@@ -82,24 +82,24 @@ namespace DomainModel
 		
 		<article class="sample shadow-z-1" id="entity">
 			<section class="header">
-				<span>Entity Framework</span>
+				<span>&quot;Entity Framework&quot;</span>
 			</section>
 			
 			<section class="main">
 				
 				<p>
 					Het aansluiten van een database is bijna altijd het zelfde werk. Objecten maken die tabellen in je database reflecteren en query’s uitvoeren om daarna 
-					de data uit de database te mappen op je objecten. Entity framework is een <b>Object Relational Mapper (ORM)</b> die dit voor je oplost. Het zorgt er voor dat je maar een keer je data model hoeft te defineren (code of database) . De rest zal Entity Framework voor je genereren. 
+					de data uit de database te mappen op je objecten. &quot;Entity Framework&quot; is een <b>Object Relational Mapper (ORM)</b> die dit voor je oplost. Het zorgt er voor dat je maar een keer je data-model hoeft te defineren (code of database) . De rest zal &quot;Entity Framework&quot; voor je genereren. 
 
 				</p>
 				
 				<img src="week5/img/domain_2.png" class="responsive" />
 				
 				<p>
-					Er zijn verder veel meer eigenschappen van ORM’s en Entity Framework die we tijdens deze workshop niet gaan bespreken. 
+					Er zijn verder veel meer eigenschappen van ORM’s en &quot;Entity Framework&quot; die we tijdens deze workshop niet gaan bespreken. 
 					Er is veel over te vinden op het grote internet!
 					Daarnaast zijn er een aantal leuke tutorial’s die je kunt volgen als je er echt mee wil gaan werken. 
-					Hieronder vind je een overzicht van de 3 mogelijke manieren om te werken met Entity Framework + een link naar de bron / tutorial. 
+					Hieronder vind je een overzicht van de 3 mogelijke manieren om te werken met &quot;Entity Framework&quot; + een link naar de bron / tutorial. 
 					
 					<ul>
 						<li>Model First</LI>
@@ -109,17 +109,20 @@ namespace DomainModel
 				</p>
 				
 				
-				<p>Alleen het concept achter <b>Code First</b> wordt verder uitgelegd in dit webdictaat. De andere onderdelen zijn 
+				<p>Alleen het concept achter <b>Code First</b> wordt verder uitgelegd in dit webdictaat. 
+                    <br />
+                    De mogelijkheden zijn: 
 				
 				<h3>Model first</h3>
 				<p>
-					Entity framework bied een mooie tool voor het bewerken van je data model. Als je geen fan bent van het werken in SQL management studio dan is dit een prettige manier van het bewerken van je data model. Daar en tegen heb je geen volledige toegang tot je datamodel aangezien deze gegenereerd word door een tool.
+					&quot;Entity Framework&quot; biedt een mooie tool voor het bewerken van je data-model. Als je geen fan bent van het werken in SQL management studio dan is dit een prettige manier van het bewerken van je data-model. Daarentegen heb je geen volledige toegang tot je data-model aangezien deze gegenereerd wordt door een tool.
 				</p>
 
 				<h3>Code first</h3>
 				
-				<p>Het geeft je volledig toegang tot je entiteiten (modellen) en de code er achter. Op basis van deze code word er database gegenereerd. 
-					In principe is dit een goed systeem wanneer je kleine hoeveel heden data nodig hebt en de database alleen voor dat programma nodig is.
+				<p>Het geeft je volledig toegang tot je entiteiten (modellen) en de code er achter. Op basis van deze code wordt er 
+                    een database gegenereerd. 
+					In principe is dit een goed systeem wanneer je kleine hoeveelheden data nodig hebt en de database alleen voor dat programma nodig is.
 				</p>
 				
 				<p>Link: http://msdn.microsoft.com/nl-nl/data/jj193542.aspx</p>
@@ -128,7 +131,7 @@ namespace DomainModel
 				<h3>Database first</h3>
 
 				<p>
-					 Als je een bestaande Database hebt is dit ideaal. Op basis van een bestaande database zal Entity Framework een volledig data model generen. Deze functie werkt heel goed. Daarnaast is het praktisch om wijzigingen door te voeren vanuit SQL server management studio, en nadat je klaar bent met je data-model, deze wijzigingen ook door te voeren in je applicatie.
+					 Als je een bestaande database hebt is dit ideaal. Op basis van een bestaande database zal Entity Framework een volledig data-model generen. Deze functie werkt heel goed. Daarnaast is het praktisch om wijzigingen door te voeren vanuit SQL server management studio, en nadat je klaar bent met je data-model, deze wijzigingen ook door te voeren in je applicatie.
 				</p>
 				
 			
@@ -142,12 +145,12 @@ namespace DomainModel
 			</section>
 			<section class="main">
 					<p>
-						We zouden de Assemblies van Entity Framework kunnen downloaden en er handmatig een referentie naar kunnen leggen vanuit ons project. 
+						We zouden de Assemblies van &quot;Entity Framework&quot; kunnen downloaden en er handmatig een referentie naar kunnen leggen vanuit ons project. 
 						Daarentegen bestaat het Entity Framework uit meerdere assemblies en is de kans dat je een assembly vergeet aanwezig. 
 						Gelukkig is er een beter alternatief!
 					</p>
 					<p> 
-						Visual Studio bied je de mogelijkheid om zogenaamde ‘packages’ te downloaden via NuGet. 
+						Visual Studio biedt je de mogelijkheid om zogenaamde ‘packages’ te downloaden via NuGet. 
 					</p>
 					<p>
 						<b>Link:</b> <a target="_blank" href="http://weblogs.asp.net/sreejukg/nuget-package-manager-in-visual-studio-2012">http://weblogs.asp.net/sreejukg/nuget-package-manager-in-visual-studio-2012<a/>
@@ -161,7 +164,7 @@ namespace DomainModel
 							<h4>NuGet Package Manager</h4>
 							<p>Je kunt aan je solutions refrences toevoegen maar je hebt ook de mogelijkheid om in een keer een volledige package toe te voegen. </p>
 							<img src="week5/img/nuget_1.png" class="responsive">
-							<p class="top-buffer">Vanuit deze GUI kun je opzoek naar packages die je wil toevoegen aan je project zoals bijvoorbeeld Entity Framework.</p>
+							<p class="top-buffer">Vanuit deze GUI kun je opzoek naar packages die je wil toevoegen aan je project zoals bijvoorbeeld &quot;Entity Framework&quot;.</p>
 							<img  src="week5/img/nuget_2.png" class="responsive">
 	
 						</div>
@@ -181,7 +184,7 @@ namespace DomainModel
 							
 							<p>De namen van package + het install comando staan vaak op de website waar je de package gevonden hebt beschreven. </p>
 							
-							<p>Het commando voor het installeren van Entity Framework  is bijvoorbeeld: </p>
+							<p>Het commando voor het installeren van &quot;Entity Framework&quot; is bijvoorbeeld: </p>
 							
 							<p><b>Install-package EntityFramework</b></p>
 
@@ -191,7 +194,7 @@ namespace DomainModel
 					</div>
 											
 					<p>
-						Nu  Entity Framework geïnstalleerd is kunnen we gaan code kloppen!</p>
+						Nu &quot;Entity Framework&quot; geïnstalleerd is kunnen we gaan code kloppen!</p>
 					</p>
 					
 				</section>
@@ -226,7 +229,7 @@ namespace DomainModel
 						<p> 
 							Code first maakt gebruik van de console-package manager om databases te genereren. 
 							Ja je leest het goed. <b>Consoles.</b> 
-							Er zijn maar een paar commands nodig om Entity Framework aan de praat te krijgen. 
+							Er zijn maar een paar commands nodig om &quot;Entity Framework&quot; aan de praat te krijgen. 
 						</p>
 					</div>
 					<div class="col-md-6">
@@ -236,17 +239,18 @@ namespace DomainModel
 			</section>
 			<section class="main">
 				<p>
-					Entity Framework zorgt er voor dat je niet meer te maken hebt met een Database. Daar en tegen praten we rechtstreeks objecten van het Entity Framework. 
-					De opbouw van het object valt te vergelijken met een Database. 
+					&quot;Entity Framework&quot; zorgt er voor dat je niet meer te maken hebt met een database. Daarentegen praten we rechtstreeks 
+                    met objecten van het &quot;Entity Framework&quot;. 
+					De opbouw van het object valt te vergelijken met een database. 
 					Normaliter heb je 1 database met daarin meerdere tabellen. 
-					Hieronder staat een korte beschrijving van de meest belangrijke onderdelen van het Entity Framework</p>
+					Hieronder staat een korte beschrijving van de meest belangrijke onderdelen van het &quot;Entity Framework&quot;</p>
 				</p>
 				
 				<h4>Database</h4>
 				
 				<p>
 				Het meest belangrijke object waar we mee te maken krijgen is de <b>DbContext</b> class. 
-				Dit is een klasse waar je je eigen implementatie van kan maken en waar alle referenties naar de tabellen (collecties?) staan.
+				Dit is een klasse waar je jouw eigen implementatie van kunt maken en waarin alle referenties naar de tabellen (collecties?) staan.
 				</p>
 				
 				<h4>Tables</h4>
@@ -254,7 +258,7 @@ namespace DomainModel
 					Het tweede object waar we gebruik van gaan maken is de klasse <b>DbSet</b>. 
 					Dit is een generieke lijst van objecten die uiteindelijk gemapt gaan worden op een Tabel in je database. 
 					Deze kun je gebruiken in je eigen versie van <b>DbContext</b>.
-					Let hier op de constructie met de <b>:base('')</b>. Hier wordt de naam van de connectie string aangegeven.
+					Let hier op de constructie met de <b>:base('')</b>. Hier wordt de naam van de connectie-string aangegeven.
 				</p>
 				
 				<!-- Code snippet -->
@@ -293,13 +297,13 @@ public partial class Product
 }</pre>
 			
 				<p>
-					Nu onze klasse klaar zijn kunnen we onze Database gaan deployen. 
+					Nu onze klasse klaar zijn kunnen we onze database gaan deployen. 
 					Wat moeten we hiervoor doen?
 				</p>
 				
 				<ol>
 					<li>Connection string toevoegen met de naam <b>MyContext</b>.
-					<li>Database Initialier aanmaken</li>
+					<li>Database Initializer aanmaken</li>
 				</ol>
 				
 				<h4>Connection String</h4>
@@ -333,13 +337,13 @@ public partial class Product
 				<h4>Database Initializer</h4>
 			
 				<p>
-					Nu Entity Framework weet waar hij de database kan vinden, moeten we hem nog vertellen wat hij met deze database moet doen. 
-					Er zijn verschillende mogelijkheden zoals elke build een nieuwe database deployen. 
+					Nu &quot;Entity Framework&quot; weet waar hij de database kan vinden, moeten we hem nog vertellen wat hij met deze database moet doen. 
+					Er zijn verschillende mogelijkheden zoals bijvoorbeeld bij elke build een nieuwe database deployen. 
 					Wij willen de database droppen en createn bij elke change (<b>DropCreateDatabaseIfModelChanges</b>).
 				</p>
 				
 				<p>Hiervoor kunnen we onze eigen klasse schrijven die ook meteen extra acties op onze nieuwe database kan uitvoeren, 
-					zoals test data toevoegen. Super praktisch!</p>
+					zoals test-data toevoegen. Super praktisch!</p>
 					
 				<!-- Code snippet -->
 				<pre class="prettyprint linenums">	
