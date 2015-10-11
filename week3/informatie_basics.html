@@ -249,7 +249,7 @@
 					
                              <!-- Code Snippet -->
                             <pre class="prettyprint linenums"  >
-&lt;Button Content=&quot;A&quot; Click=&quot;ClickA&quot;&gt;&lt;/Button&gt;</pre>
+&lt;Button Content=&quot;A&quot; Click=&quot;ClickA&quot;/&gt;</pre>
                               <!-- End of Snippet -->
                       
                             <!-- Code Snippet -->
@@ -288,7 +288,7 @@ private void ClickA(object sender, RoutedEventArgs e)
 
 <!-- Code Snippet -->
 <pre class="prettyprint linenums"  >
-Listy.Items.Add(new ListBoxItem
+Listy.Items.Add(new ListBoxItem()
 {
 	Content = &quot;Item 3&quot;
 });</pre>
@@ -314,7 +314,7 @@ Listy.Items.Add(new ListBoxItem
                             <pre class="prettyprint linenums"   >
 &lt;Grid Width=&quot;100&quot; Height=&quot;50&quot;&gt;
     &lt;TextBox Name=&quot;Boxy&quot; Text=&quot;Hell world&quot; 
-    TextChanged=&quot;TextBox_TextChanged&quot;&gt;&lt;/TextBox&gt;
+    TextChanged=&quot;TextBox_TextChanged&quot;/&gt;
 &lt;/Grid&gt;</pre>
                               <!-- End of Snippet -->
 
@@ -382,7 +382,8 @@ private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
             <h4>Model</h4>
             <!-- code snippet -->
             <pre class="prettyprint linenums">
-public class TemperatureVM{
+public class TemperatureVM
+{
      private double _temperature;
 }</pre>
         </div>
@@ -483,7 +484,7 @@ public MainWindow()
             <!-- code snippet -->
             <pre class="prettyprint linenums">
 &lt;Label Content=&quot;The temperature is&quot;/&gt;
-&lt;Label Content=&quot;{Binding Temperature}&quot;&gt;&lt;/Label&gt;
+&lt;Label Content=&quot;{Binding Temperature}&quot;/&gt;
 &lt;TextBox Text=&quot;{Binding Temperature, UpdateSourceTrigger=PropertyChanged}&quot; /&gt;</pre> 
             
             <!-- code snippet -->

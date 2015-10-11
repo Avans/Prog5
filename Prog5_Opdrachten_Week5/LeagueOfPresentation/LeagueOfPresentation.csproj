@@ -77,11 +77,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Competition.cs" />
-    <Compile Include="Ladder.cs" />
-    <Compile Include="MyModel.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Team.cs" />
     <Compile Include="ViewModel\CompetitionVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />

@@ -4,17 +4,36 @@
 		<h2>Prog5 - Webdictaat</h2>
 		</section>
 		
-		<article class="sample shadow-z-1">
+		<article class="sample shadow-z-1" ng-controller="leaderboardCtrl" ng-init="getAll()">
 			<section class="header">
 				<span>Leaderboards</span>
 			</section>
-			
+		
 			<section class="main">
-				Under construction
+				<table class="leaderboard">
+					<thead>
+						<tr>
+							<td>#</td>
+							<td>Naam</td>
+							<td>Avans punten</td>
+							
+						</tr>
+					
+					</thead>
+					<tbody>
+						
+						<tr ng-repeat="user in users">
+							<td>{{$index + 1}}</td>
+							<td>{{user.name}}</td>
+							<td>{{user.points}}</td>
+						</tr>
+
+					</tbody>
+				</table>
 			</section>
 			
 			<section class="footer">
-				
+
 				
 			</section>
 		
@@ -22,3 +41,4 @@
 		
 	</div>
 	<div class="col-md-3"></div>
+

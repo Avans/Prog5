@@ -1,4 +1,5 @@
 using GalaSoft.MvvmLight;
+using System.Linq;
 
 namespace LeagueOfPresentation.ViewModel
 {
@@ -23,6 +24,9 @@ namespace LeagueOfPresentation.ViewModel
         {
             Competition = new CompetitionVM();
 
+
+            MyModel myModel = new MyModel();
+            Competition comp = myModel.Competitions.First();
            //Competition = new CompetitionVM(comp);
         }
     }
