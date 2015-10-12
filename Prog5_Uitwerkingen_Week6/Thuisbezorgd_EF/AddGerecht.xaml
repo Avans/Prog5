@@ -1,0 +1,17 @@
+﻿<Window x:Class="Thuisbezorgd_EF.AddGerecht"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddGerecht" Height="300" Width="300"
+        DataContext="{Binding Main, Source={ StaticResource Locator} }">
+    
+    
+    <StackPanel>
+        <TextBlock>Add gerecht</TextBlock>
+        
+        <TextBlock>Name: </TextBlock>
+        <TextBox Text="{Binding SelectedGerecht.Naam}" ></TextBox>
+        
+        <Button Command="{Binding SaveGerechtCommand}">Save Gerecht</Button>
+        
+    </StackPanel>
+</Window>
