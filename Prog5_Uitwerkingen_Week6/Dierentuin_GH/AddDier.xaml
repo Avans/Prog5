@@ -1,0 +1,22 @@
+﻿<Window x:Class="Dierentuin_GH.AddDier"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Nieuw Dier" Height="300" Width="300"
+         DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <StackPanel>
+        <TextBlock Margin="10">Nieuw Dier</TextBlock>
+
+
+        <TextBlock>Naam</TextBlock>
+        <TextBox Text="{Binding SelectedDier.Naam}"></TextBox>
+        <TextBlock >Soort</TextBlock>
+        <TextBox Text="{Binding SelectedDier.Soort}"></TextBox>
+        <TextBlock >Geslacht</TextBlock>
+        <TextBox Text="{Binding SelectedDier.Geslacht}"></TextBox>
+        <TextBlock >Leeftijd</TextBlock>
+        <TextBox Text="{Binding SelectedDier.Leeftijd}"></TextBox>
+        
+        <Button Command="{Binding SaveDierCommand}">Save</Button>
+    </StackPanel>
+</Window>
