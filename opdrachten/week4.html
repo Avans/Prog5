@@ -1,0 +1,169 @@
+<md-toolbar class="md-theme-indigo withSkyline">
+	<h1 class="md-toolbar-tools">Opdrachten week 4</h1>
+</md-toolbar>
+<section class="content-center">
+<section class="max-sized md-padding" ng-controller="ppAuthCtrl">
+   
+     <article class="md-padding">
+        <h2>Introductie</h2>
+        
+        <p>
+            Elke week zijn er nieuwe opdrachten uit een bepaalde categorie. 
+            Voor deze week staan er 3 opdrachten klaar:
+        </p>
+        
+        <ul>
+            <li>Een Workshop opdracht (WS) </br></li>
+            <li>Een <b><span class="danger">moeilijke</span> Huiswerk</b> opdracht (Avans punten)</br>
+            </li>
+        </ul>
+    </article>
+    
+     <md-card class="assignment workshop relative">
+        <section class="header">
+            <div>
+                <h2 class="md-title">Is het dan zo CRUD!</h2>
+                <span class="completed">Workshop assignment</span>
+            </div>
+
+            <div class="bullets bottom">
+                    <div class="points">
+                        <div>ws</div>
+                        <md-tooltip>Work shop</md-tooltip>
+                    </div>
+            </div>
+        </section>
+        <md-card-content class="sub">
+           <section class="output">
+                <label>Github</label>
+                <span class="ng-binding">  <a target="_blank" href="https://github.com/Avans/Prog5.CRUD">Start project</a></span>
+            </section>
+        </md-card-content>
+        <md-card-content class="easy sub" layout-gt-sm="row">
+        
+            <section flex>
+                <h3>CRU-Delete</h3>
+                <p>
+                    De <strong>Create</strong> en <strong>Read</strong> actie van de CRUD werken. 
+                    De volgende stap is het implementeren van een <strong>Delete</strong> actie. 
+                    Zorg ervoor dat de MusicCollection applicatie deze functionaliteit ook ondersteunt. 
+                    De delete knop is al aanwezig, maar jij moet er voor zorgen dat deze ook een liedje uit de lijst verwijderd.                   
+                </p>
+                <p>
+                     <i>Tip: Maak gebruik van een <strong>RelayCommand</strong></i>   
+                </p>
+      
+                
+            </section>
+
+            <img src="opdrachten/img/UpdateDelete.png"  alt="Update Delete" class="photo" height="200px"  />
+        
+        </md-card-content>
+        <md-card-content class="medium sub" layout-gt-sm="row">
+
+            <section flex>
+                <h2>Tweede View</h2>
+                <p>
+                    Voeg een tweede View toe aan je applicatie waarin je met een <strong>vorige</strong> en <strong>volgende</strong> 
+                    knop door de collectie van je CRUD applicatie heen kan bladeren. Maak gebruik van hetzelfde View Model en Model. 
+                </p>
+
+                <p>
+                    Kijk goed hoe de MainWindow aan zijn data context komt. 
+                </p>
+            </section>
+
+            <img src="opdrachten/img/play.png"  alt="Play songs" class="photo" height="200px"  />
+
+        </md-card-content>
+        <md-card-content class="hard sub" layout-gt-sm="row">
+
+            <section flex>
+                <h3>CR-Update-D</h3>
+                <p>
+                De <strong>Create</strong> en <strong>Read</strong> actie van onze CRUD werken. Nu moet de <strong>Update</strong> 
+                actie nog ge&iuml;mplementeerd worden. Zorg ervoor dat de 'edit' knopt werkt. 
+                </p>
+
+                <p>
+                    Als een gebruiker op de 'edit' knopt klikt moet er een nieuwe window openen waarmee de gebruiker een song kan aanpassen.
+                </p>
+                <p>
+                     <i>Tip: Maak slim gebruik van de property <strong>SelectedSong</strong></i>   
+                </p>
+
+            </section>
+
+            <img src="opdrachten/img/update.png"  alt="Edit song" class="photo" height="200px"  />
+
+        </md-card-content>  
+      
+       
+     </md-card>
+     
+    <md-card pp-assignment="'CRUD'" class="assignment hard">
+
+        <!-- Default header for assignment -->
+        <section ng-include="'/templates/partials/assignmentHeader.html'"></section>
+
+        <md-card-content class="sub">
+           <section class="output">
+                <label>Github classroom</label>
+                <span class="ng-binding">  <a target="_blank" href="https://classroom.github.com/assignment-invitations/d7659a3f8a8ead3bc4f342bdb82ee854">Start project</a></span>
+            </section>
+        </md-card-content>
+        <md-card-content>
+            <p>
+                Dit is de moeilijkste huiswerkopdracht tot nu toe. 
+                Het niveau van deze opdracht is te vergelijken met die van de eindopdracht. 
+                De eindopdracht is natuurlijk wel meer werk. 
+            </p>
+
+            <p>
+                Deze week geen start project. De link aan het begin geeft je toegang tot een github classroom repository. Je zult zelf alle onderdelen samen moeten stellen om een werkende applicatie te krijgen. 
+                Kijk goed naar de uitwerking van de workshop opdracht als je er even niet meer uit komt.
+            </p>
+
+            <h2>Inventory</h2>
+
+            <section  layout-gt-sm="row">
+
+                <section flex>
+
+                   
+
+                    <p>Bouw een applicatie waarbij een lijst van items zichtbaar is. 
+                        Deze lijst mag gewoon hard-coded in een klasse staan (zie Dummy Repository workshop opdracht).
+                        Het moet mogelijk zijn om een van de items te selecteren en deze toe te voegen aan de inventory. 
+                    </p>
+
+                    <p>
+                        De inventory moet zichtbaar zijn in een apparte window. Er mogen maximaal 6 items aan de inventory toegevoegd worden.
+                    </p>
+ 
+                </section>
+
+                <img src="opdrachten/img/inventory.png"  alt="Edit song" class="photo" height="100px"  />
+
+            </section>
+
+            <h3>Eisen</h3>
+            <ul>
+                <li>Er moeten minstens 10 items in de lijst staan</li>
+                <li>Als een item in de inventory zit moet hij uit de lijst verwijders worden</li>
+                <li>Als de inventory vol zit moet de knop voor het toevoegen uitgeschakeld worden</li>
+            </ul>
+
+            <h3>Technische eisen</h3>
+            <ul>
+                <li>Maak gebruik van het MvvM Light framework</li>
+                <li>De applicatie moet voldoen aan de eisen van MvvM</li>
+                <li>De inventory en lijst moeten in 2 apparte windows staan</li>
+            </ul>
+
+                
+        </md-card-content>
+    </md-card>
+
+</section>
+</section>

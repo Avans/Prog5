@@ -1,0 +1,164 @@
+<md-toolbar class="withSkyline">
+	<h1 class="md-toolbar-tools ">WPF</h1>
+  
+</md-toolbar>
+
+<section class="max-sized">
+<article class="md-padding">
+	<h2>Command</h2>
+		
+	<p>In de uitleg over Binding werd als voorbeeld een property <strong>Temperature</strong> 'gebind' aan een Label. De uitleg in dit hoofdstuk bouwt verder op de voorbeelden uit het hoofdstuk <strong>Binding</strong>.
+		</p>
+		
+	<p>
+		Als we willen dat er een stuk logica uitgevoerd wordt op het model, willen we niet dat de logica weet dat er bijvoorbeeld een 'knop' is die deze logica uitvoert. 
+		Nu is dit gemakkelijk te voorkomen door alleen een referentie vanuit de view naar het model te leggen. Bijvoorbeeld een event-handler zoals beschreven in de voorbeelden in het hoofdstuk <strong>XAML</strong>.
+	</p>
+	
+	<p>
+		Het is daarentegen mogelijk dat de actie die de functie op het model 'triggert' op verschillende manieren aangeroepen kan worden. Denk bijvoorbeeld aan een actie zoals knippen en plakken. Dit kan vanuit een menu, ctrl-c > ctrl-v, rechtermuisknop, etc..
+	</p>
+	
+	<p>
+		WPF biedt je de mogelijkheid de getriggerde actie los te koppelen van de uit te voeren logica. Dit heet een <strong>Command</strong>.
+	</p>
+
+	
+	<h4>De code</h4>
+	
+	<p>
+		Een <strong>Command</strong> in WPF is een voorgedefinieerde .NET interface die je toe kan voegen op je model. Je maakt dan de command verantwoordelijk voor de                 aanpassingen op je model, of tot het uitvoeren van een functie op je model. Op regel 18 van de onderstaande code snippit staat de verwijzing naar een implementatie van het interface
+		<strong>ICommand</strong> met de naam SetLowCommand.
+	</p>
+	
+	<md-card>
+		<md-toolbar>
+			<h1 class="md-toolbar-tools">View Model</h1>
+		</md-toolbar>
+		<md-card-content>
+			<!-- code snippet -->
+			<pre class="ppPrettyPrint linenums">
+public class TemperatureVM : INotifyPropertyChanged
+{
+/// &lt;summary&gt;
+/// Privates, getters en setters for temparture
+/// &lt;/summary&gt;
+private double _temperature;
+
+public double Temperature 
+{
+	get { return _temperature; }
+	set
+	{
+		_temperature = value;
+		RaisePropertyChanged(&quot;Temperature&quot;);
+	}
+}
+
+public ICommand SetLowCommand { get; set; }
+
+/// &lt;summary&gt;
+/// Constructor!
+/// &lt;/summary&gt;
+public TemperatureVM()
+{
+	this._temperature = 22;
+	//Maak een nieuw SetLowCommand aan
+	SetLowCommand = new SetLowCommand(this);
+}
+
+///
+#region INotifyPropertyChanged Members
+
+void RaisePropertyChanged(string prop)
+{
+	if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
+}
+
+public event PropertyChangedEventHandler PropertyChanged;
+
+#endregion
+
+}</pre>
+		<!-- End of code snippet -->
+		</md-card-content>
+	</md-card>
+				
+	<p>
+		Command objecten bestaan uit 4 onderdelen:
+		<ul>
+			<li>Constructor</li>
+			<li>CanExecute</li>
+			<li>Execute</li>
+			<li>CanExecuteChanged</li>
+		</ul>
+	
+		De <strong>Constructor</strong> is de beste plaats om toegang tot ons view model te krijgen. Geef het View Model mee als parameter, en sla hem op als
+		private field. De <strong>CanExecute</strong> method bepaalt of het commando uitgevoerd kan worden. Bepaalde XAML elementen zullen ge-disabled worden indien 
+	CanExecute false returnt. De <strong>Execute</strong> methode voert uiteindelijk de bedrijfslogica uit.
+	</p>
+	
+	<p>
+		Het <strong>CanExecuteChanged</strong> event kun je vergelijken met het <strong>RaisePropertyChanged</strong> uit het hoofdstuk binding.
+		Het kan zo zijn dat er meerdere knoppen een binding hebben met je gedefinieerde command. Het <strong>CanExecuteChanged</strong> event zorgt er voor dat
+		alle XAML elementen ge&uuml;pdatet worden wanneer de waarde van <strong>CanExecute</strong> wijzigt.
+	</p>
+				
+	
+	<md-card>
+		<md-toolbar>
+			<h1 class="md-toolbar-tools">SetLowCommand</h1>
+		</md-toolbar>
+		<md-card-content>
+			<!-- code snippet -->
+			<pre class="ppPrettyPrint linenums">
+class SetLowCommand : ICommand
+{
+	private TemperatureVM viewmodel;
+
+	public SetLowCommand(TemperatureVM viewmodel)
+	{
+		this.viewmodel = viewmodel;
+	}
+
+	public bool CanExecute(object parameter)
+	{
+		if(viewmodel == null)
+		{
+			return false;
+		}
+		else
+		{
+			return viewmodel.Temperature &gt; 10;
+		}
+	}
+
+	public void Execute(object parameter)
+	{
+		viewmodel.Temperature = 0;
+	}
+
+	public event EventHandler CanExecuteChanged
+	{
+		add { CommandManager.RequerySuggested += value; }
+		remove { CommandManager.RequerySuggested -= value; }
+	}
+}</pre>            
+		<!-- End of code snippet -->
+		</md-card-content>
+	</md-card>
+
+	</article>	
+
+	<div class="md-actions navigate" layout="row" layout-align="center center">
+	<md-button  ui-sref="wpfBinding" >
+		<ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+		<md-tooltip>Binding</md-tooltip>
+	</md-button>
+	<md-button  ui-sref="wpfConvert" >
+		<ng-md-icon icon="navigate_next" size="36"></ng-md-icon> 
+		<md-tooltip>Convert</md-tooltip>
+	</md-button>  
+	
+	</div>
+</section

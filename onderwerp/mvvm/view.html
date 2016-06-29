@@ -1,0 +1,153 @@
+<md-toolbar class="md-theme-indigo">
+	<h1 class="md-toolbar-tools">MVC</h1>
+</md-toolbar>
+
+<section class="md-padding max-sized">
+  <article class="md-padding">
+        <h2>View</h2>
+		
+		<p>
+			Razor is een speciale Syntax voor C# code in Views. 
+			Deze View Engine is beschikbaar vanaf ASP.NET MVC 3 en kan code renderen in .cshtml of .vbhtml files. 
+		</p>
+		
+		<p>
+			Er zijn ook andere view engines dan Razor. Op stackoverflow staat een overzicht met verschillende view engines met voor en nadelen.
+		</p>
+		
+		<section layout="row" layout-align="center end">
+			<section flex layout-align="space-between">
+				
+				<ul flex>
+					<li>Razor code blocks: @{ ... }</li>
+					<li>Of Inline, start met @</li>
+					<li>Statements afsluiten met ;</li>
+					<li>Razor/C# code is case sensitive</li>
+				</ul>
+		
+				<md-card flex>
+					<md-card-content>
+						<pre class="ppPrettyPrint">
+&lt;h3&gt;@ViewBag.Title&lt;/h3&gt;
+&lt;p&gt;@ViewBag.Message&lt;/p&gt;
+&lt;p&gt;@ViewBag.Sentence&lt;/p&gt;
+
+&lt;ul&gt;
+@for (int i = 0; i &lt; 10; i++)
+{
+	&lt;li&gt;@ViewBag.Sentence&lt;/li&gt;
+}
+&lt;/ul&gt;</pre>
+					</md-card-content>
+				</md-card>
+			</section>
+			
+			<md-card>
+				<md-card-content>
+					<img src="onderwerp/mvc/img/razorOutput.png">
+				</md-card-content>
+			</md-card>
+		</section>
+		
+		
+		<h3>View Data</h3>
+		
+		<p>Er zijn verschillende manieren om de data uit je controller op je view te krijgen. Je kunt data meegeven via de ViewBag of een Strongly Typed view maken. </p>
+
+				
+		<section layout="row" layout-align="space-between">
+			<section flex>
+				<h4>ViewBag</h4>
+				<ul>
+					<li>Dynamic vs Object</li>
+					<li>‘Loosely’ typed</li>
+					<li>Geen compile time checking	Strongly Typed</li>
+					<li>Strongly typed</li>
+					<li>View is data aware. </li>
+					<li>Compile time checking</li>
+				</ul>
+			</section>
+			<section flex>
+				<h4>Strongly Typed</h4>
+				<ul>
+					<li>Strongly typed</li>
+					<li>View is data aware</li>
+					<li>Compile time checking</li>
+				</ul>
+			</section>
+		</section>
+		
+		<p>
+			Het is een <b>best practice</b> om zo veel mogelijk gebruik te maken van Strongly Typed views.
+			 MVC biedt veel mogelijkheden om views te genereren op basis van dit Strongly Typed model. 
+			 Hieronder volgt een stappenplan om dit te bereiken.
+		</p>
+		
+  </article>
+        
+  <md-card>
+	  <md-toolbar>
+          <h1 class="md-toolbar-tools">Stappenplan View</h1>
+      </md-toolbar>
+      <pp-carousel>
+        <ul>  
+          <li>
+            <h3>Stap 1/3</h3>
+            <p>
+				Maak een model aan en geef deze mee terug aan de view.
+            </p>
+			<pre class="ppPrettyPrint">
+public ActionResult ShowPerson()
+{
+   var person = new Person();
+   person.FirstName = "Carice";
+   person.LastName = "van Houten";
+   return View(person);
+}</pre>
+          </li>
+		  <li>
+			  <section layout="row">
+				  <section flex>
+					<h3>Stap 2/3</h3>
+					<p>
+						Genereer op basis van deze Action een nieuwe View. 
+					</p>
+					<p>
+						Het kan zo zijn dat je bij het creëren van je view ja model niet terug kunt vinden in het drop down lijstje. 
+						Zorg ervoor dat je model public is en <b>rebuild</b> je solution. 
+					</p>
+				  </section>
+				  <section flex class="md-padding">
+			  	  	<img flex src="onderwerp/mvc/img/addView.png">
+				  </section>
+			  </section>
+		  </li>
+		  
+		  <li>
+			<h3>Stap 3/3</h3>
+			<p>Open je nieuw gegenereerde view. </p>
+		 	<p>Je zult zien dat boven aan de view een referentie naar je model is toegevoegd. Je kunt nu alle Properties benaderen op het model.</p>
+			<pre class="ppPrettyPrint">
+@model MVC4App.Models.Person
+
+&lt;h2&gt;ShowPerson&lt;/h2&gt;
+&lt;p&gt;@Model.FirstName&lt;/p&gt;
+&lt;p&gt;@Model.LastName&lt;/p&gt;
+</pre>
+		  </li>
+        </ul>
+      </pp-carousel>
+  </md-card>
+
+
+
+   <div class="md-actions navigate" layout="row" layout-align="center center">      
+      <md-button ui-sref="mvcControllers">
+          <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+           <md-tooltip>Controllers</md-tooltip>
+      </md-button>
+      <md-button  ui-sref="opdrachten5" >
+         Assignments
+      </md-button>
+    </div>
+</section>

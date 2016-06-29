@@ -1,0 +1,79 @@
+<md-dialog class="assignmentDialog" aria-label="Review assignment"  ng-cloak >
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Review assignment</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancelDialog()">
+           <ng-md-icon icon="close" size="24">
+                <md-tooltip>
+                   Close dialog
+                </md-tooltip>
+            </ng-md-icon> 
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content class="md-padding">
+
+        <section ng-hide="review">
+            
+            <p>Het is nu mogelijk om het werk van een andere student te reviewen.</p>
+        
+            <p><b>Let op!</b> Als je aan een review begint moet je deze afmaken. 
+            Anders zit een andere student op je feedback te wachten. </p>
+            
+             <md-button class="md-raised md-primary" ng-click="requestSubmission()">Request submission</md-button>
+             
+        </section>
+        <section ng-show="review.completed">
+            <p>Je hebt de onderstaande submission al gereviewed. </p>
+            
+            <a target="_blank" href="{{review.submission.githubUrl}}">{{review.submission.githubUrl}}</a>
+            
+            <p>Het is nu nog niet mogelijk om meerdere reviews te submitten.</p>
+            
+        </section>
+        <section ng-show="review && !review.completed">
+            
+            <p>Bekijk de source code van de onderstaande github link</p>
+            
+            <a target="_blank" href="{{review.submission.githubUrl}}">{{review.submission.githubUrl}}</a>
+            
+            <h4>review</h4>
+
+            <md-input-container md-no-float class="md-block flex-gt-sm">
+                <label>Score</label>
+                <md-icon><ng-md-icon icon="star" size="20" flex></ng-md-icon></md-icon>
+                <md-select ng-model="review.score" required >
+                    <md-optgroup label="options">
+                        <md-option ng-value="'matig'" >Matig</md-option>
+                        <md-option ng-value="'goed'" >Goed</md-option>
+                        <md-option ng-value="'uitstekend'" >Uitstekend!</md-option>
+                    </md-optgroup>
+                </md-select>        
+             <div ng-messages="review.score.$error">
+                    <div ng-message="required">Wat vond je van het ingeleverde werk?</div>
+                </div>
+            </md-input-container>
+            
+            <md-input-container class="md-block">
+                <label>Tip</label>
+                <md-icon><ng-md-icon icon="thumb_down" size="20" flex></ng-md-icon>     </md-icon>
+                <input md-no-asterisk name="Github url" ng-model="review.tip">
+            </md-input-container>
+            
+            <md-input-container class="md-block">
+                <label>Top</label>
+                <md-icon><ng-md-icon icon="thumb_up" size="20" flex></ng-md-icon>     </md-icon>
+                <input md-no-asterisk name="Github url" ng-model="review.top">
+            </md-input-container>
+        </section>
+       
+    </md-dialog-content>
+    <md-dialog-actions layout="row">  
+        <md-button class="md-raised md-warn" ng-click="cancelDialog()">Cancel</md-button>
+        <span flex></span>
+        <md-button class="md-raised md-primary" ng-hide="review.completed" ng-disabled="!review.score" ng-click="submitReview()">Submit</md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

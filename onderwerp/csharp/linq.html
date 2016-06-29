@@ -1,0 +1,105 @@
+<md-toolbar class="withSkyline">
+	<h1 class="md-toolbar-tools ">C#</h1>
+  
+</md-toolbar>
+
+<section class="max-sized">
+    
+    
+    
+    <article class="md-padding">
+      <h2>Linq</h2>
+      	
+				<p>
+					Genoeg gebazel over lambda expressies. Laten we gewoon code gaan tikken!
+				</p>
+				
+				<p>Voor we de nieuwe stijl demonstreren, eerst even een demonstratie hoe we het vroeger deden.</p>
+				
+        
+        <md-card>	
+					<md-toolbar>
+            <h1 class="md-toolbar-tools">Oude stijl</h1>
+          </md-toolbar>
+          <md-card-content>
+<!-- coce Snippet -->
+<pre class="ppPrettyPrint linenums">
+List<Person> result = new List<Person>();
+foreach (Person person in People)
+{
+  if(person.FirstName[0] == firstChar)
+    result.Add(person);
+}
+return result;
+</pre>
+				</md-content>
+			</md-card>
+				
+			
+			<p>
+				Nu gaan we gebruik maken van Linq. Linq is een assembly (system.linq) waarmee je filter-functies kunt uitvoeren op lijsten. 
+				Deze functies kun je uitvoeren doormiddel van een linq query of een lambda expressies. 
+			</p>
+		
+
+<!-- code snipper -->
+<pre class="ppPrettyPrint linenums">
+	using System.Linq;
+</pre>
+
+	
+				<p>
+					Deze Linq query's maken je leven een stuk makkelijker! 
+					Deze voorbeelden zijn maar het topje van de ijsberg wat je allemaal kan met Linq, 
+					en ik kan je aanraden om ook even op het wereld wijde web verder te zoeken!
+				</p>
+				
+				<p><strong>Let op! </strong> De return value van een linq statement is van het type IEnumerable. 
+				Dit is een ander type dan List. Wil je toch een <strong>List</strong> als result? 
+				</p>
+				
+			<md-card>
+					<md-toolbar>
+            <h1 class="md-toolbar-tools">Linq query & Linq met lambda</h1>
+          </md-toolbar>
+          <md-card-content>
+<!-- code snipper -->
+<pre class="ppPrettyPrint linenums">
+//linq query
+return from p in People where p.FirstName[0] == firstChar select p;
+
+//linq met lambda
+return People.Where(p => p.FirstName[0] == firstChar);
+
+//to list
+lijstje.Select(p => p.Lastname).toList();
+</pre>
+				</md-card-content>
+			</md-card>
+						
+		
+				<md-card >
+          <md-toolbar>
+            <h1 class="md-toolbar-tools">Screencast Linq</h1>
+          </md-toolbar>
+          <div class="videoWrapper">
+						<iframe width="640" height="360" src="https://www.youtube.com/embed/Xu68PtOfINc" frameborder="0" allowfullscreen></iframe>
+           </div>
+        </md-card>
+
+		
+			   
+	  </article>
+
+      <div class="md-actions navigate" layout="row" layout-align="center center">
+        <md-button  ui-sref="csharpLambda" >
+            <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+            <md-tooltip>Lambda</md-tooltip>
+        </md-button>
+        <md-button  ui-sref="csharpGuidelines" >
+            <ng-md-icon icon="navigate_next" size="36"></ng-md-icon> 
+            <md-tooltip>Coding guidelines</md-tooltip>
+        </md-button>  
+        
+      </div>
+</section

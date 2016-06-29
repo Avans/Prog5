@@ -1,0 +1,237 @@
+<md-toolbar  class="withSkyline">
+	<h1 class="md-toolbar-tools">WPF</h1>
+</md-toolbar>
+
+<section class="max-sized">
+
+    
+    <article class="md-padding">
+        
+        <h2>Data binding</h2>
+        		
+		<p>
+        WPF bied je de mogelijkheid tot het data-binden van informatie aan je view. 
+        In de andere variant van .NET (Windows Forms) had je ook al de mogelijkheid tot het binden van je data aan je view.
+        Er werd alleen de mogelijkheid ondersteund tot <b>one-way binding.</b </p>
+        <p>
+        In WPF kun je nu ook <b>two-way</b> bindingen implementeren. Dit zorgt er voor dat je model altijd up-2-date is van de laatste aanpassingen door de gebruiker.
+        Hierdoor word je model je 'single-source-of-truth' en hoef je je niet af te vragen of het model al is geüpdate door de view.
+        </p>
+        
+        <!--<div layout="row">
+            <img src="onderwerp/wpf/img/One_Way_Data_Binding.png" />
+            <img flex src="onderwerp/wpf/img/Two_Way_Data_Binding.png"/>
+        </div>
+        -->
+         <h4>Wat is Data-binding?</h4>
+    
+        <p>Data-binding is een verbinding tussen je graphical user interface en je bedrijfslogica. WPF bevat een aantal componenten die je kunt instellen om XAML
+        elementen de waarde van een model te laten reflecteren. Als een property van het model verandert, veranderen alle XAML elementen met een binding op die property mee. 
+        </p>
+        
+        <p>In de voorbeelden van XAML code in het vorige blok, werd getoond dat je de XAML elementen via C# code kan bereiken en 
+            eventuele waardes of collecties kan aanpassen. De verantwoordelijkheid om de veranderingen op het model door te voeren in de view, 
+            moet losgekoppeld worden van de bedrijfslogica. 
+            Data-binding is hier de perfecte oplossing voor.
+        </p>
+        
+        <img src="onderwerp/wpf/img/data-binding.png"/>
+        
+         <p>
+            We hebben een aantal dingen nodig om data-binding aan de praat te krijgen.
+            
+            <ul>
+                <li>Een Model met waardes waar we de 'view' tegen aan kunnen binden</li>
+                <li>Een XAML element om de data te tonen</li>  
+            </ul>
+        </p>
+                 
+         <section  layout="row" layout-xs="column">
+            <md-card flex>
+                <md-toolbar>
+                    <h1 class="md-toolbar-tools">Model</h1>
+                </md-toolbar>
+                <md-card-content>
+                            
+<!-- CODE SNIPPET -->
+<pre class="ppPrettyPrint linenums">
+public class TemperatureVM
+{
+     private double _temperature;
+}</pre>
+
+                </md-card-content>
+            </md-card>
+            
+            <md-card flex>
+                <md-toolbar>
+                    <h1 class="md-toolbar-tools">View</h1>
+                </md-toolbar>
+                <md-card-content>
+                            
+<!-- CODE SNIPPET -->
+<pre class="ppPrettyPrint linenums">
+ &lt;Label Content=&quot;The temperature is&quot;/&gt;
+ &lt;Label&gt;Hier wil ik de temperatuur hebben&lt;/Label&gt;</pre>
+    
+                </md-card-content>
+            </md-card>
+        </section>
+        
+            <h4>View Model</h4>
+    
+            <p>
+                Eerst moeten we de view vertellen op welk model hij zijn waardes kan baseren. Dit doen we met de <strong>Window.DataContext</strong> property. 
+                Hiermee kunnen we aangeven welke data onze view gaat gebruiken. Er zijn twee manieren om dit te realiseren. 
+                <ul>
+                    <li>Declaratief</li>
+                    <li>Code-behind</li>
+                </ul>
+                Het doel van data-binding is om zo min mogelijk verwijzingen vanuit je code naar de view te maken. Als je de referentie vanuit de code-behind
+                file maakt dan leg je weer een sterke verbinding tussen je code en je view. Het is dus netter dit vanuit de view (declaratief) op te lossen.
+            </p>
+
+            <p>
+                Om dit te realiseren moet je wel toegang hebben tot de namespace waar de data (je model of view model) zich bevind. Je kunt toegang tot een namespace
+                verlenen door een referentie toe te voegen in je window met het <strong>xmlns</strong> attribuut. 
+                Je kunt elke include een eigen naam geven zodat je via deze naam de onderliggende classes kunt benaderen. 
+                In het voorbeeld noem ik de namespace 'local'.
+            </p>
+            
+        <section  layout="row" layout-xs="column">
+            <md-card flex>
+                <md-toolbar>
+                    <h1 class="md-toolbar-tools">Decleratief</h1>
+                </md-toolbar>
+                <md-card-content>
+                            
+<!-- CODE SNIPPET -->
+<pre class="ppPrettyPrint linenums">
+xmlns:local=&quot;clr-namespace:CommandingAndBindingDemo&quot;</pre>
+            <!-- end of snippet -->
+            
+            <!-- code snippet -->
+            <pre class="prettyprint linenums">
+&lt;Window.DataContext&gt;
+    &lt;local:TemperatureVM /&gt;
+&lt;/Window.DataContext&gt;</pre>
+
+                </md-card-content>
+            </md-card>
+            
+            <md-card flex>
+                <md-toolbar>
+                    <h1 class="md-toolbar-tools">Code-behind</h1>
+                </md-toolbar>
+                <md-card-content>
+                            
+<!-- CODE SNIPPET -->
+<pre class="ppPrettyPrint linenums">
+public MainWindow()
+{
+    InitializeComponent();
+    DataContext = new TemperatureVM();
+}</pre>
+                </md-card-content>
+            </md-card>
+        </section>
+        
+        <h4>Property</h4>
+        
+        <p>Als laatste stap moeten we in het Model een Public Property maken die voldoet aan de eisen van het WPF data-binding framework. 
+        Daarnaast moeten we een referentie vanuit de view naar deze property leggen.
+    </p>
+    
+     <md-card>
+        <md-toolbar>
+            <h1 class="md-toolbar-tools">Data-binding vanuit XAML</h1>
+        </md-toolbar>
+        <md-card-content>
+        <!-- code snippet -->
+        <pre class="ppPrettyPrint linenums">
+&lt;Label Content=&quot;The temperature is&quot;/&gt;
+&lt;Label Content=&quot;{Binding Temperature}&quot;/&gt;
+&lt;TextBox Text=&quot;{Binding Temperature, UpdateSourceTrigger=PropertyChanged}&quot; /&gt;</pre> 
+         </md-card-content>
+    </md-card>
+    
+    <h4>Notify property changed</h4>
+
+
+    <p>Om te voldoen aan de eisen van WPF moeten we van ons model (wat op dit moment al een view model is ) laten overerven van het interface  
+        <strong>INotifyPropertyChanged</strong>. Dit geeft ons toegang tot de data-binding eigenschappen van WPF.
+        </p>
+    <p>
+        Voor ieder property op je model zul je moeten aangeven dat de waarde gewijzigd is. Hierdoor zal automatisch de view ge&uuml;pdatet worden.
+        Het aangeven van een wijziging doe je via het event <strong>RaisePropertyChanged</strong>. De meegegeven naam moet overeenkomen met de naam
+        die je hebt aangegeven in je XAML element.
+    </p>    
+
+    <p>
+        Het <strong>RaisePropertyChanged</strong> event gaat op zoek naar alle XAML elementen die een binding hebben openstaan met de meegegeven property. 
+        Om deze reden moet er ook een null check aanwezig zijn. Het kan namelijk zo zijn dat er geen enkel element 'gebind' is aan de gewijzigde property.
+        Je hoeft deze event handler maar 1x aan te maken, en je hier verder geen zorgen over te maken.
+    </p>
+    
+    <p>
+        Als nu de waardes op het model veranderen, verandert de view automatisch mee. 
+        Vanaf dit punt is het dus ook heel makkelijk om bijvoorbeeld een textveld toe te voegen waar de gebruiker de waarde van de temperatuur kan aanpassen.
+        Je hoeft alleen in het XAML element aan te geven dat je de waarde van het textveld wilt data-binden aan de temperatuur. 
+        In het voorbeeld geef ik ook aan <strong>wanneer</strong> de property Temperature geupdate moet worden via het binding attribuut 
+        <strong>UpdateSourceTrigger</strong>. 
+    </p>
+    
+    
+    
+
+     <md-card>
+        <md-toolbar>
+            <h1 class="md-toolbar-tools">Data-binding vanuit XAML</h1>
+        </md-toolbar>
+        <md-card-content>
+        <!-- code snippet -->
+        <pre class="ppPrettyPrint linenums">
+public class TemperatureVM : INotifyPropertyChanged
+{
+    private double _temperature;
+
+    public double Temperature 
+    {
+        get { return _temperature; }
+        set
+        {
+            _temperature = value;
+            RaisePropertyChanged(&quot;Temperature&quot;);
+        }
+    }
+    
+    #region INotifyPropertyChanged Members
+
+    void RaisePropertyChanged(string prop)
+    {
+        if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    #endregion
+    
+}
+</pre>
+         </md-card-content>
+    </md-card>   
+    
+    </article>
+      
+      <div class="md-actions navigate" layout="row" layout-align="center center">
+        <md-button  ui-sref="wpfXaml" >
+            <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+            <md-tooltip>Xaml</md-tooltip>
+        </md-button>
+        <md-button  ui-sref="wpfCommand" >
+            <ng-md-icon icon="navigate_next" size="36"></ng-md-icon> 
+            <md-tooltip>Command</md-tooltip>
+        </md-button>  
+     </div>   
+                
+</section>

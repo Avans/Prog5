@@ -1,0 +1,38 @@
+.bullets{
+
+	position:absolute;
+    right:16px;
+    height:58px; margin-top:-34px;
+
+    &.bottom{top: 100%; }
+    &.central{top: 50%; }
+    
+    .md-fab{
+        background-color:white;
+        color:black;
+    }
+  
+    .points{
+        width:56px;
+        height:56px;
+        margin:6px;
+        font-size:22px;
+        font-weight: bold;
+        border-radius: 50%;
+        text-align: center;
+        display: inline-block;
+        box-sizing: border-box;
+        padding-top:14px;
+        box-shadow: $shadow-1;
+        color:black;
+        background-color:white;
+        vertical-align: middle;
+    }
+
+    .completed{
+        background-color: $primary-color;
+        fill:white; color: white;
+    }
+
+}
+

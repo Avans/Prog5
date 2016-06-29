@@ -1,0 +1,173 @@
+<md-toolbar  class="withSkyline">
+	<h1 class="md-toolbar-tools">WPF</h1>
+</md-toolbar>
+
+
+<section class="max-sized">
+  
+
+  <article class="md-padding">
+    <h2>Converter</h2>
+
+ 
+   <p>Het kan zo zijn dat je nog een stukje logica op je 'data' wilt uitvoeren voordat je deze toont in de view. 
+    Nu is het de vraag of deze logica nu bij de view hoort, of bij het model. Het antwoord is <strong>geen van beiden</strong>. 
+       (pa pa pa paaaaah)*
+    </p>
+    
+    <p>
+        <i>*shock effect</i>
+    </p>
+    
+    <p>
+        <strong>#SOC</strong> is hip en trending. Ook in dit geval willen we onze logica lostrekken uit de view, maar ook uit het model. 
+        Dit is de plek waar we <strong>Converters</strong> kunnen gebruiken.  
+    </p>
+    
+
+    <div layout="row">
+        <div flex>
+            
+        <h4>IValueConverter</h4>
+        <p>De WPF library bevat een interface genaamd <strong>IValueConverter</strong> met een methode <strong>Convert</strong> en een 
+            methode <strong>ConvertBack</strong>. Deze method's hebben een input parameter van het type object, en een return value van het type object.
+            Hier kun je eventuele logica in kwijt voor het bewerken van je data die uitgevoerd wordt tijdens de two-way binding.     
+        </p>
+        
+        <md-card class="md-padding">
+            <img class="top-buffer" src="onderwerp/wpf/img/valueconverters.png" />
+        </md-card>
+        
+        <p class="top-buffer">
+            Naast een collectie van voorgedefinieerde converters kun je dus ook je eigen converter bouwen volgens de regels hierboven. 
+            Je kunt zelf een klasse uitbreiden met de interface <strong>IValueConverter</strong> en de bijbehorende methodes implementeren. 
+            Je kunt nu je eigen logica kwijt in deze converter.
+        
+        </p>
+        
+        </div>
+        <md-card>
+            <md-toolbar>
+                <h1 class="md-toolbar-tools">Default Converters</h1>
+            </md-toolbar>
+            <md-card-content>                    
+              <div class="panel-body">
+                <strong>In System.Windows.Control</strong> </br>(PresentationFramework.dll)
+                <ul>
+                        <li>AlternationConverter</li>
+                        <li>BooleanToVisibilityConverter</li>
+                        <li>BorderGapMaskConverter</li>
+                        <li>DataGridLengthConverter</li>
+                        <li>MenuScrollingVisibilityConverter</li>
+                    </ul>                    
+                    <strong>In System.Windows.Documents</strong>
+                    <ul>
+                        <li>ZoomPercentageConverter</li>
+                        <li>JournalEntryListConverter</li>
+                    </ul>
+                    <strong>In Microsoft.Windows.Themes</strong>
+                    <ul>
+                    <li>ProgressBarBrushConverter</li>
+                    <li>ProgressBarHighlightConverter</li>
+                    </ul>
+                     <strong>In System.Windows.Navigation</strong>
+                     <ul>
+                        <li>JournalEntryUnifiedViewConverter</li>
+                     </ul>
+                    
+                </div>
+            </md-card-content>
+        </md-card>  
+    </div>
+
+     <md-card>
+        <md-toolbar>
+            <h1 class="md-toolbar-tools">Custom converters</h1>
+        </md-toolbar>
+        <md-card-content>                    
+            <!-- Code Snippet -->
+            <pre class="ppPrettyPrint linenums">
+class DegreesToAngleConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    {
+        //In deze methode wordt de temperatuur naar de juiste hoek geconverteerd voor het plaatje zodat de temp overeenkomt.
+        //De waardes zijn door 'trial and error' aangepast zodat het lijkt dat de meter op de juiste temp staat
+        double result = (double)value;
+        return result * 2.30 - 63.049;
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    {
+        //De convert back is niet nodig. 
+        return value;
+    }
+}</pre>
+        <!-- End -->
+        </md-card-content>
+    </md-card>
+
+    <p>
+        Hierna kun je deze converter gebruiken in je project. Je kunt vanuit de XAML code aangeven dat je een converter 
+        wilt toepassen op een bepaalde binding. In het voorbeeld wordt een XAML element genaamd <strong>Image.RenderTransform</strong> gebruikt om het plaatje
+        onder een bepaalde hoek te draaien. Deze hoek kun je terugvinden in het element <strong>RotateTransform</strong> onder het atribuut <strong>Angle</strong>.
+        Hier wordt naast een <strong>Binding</strong> ook een <strong>Converter</strong> gegeven met de verwijzing naar een static resource.
+        Het is namelijk niet mogelijk om rechtstreeks een verwijzing naar de gedefinieerde class te maken. We moeten deze class toegankelijk maken in de vorm van een
+        <strong>Resource</strong>.
+    </p>
+    
+    <h4>Converter Resource</h4>
+    
+    <p>Met een referentie naar je gedefinieerde class en een naam om hem terug te vinden (key). </p>
+    
+      <md-card>
+        <md-card-content>                    
+            <!-- Code Snippet -->
+            <pre class="ppPrettyPrint linenums">
+&lt;Window.Resources&gt;
+     &lt;local:DegreesToAngleConverter x:Key=&quot;converter&quot; /&gt;
+&lt;/Window.Resources&gt;</pre>
+        </md-card-content>
+    </md-card>
+    
+    <h4>XAML</h4>
+    
+    <p>Een van de manieren om een converter in te zetten. Bij elke binding kun je een eventuele converter mee geven.</p>
+    
+   <md-card>
+        <md-toolbar>
+            <h1 class="md-toolbar-tools">Voorbeeld angle converter</h1>
+        </md-toolbar>
+        <md-card-content>                    
+            <!-- Code Snippet -->
+            <pre class="ppPrettyPrint linenums">
+&lt;Image Panel.ZIndex=&quot;2&quot; Height=&quot;32&quot; Source=&quot;rotate.png&quot; Stretch=&quot;Fill&quot; Width=&quot;114&quot; Canvas.Left=&quot;37&quot; Canvas.Top=&quot;78&quot; RenderTransformOrigin=&quot;0.5,0.5&quot;&gt;
+    &lt;Image.RenderTransform&gt;
+        &lt;TransformGroup&gt;
+            &lt;ScaleTransform/&gt;
+            &lt;SkewTransform/&gt;
+                &lt;RotateTransform Angle=&quot;{Binding Temperature, Converter={StaticResource converter}}&quot;/&gt;
+            &lt;TranslateTransform/&gt;
+        &lt;/TransformGroup&gt;
+    &lt;/Image.RenderTransform&gt;
+&lt;/Image&gt;</pre>
+        </md-card-content>
+    </md-card>
+					
+
+  </article>
+
+  <div class="md-actions navigate" layout="row" layout-align="center center">      
+      <md-button ui-sref="csharpLinq">
+            <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+            <md-tooltip>Linq</md-tooltip>
+      </md-button>
+      <md-button  ui-sref="opdrachten3" >
+          <ng-md-icon icon="navigate_next"  size="36"></ng-md-icon> 
+          <md-tooltip>Opdrachten</md-tooltip>
+      </md-button>
+    </div>
+    
+</section>
+
+

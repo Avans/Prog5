@@ -1,0 +1,181 @@
+<md-toolbar class="md-theme-indigo">
+	<h1 class="md-toolbar-tools">MvvM</h1>
+</md-toolbar>
+
+<section class="md-padding max-sized">
+  <article class="md-padding">
+    <h2>Frameworks</h2>
+
+    <p>Nu zijn er veel frameworks beschikbaar die ons kunnen helpen met het implementeren van een MvvM architectuur. </p>
+    
+    <pp-carousel class="noFade" >
+        <ul>  
+            <li>
+                <md-card flex>
+                <md-toolbar>
+                <h1 class="md-toolbar-tools">MvvmLight</h1>
+                </md-toolbar>
+                <md-card-content>
+                      <img  height="50px"src="onderwerp/mvvm/img/MvvMLight.jpg"  />       
+                    <p>
+                        The main purpose of the toolkit is to accelerate the creation and development of MVVM applications in WPF, 
+                        Silverlight, Windows Store, Windows Phone and Xamarin.
+                    </p>
+
+                    <div class="bs-callout bs-callout-info">
+                        <a href="http://www.mvvmlight.net/">http://www.mvvmlight.net</a>
+                    </div>
+                
+                    <div class="bs-callout bs-callout-danger">
+                        PM> Install-Package MvvmLight
+                    </div>              
+                    
+                  
+                </md-card-content>
+                </md-card>
+            </li>
+            <li>
+                <md-card flex>
+                <md-toolbar>
+                <h1 class="md-toolbar-tools">Caliburn Micro</h1>
+                </md-toolbar>
+                <md-card-content>
+                    
+                    <img  src="onderwerp/mvvm/img/Caliburn.png" height="50px" />
+							
+                    <p>
+                        A small, yet powerful framework, designed for building applications across all XAML platforms. 
+                        Its strong support for MV* patterns will enable you to build your solution quickly, 
+                        without the need to sacrifice code quality or testability.
+                    </p>
+
+                    <div class="bs-callout bs-callout-info">
+                        <a target="_blank" href="https://github.com/Caliburn-Micro">https://github.com/Caliburn-Micro</a>
+                    </div>
+                
+                    <div class="bs-callout bs-callout-danger">
+                        PM> Install-Package Caliburn.Micro
+                    </div>       
+                </md-card-content>
+                </md-card>
+            </li>
+            <li>
+                <md-card flex>
+                <md-toolbar>
+                    <h1 class="md-toolbar-tools">Caliburn Micro</h1>
+                    <span flex></span>
+                   
+                </md-toolbar>
+                <md-card-content>
+                     <img  src="onderwerp/mvvm/img/Catel.png" class="img-rounded"  height="50px" />
+                    
+                    
+                    <p>
+                        Catel is an application development platform with the focus on MVVM (WPF, Silverlight, Windows Phone, WinRT, 
+                        Xamarin.Android and Xamarin.iOS) and MVC (ASP.NET MVC). The goal of Catel is to provide a complete set of 
+                        modular functionality for Line of Business applications written in any .NET technology, from client to server.
+                    </p>
+
+                    <div class="bs-callout bs-callout-info">
+                        <a target="_blank" href="https://github.com/Caliburn-Micro">https://github.com/Caliburn-Micro</a>
+                    </div>
+                
+                    <div class="bs-callout bs-callout-danger">
+                        PM> Install-Package Caliburn.Micro
+                    </div>
+                </md-card-content>
+                </md-card>
+            </li>
+            <li>
+                <md-card flex>
+                <md-toolbar>
+                    <h1 class="md-toolbar-tools">Prism</h1>
+                    <span flex></span>
+                   
+                </md-toolbar>
+                <md-card-content>
+ 
+                    <p>
+                        Prism provides guidance designed to help you more easily design and build rich, flexible, and easy-to-maintain Windows 
+                        Presentation Foundation (WPF) desktop applications, Silverlight Rich Internet Applications (RIAs), and Windows Phone 7 applications.
+                        Using design patterns that embody important architectural design principles, such as separation of concerns and loose coupling, 
+                        Prism helps you to design and build applications using loosely coupled components that can evolve independently.
+                    </p>
+
+                    <div class="bs-callout bs-callout-info">
+                        <a target="_blank" href="http://compositewpf.codeplex.com/">http://compositewpf.codeplex.com/</a>
+                    </div>
+                
+                    <div class="bs-callout bs-callout-danger">
+                        PM> Install-Package Prism.Mvvm
+                    </div>
+                </md-card-content>
+                </md-card>
+            </li>
+        </ul>
+    </pp-carousel></md-card>
+    
+    <h3>MvvM Light</h3>
+    
+    <p>Wij gaan in de workshops aan de slag met MvvM Light.</p>
+
+
+    <p>Een van de onderdelen in dit framework is een <b>Relay Command</b></p>
+    
+    <h4>Relay Command</h4>
+	
+    <p>
+        Een <STRONG>RelayCommand</STRONG> is een zelfgemaakte generieke versie is van het ICommand. 
+        Dit Command kan worden hergebruikt over meerdere View Models en heeft als parameter een functie als een delegate, die bij de <strong>Execute</strong>  methode van het RelayCommand object wordt uitgevoerd. 
+    </p>
+
+    <p>
+        Een <strong>delegate</strong> is een type dat een referentie naar een methode bevat. De delegate kan deze methode voor je uitvoeren. 
+        Meer informatie over delegates vind je in de bronnen onderaan deze pagina.
+    </p>
+
+    <md-card flex>
+    <md-toolbar>
+        <h1 class="md-toolbar-tools">RelayCommand</h1>
+        <span flex></span>
+        
+    </md-toolbar>
+    <md-card-content>					
+        <pre class="ppPrettyPrint linenums">
+public class RelayCommand : ICommand
+{
+  private Action&lt;object&gt; action;
+
+  public RelayCommand(Action&lt;object&gt; action)
+  {
+    this.action = action;
+  }
+
+  public bool CanExecute(object parameter)
+  {
+    return true;
+  }
+
+  public void Execute(object parameter)
+  {
+    this.action(parameter);
+  }
+
+  public event EventHandler CanExecuteChanged;
+}</pre>				
+        </md-card-content>
+    </md-card>	
+							
+	
+  </article>
+  <div class="md-actions navigate" layout="row" layout-align="center center">      
+    <md-button ui-sref="mvvmArchitectuur">
+        <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+          <md-tooltip>Architectuur</md-tooltip>
+    </md-button>
+    <md-button  ui-sref="opdrachten4" >
+        <ng-md-icon icon="navigate_next"  size="36"></ng-md-icon> 
+        <md-tooltip>Opdrachten</md-tooltip>
+    </md-button>
+  </div>
+</section>

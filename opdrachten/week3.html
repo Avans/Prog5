@@ -1,0 +1,169 @@
+<md-toolbar class="md-theme-indigo withSkyline">
+	<h1 class="md-toolbar-tools">Opdrachten week 3</h1>
+</md-toolbar>
+<section class="content-center">
+<section class="max-sized md-padding" ng-controller="ppAuthCtrl">
+   
+     <article class="md-padding">
+        <h2>Introductie</h2>
+        
+        <p>
+            Elke week zijn er nieuwe opdrachten uit een bepaalde categorie. 
+            Voor deze week staan er 3 opdrachten klaar:
+        </p>
+        
+        <ul>
+            <li>Een Workshop opdracht (WS) </br></li>
+            <li>Een <b>Huiswerk</b> opdracht (Avans punten)</br>
+            </li>
+        </ul>
+    </article>
+    
+     <md-card class="assignment workshop relative">
+        <section class="header">
+            <div>
+                <h2 class="md-title">EVERY DAY I'M XAMLING</h2>
+                <span class="completed">Workshop assignment</span>
+            </div>
+
+            <div class="bullets bottom">
+                    <div class="points">
+                        <div>ws</div>
+                        <md-tooltip>Work shop</md-tooltip>
+                    </div>
+            </div>
+        </section>
+         <md-card-content  class="sub">
+                      
+            <section class="output">
+                <label>Github</label>
+                <span class="ng-binding">  <a target="_blank" href="https://github.com/Avans/Prog5.XAML">Start project</a></span>
+            </section>
+
+         </md-card-content>           
+        <md-card-content class="main sub">
+            <p>
+            Deze workshop opdrachten beginnen met een solution die je kan clonen uit Github. </br>
+            Op deze solution zal je code aanpassingen moeten doen om de opdracht te voltooien.		
+            </p>
+            
+            <p>Project: <b>XAMLDemo</b></p>
+            
+            <p>	
+                "Kijk goed naar de voorbeelden in het start project!"
+                Voor alle opdrachten geldt dat het gebruik van de Toolbox en GUI wizards niet is toegestaan. Alle opdrachten moeten rechtstreeks in XAML gebouwd worden.
+            </p>
+        </md-card-content>
+        
+            
+        <md-card-content class="easy sub">
+        
+            <h4>XAML Elementen</h4>
+            <p>Voeg 3 nieuwe elementen toe aan je MainWindow zonder de Toolbox te gebruiken. In het MainWindow staan al 4 cellen. Plaats een element in het midden van een cel, waarbij ieder element in een andere cel komt. Twee verplichten elementen zijn een Textbox en een Button. Het derde element mag je zelf uitkiezen.</p>
+
+        </md-card-content>
+
+        <md-card-content class="medium sub">
+        
+            
+            <h4>Containers</h4>
+            <p>De eerste opdracht al af? Dat is snel!</p>
+            <p>Geef de applicatie de kleuren van de Nederlandse vlag. Om dit te doen moet je 1 extra Row toevoegen aan het Grid. Vul deze Row ook weer met twee nieuwe elementen. Geef daarna de Rows de juiste achtergrond kleur.</p>	
+
+            
+        </md-card-content>
+
+        <md-card-content class="hard sub">
+                
+            <h4>Resources</h4>
+            <p>In het dictaat hebben we al een hoop tags besproken. Maar dat is nog maar een fractie van alle mogelijkheden!</p>
+            
+
+            
+            <p>Lees het volgende artikel: <a target="_blank" href="http://msdn.microsoft.com/en-us/library/ms750613(v=vs.100).aspx">http://msdn.microsoft.com/en-us/library/ms750613(v=vs.100).aspx</a></p>
+            <p>Maak een nieuwe resource aan in de App.xaml om de styling van een border te vullen. Pas de zelf gemaakte resource toe op de borders in de MainWindow. </p>
+
+        </md-card-content>
+        
+     </md-card>
+     
+  <md-card pp-assignment="'CenC'" class="assignment normal">
+    
+      <!-- Default header for assignment -->
+      <section ng-include="'/templates/partials/assignmentHeader.html'"></section>
+
+      <md-card-content class="sub">
+                      
+            <section class="output">
+                <label>Github classroom</label>
+                <span class="ng-binding">  <a target="_blank" href="https://classroom.github.com/assignment-invitations/7a92d543326593e03e352e62dfa677d5">Start project</a></span>
+            </section>
+
+      </md-card-content>
+       <md-card-content class="sub">
+           
+
+            <p>
+            Deze workshop opdrachten beginnen met een solution die je kan clonen uit Github. </br>
+            Op deze solution zal je code aanpassingen moeten doen om de opdracht te voltooien.		
+            </p>
+
+            <p>Project: <b>CommandingAndBindingDemo</b></p>
+
+
+
+        </md-card-content>
+        <md-card-content class="easy sub">
+            
+            <h4>Binding</h4>
+         
+            <p>
+                De applicatie bestaat uit een schuifbalk waarmee je de temperatuur kunt aangeven. De waarde van de temperatuur zie je terug aan het getal boven in en de temperatuurmeter links. Nu is het de bedoeling dat je ook aan de kleurenbalk de temperatuur kunt zien. Zorg er voor dat de breedte van de temperatuurbalk overeenkomt met de temperatuur die je aangeeft met de schuifbalk. 
+             </p>
+             
+            <img src="opdrachten/img/gradientBar.png" class="img-thumbnail" alt="Gradient Bar">
+
+        </md-card-content>
+        <md-card-content class="medium sub">
+
+            <h4>Commanding</h4>
+            <div class="col-md-8">
+                <p>De eerste opdracht al af? Dat is snel!</p>
+                <p>De applicatie heeft een knop genaamd ‘Set Low’ waarmee de temperatuur op 0 gezet kan worden, en die gedisabled is als de temperatuur onder de 10 graden komt. Implementeer de Set High knop op dezelfde manier. 
+                De temperatuur moet op 300 gezet worden en moet gedisabled worden als de temperatuur hoger is dan 200.
+            </p>
+
+            <img src="opdrachten/img/setHigh.png" class="img-thumbnail" alt="Set High Button">
+                </div>
+            </div>
+
+        </md-card-content>
+        <md-card-content class="hard sub">
+            <h4>Converting</h4>
+
+            <p>
+                De applicatie heeft een ‘value converter’ die de waarde van de temperatuur omzet naar een ‘hoek’ waarin het plaatje van de meter zich bevindt. 
+                Dit geeft de illusie dat de meter de juiste temperatuur aangeeft. Nu willen we dat iedereen gebruik kan maken van onze temperatuurmeter en 
+                willen we ook de mogelijkheid tot het tonen van de temperatuur in Fahrenheit.      
+            </p>
+    
+            <p>
+                Implementeer een Value converter voor het omtoveren van de temperatuur in Celsius naar de temperatuur in Fahrenheit
+                en toon deze temperatuur in de applicatie.   
+            </p>
+
+
+            <img src="opdrachten/img/fahrenheit.png" class="img-thumbnail" alt="Fahrenheit">
+        
+
+        </section>
+        
+
+           
+       </md-card-content>
+     </md-card>
+           
+   
+   
+</section>
+</section>

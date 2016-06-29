@@ -1,0 +1,85 @@
+<md-toolbar class="withSkyline">
+	<h1 class="md-toolbar-tools ">.NET</h1>
+  
+</md-toolbar>
+
+<section class="content-center">
+<section class="max-sized">
+    
+    <article class="md-padding">
+      <h2>Assemblies</h2>
+		<p>
+			Vanuit Java ben je als het goed is al gewend om gebruik te maken van namespaces. Dit is een soort van 'achternaam' van een klasse. 
+			Het kan zo maar zijn dat een naam van een klasse 2x voorkomt in een applicatie. Namespaces zorgen er voor dat deze klasse nog steeds uniek zijn.
+		</p>
+		
+		<p>
+			In Java kun je gebruik maken van een namespace via het <b>Import</b> statement. Binnen .NET doe je dit met het <b>Using</b> statement.
+		</p>
+		
+		
+    <md-card >
+        <md-toolbar>
+          <h1 class="md-toolbar-tools">Java  vs .NET</h1>
+        </md-toolbar>
+        <md-card-content text-center>
+          <twentytwenty>
+            <div class="wrapper">
+              <img class="center" src="onderwerp/net/img/import.png" ></img>
+              <img class="center" src="onderwerp/net/img/using.png" ></img>
+            </div>
+          </twentytwenty>
+        </md-card-content>
+    </md-card>
+    
+		
+
+			
+			<p>
+					
+				In .NET gaan we nog een laagje dieper. Klassen worden opgedeeld in namespaces, en namespaces zijn weer onderdeel van een <b>library</b> of <b>assembly</b>. 
+				In java krijg je een grote <b>JDK</b> (Java Development Kit). Hierin zitten heel veel klassen waar je gebruik van kan maken. Dit is niet het geval in .NET.
+				Hier worden kleinere sets van klassen opgeleverd in assemblies. Deze assemblies vind je terug in je project in de vorm van
+				<a href="https://nl.wikipedia.org/wiki/Dynamic-link_library" target="_blank" >DLL's</a>. (Dynamic Link Library).
+				</p>
+				
+				
+				<img class="photo" src="onderwerp/net/img/refrence.png" />
+				
+				
+				
+				<p>
+				In elk project in .NET kun je referenties (references) leggen naar andere libraries. Deze libraries bevatten namespaces, en deze namespaces bevatten klassen.
+				Elke template die je start binnen Visual Studio bevat een andere set aan standaard assemblies. Naast deze assemblies kun je zelf nog meer assemblies toevoegen. 
+				Deze assemblies kunnen zich al op je computer bevinden omdat ze bijvoorbeeld onderdeel zijn van het .NET framework, of komen online van een externe bron.  
+				</p>
+		
+				<p>
+					Bekijk het onderstaande fimpje voor meer uitleg over assemblies in .NET. 
+				</p>
+				
+				<md-card >
+          <md-toolbar>
+            <h1 class="md-toolbar-tools">Demo hello world</h1>
+          </md-toolbar>
+          <div class="videoWrapper">
+            <iframe width="640" height="360" src="https://www.youtube.com/embed/8xk_l3q5cJI" frameborder="0" allowfullscreen></iframe>          
+           </div>
+        </md-card>
+
+    </article>
+    
+
+
+      <div class="md-actions navigate" layout="row" layout-align="center center">
+        <md-button  ui-sref="netVisualstudio" >
+            <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+            <md-tooltip>Visual Studio</md-tooltip>
+        </md-button>
+        <md-button  ui-sref="opdrachten1" >
+            <ng-md-icon icon="navigate_next" size="36"></ng-md-icon> 
+            <md-tooltip>Opdrachten</md-tooltip>
+        </md-button>  
+        
+</section>
+</section>

@@ -1,0 +1,128 @@
+<md-toolbar class="withSkyline">
+	<h1 class="md-toolbar-tools ">C#</h1>
+  
+</md-toolbar>
+
+<section class="max-sized">
+    
+    
+    
+    <article class="md-padding">
+      <h2>Lambda expressies</h2>
+      
+      	<blockquote>
+					"A lambda expression is an anonymous function that you can use to create delegates or expression tree types. By using lambda expressions, you can write local functions that can be passed as arguments or returned as the value of function calls. Lambda expressions are particularly helpful for writing LINQ query expressions.""
+				</blockquote>
+				
+				<p>Duidelijk toch? Dat dacht ik al</p>
+				
+				<p>
+					lambda expressies worden gebruikt om Linq queries (zie volgende blokje) te schrijven en om deze toe te kunnen passen is de basiskennis nodig.  
+					Laten we beginnen met de vorm van een lambda expressie.
+				</p>
+        
+        <md-card>
+<!-- CODE SNIPPET -->		
+<pre class="ppPrettyPrint linenums">
+  n => n % 2 == 1 
+</pre>			
+        </md-card>
+        
+        <p>Wat doet deze expressie nu eigenlijk? Als je een lambda expressie defini&euml;ert, defini&euml;er je onder water een 'anonieme' functie. 
+					Dit is een functie zonder naam, die na het uitvoeren wordt weggegooid. 
+					Lambda expressies zijn niet meer dan een 'korte syntax' om snel even een functie te defini&euml;ren en uit te voeren.
+					De bovenstaande lambda expressie bestaat uit de volgende onderdelen:
+				</p>
+			
+				<ul>
+					<li>n is de input parameter (parameters van de functie)</li>
+					<li>n % 2 == 1 is de expressie (inhoud van de functie)</li>
+				</ul>
+				
+				<p>
+					Deze expressie vertelt ons niet zo veel. Maar laten we nu een wat realistischer scenario nemen. Stel, je wilt een lijst filteren. 
+					Normaal zou je dan een for loop defini&euml;ren, door alle elementen van je collectie loopen en je filter (eventueel functie) toepassen. 
+				</p>
+				<p>
+					Een lambda expressie kan dit voor ons een stuk simpeler maken. 
+				</p>
+        
+        <section layout="row">
+          <md-card flex>
+            <md-toolbar>
+              <h1 class="md-toolbar-tools">Old scool</h1>
+            </md-toolbar>
+            <md-card-content>
+<!-- CODE SNIPPET -->		
+<pre class="ppPrettyPrint linenums">
+public void DoSomething()
+{
+    List&lt;Person&gt; lijstje = new List&lt;Person&gt;();
+    List&lt;Person&gt; gefilterd = new List&lt;Person&gt;();
+    
+    gefilterd = lijstje.Where(LastnameSmulders).ToList();
+}
+
+public bool LastnameSmulders(Person person)
+{
+    return person.Lastname == "Smulders";
+}
+</pre>		
+          </md-card-content>
+        </md-card>
+        
+        <md-card flex>
+          <md-toolbar>
+            <h1 class="md-toolbar-tools">Lambda</h1>
+          </md-toolbar>
+          <md-card-content>
+						
+<!-- CODE SNIPPET -->		
+<pre class="ppPrettyPrint linenums">
+List&lt;Person&gt; lijstje = new List&lt;Person&gt;();
+List&lt;Person&gt; gefilterd = new List&lt;Person&gt;();
+
+gefilterd = lijstje.Where(p => p.Lastname == "Smulders")
+  .ToList();
+</pre>			
+				  </md-card-content>
+        </md-card>
+      </section>
+
+			
+				<p>
+					De 'Where' functie op de lijst is onderdeel van Linq. Hier gaan we het zo over hebben. Deze vervangt voor ons de 'for loop'.
+				</p>
+
+				<p>
+					Onze lambda statement vervangt in dit voorbeeld de functie "LastnameSmulders". 
+					de p die we meegeven is de naam van de parameter die onze 'anonieme functie' meekrijgt. 
+					De 'Where' statement roept onze anonieme functie aan met elke keer 1 persoon uit de lijst. 
+					Onze expressie wordt omgezet in een boolean. Je zou dit dus als een 'if' statement kunnen lezen. 
+					Alle personen waarbij deze expressie 'true' is worden verzameld in een nieuwe lijst als return value van de functie Where. 
+				</p>
+				<p>
+					Als je vaker gebruik gaat maken van lambda expressies, voelt de syntax vanzelf vertrouwd aan. 
+					lambda expressies kunnen je een hoop tijd besparen!
+				</p>
+       				
+				<p>
+					Het meegeven van een functie als 'parameter' valt onder de categorie 'delegates'. Hier gaan we later dit blok nog op in. 
+				</p>
+				
+
+      
+	  </article>
+
+      <div class="md-actions navigate" layout="row" layout-align="center center">
+        <md-button  ui-sref="csharpProperties" >
+            <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+            <md-tooltip>Properties</md-tooltip>
+        </md-button>
+        <md-button  ui-sref="csharpLinq" >
+            <ng-md-icon icon="navigate_next" size="36"></ng-md-icon> 
+            <md-tooltip>Linq</md-tooltip>
+        </md-button>  
+        
+      </div>
+</section
