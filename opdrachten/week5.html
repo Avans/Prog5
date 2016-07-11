@@ -22,7 +22,7 @@
      <md-card class="assignment workshop relative">
         <section class="header">
             <div>
-                <h2 class="md-title">Titleworkshop</h2>
+                <h2 class="md-title">Entity Framework</h2>
                 <span class="completed">Workshop assignment</span>
             </div>
 
@@ -36,28 +36,119 @@
         <md-card-content class="sub">
            <section class="output">
                 <label>Github</label>
-                <span class="ng-binding">  <a target="_blank" href="TODO">Start project tododododo</a></span>
+                <span class="ng-binding">  <a target="_blank" href="https://github.com/Avans/Prog5.Entities">Start project</a></span>
             </section>
         </md-card-content>
         <md-card-content>
 
-          
+            <p>We gaan aan de slag met het ORM Entity Framework. Als je er even niet uit komt lees dan de <a ui-sref="efIntroductie">bijbehorende theorie</a> goed door!</p>
+
+            <h3>Voordat we beginnen</h3>
+
+            <p>Omdat we gaan werken met een database moet je deze zelf eerst deployen voordat je aan de slag kan.</p> 
+                
+            <p>
+                In het start project zit een project met de naam Entitiese.Database.
+                Hier staat een 'publish' file waar je gebruik van kan maken. 
+                Publish de database op je lokale server (localhost of localdb). 
+            </p>
+
+            <p>
+                Indien je niet op de standaard localdb server gaat werken zijn er nog wat extra handelingen nodig. 
+                De projecten Entities.Domain en Entities.Console hebbene beide een configuratie file met een connecion string.
+                Deze verwijzen naar de standaard localdb server. Pas deze connection strings aan zodat ze naar de juiste server verwijzen. 
+            </p>
+        </md-card-content>
+        <md-card-content class="easy sub">
+            <h3>Lijst van teacher</h3>
+
+            <p>Op dit moment word er al een lijst van workshops weergevene. Toon nu ook een lijst van 'teachers'. </p>
+                
+            <p> Lukt het je ook om bij elke teacher de bijbehorende workshops te weergeven? </p>
+
+            <p><i><b>Tip: </b> Vergeet de 'include' methode niet. </i> </p>
+
+        </md-card-content>
+        <md-card-content class="medium sub">
+            <h3>Lijst van studenten</h3>
+
+            <p>Maar er zijn nog helemaal geen studenten? Dat klopt! Voeg een nieuwe tabel toe aan de database genaamd 'Student'. </p>
+
+
+            <p>Zorg er nu voor dat het entity diagram in het Domain project geüpdate is. Laat nu ook in de console een lijst van studenten zien. </p>
+
+            <p><i><b>Tip: </b> Test data nodig? Je kan zelf handmatig de database vullen, maar kijk eens naar de folder 'Scripts' in het Database project. </i> </p>
+
+        </md-card-content>
+        <md-card-content class="hard sub">
+            <h3>Studenten in de les</h3>
+
+            <p>Wel zo leuk toch? Anders staat de leraar er voor niks!</p>
+
+            <p>Maak in het Database project een koppel tabel tussen student en workshop. Vergeet de foreign keys niet aan te geven!</p>
+
+            <p>Update opnieuw het entity diagram in het Domain project. Kijk na het updaten goed wat het resultaat is. Zie je je koppel tabel terug? 
+                Geef als oefening de navigation property 'students' op de klasse workshop een andere naam. (bijvoorbeeld participants). 
+            </p>
+
+            <p> Laat nu per workshop ook alle participerende studenten zien.</p>
+
+            <p><i><b>Tip: </b> vergeet de test data niet! </i> </p>
+
         </md-card-content>
      </md-card>
      
-    <md-card pp-assignment="'CRUD'" class="assignment normal">
+    <md-card pp-assignment="'league'" class="assignment normal">
 
         <!-- Default header for assignment -->
         <section ng-include="'templates/partials/assignmentHeader.html'"></section>
 
+        <img src="opdrachten/img/league.png" />
+
         <md-card-content class="sub">
            <section class="output">
                 <label>Github</label>
-                <span class="ng-binding">  <a target="_blank" href="TODO">Start project tododododo</a></span>
+                <span class="ng-binding">  <a target="_blank" href="https://classroom.github.com/assignment-invitations/029c61767df82f177545c70b05015756">Start project</a></span>
             </section>
         </md-card-content>
         <md-card-content>
 
+            <p>Klaar met de workshop opdracht? Dan gaan we nu Entity Framework toepassen in een WPF project!</p>
+
+            <p>In het start project staan 3 projecten
+                <ul>
+                    <li>LeagueOfEntities.Database</li>
+                    <li>LeagueOfEntities.Domain</li>
+                    <li>LeagueOfEntities.WPF</li>
+                </ul>
+            </p>
+
+            <p>Voordat je kan beginnen moet je de database deployen en controlleren of de connection strings nog goed staan!</p>
+
+            <p>De applicatie is al zover af dat wanneer je deze start er een lijst van competities met elk 2 teams beschikbaar is.</p>
+
+            <h4>De opdracht</h4>
+
+            <p>Een team is niks zonder zijn spelers! Letterelijk niet. Aan jou de taak om een tabel aan de database toe te voegen genaamd 'speler'. </p>
+
+            <ul>
+                <li>Een speler heeft een naam</li>
+                <li>Een speler heeft een gamertag</li>
+                <li>Een speler heeft een ranking</li>
+                <li>Een speler heeft een preffered lane (top, bot, sup, mid of jung)
+            </ul>
+
+            <p>Een team kan meerdere spelers hebben (1 op veel)</p>
+
+            <p>Haal alle spelers op bij elk team en laat deze zien in de gui. </p>
+            
+            <h4>Technische eisen</h4>
+
+            <ul>
+                <li>De speles moeten opgehaald worden via entity framework</li>
+                <li>De vulling van de database moet via een SQL post deployment script</li>
+                <li>De spelers moeten worden gesorteerd op achternaam</li>
+            </ul>
         </md-card-content>
     </md-card>
 
