@@ -35,7 +35,7 @@
             Data-binding is hier de perfecte oplossing voor.
         </p>
         
-        <img src="onderwerp/wpf/img/data-binding.png"/>
+        <img class="responsive" src="onderwerp/wpf/img/data-binding.png"/>
         
          <p>
             We hebben een aantal dingen nodig om data-binding aan de praat te krijgen.
@@ -46,12 +46,13 @@
             </ul>
         </p>
                  
-         <section  layout="row" layout-xs="column">
-            <md-card flex>
-                <md-toolbar>
-                    <h1 class="md-toolbar-tools">Model</h1>
-                </md-toolbar>
-                <md-card-content>
+        <section  layout="row" layout-xs="column">
+        	<section flex="1">
+                <md-card>
+                    <md-toolbar>
+                        <h1 class="md-toolbar-tools">Model</h1>
+                    </md-toolbar>
+                    <md-card-content>
                             
 <!-- CODE SNIPPET -->
 <pre class="ppPrettyPrint linenums">
@@ -60,22 +61,24 @@ public class TemperatureVM
      private double _temperature;
 }</pre>
 
-                </md-card-content>
-            </md-card>
-            
-            <md-card flex>
-                <md-toolbar>
-                    <h1 class="md-toolbar-tools">View</h1>
-                </md-toolbar>
-                <md-card-content>
-                            
+                    </md-card-content>
+                </md-card>
+        	</section>
+            <section flex="1">
+                <md-card flex>
+                    <md-toolbar>
+                        <h1 class="md-toolbar-tools">View</h1>
+                    </md-toolbar>
+                    <md-card-content>
+                                
 <!-- CODE SNIPPET -->
 <pre class="ppPrettyPrint linenums">
  &lt;Label Content=&quot;The temperature is&quot;/&gt;
  &lt;Label&gt;Hier wil ik de temperatuur hebben&lt;/Label&gt;</pre>
     
-                </md-card-content>
-            </md-card>
+                    </md-card-content>
+                </md-card>
+            </section>
         </section>
         
             <h4>View Model</h4>
@@ -99,11 +102,12 @@ public class TemperatureVM
             </p>
             
         <section  layout="row" layout-xs="column">
-            <md-card flex>
-                <md-toolbar>
-                    <h1 class="md-toolbar-tools">Decleratief</h1>
-                </md-toolbar>
-                <md-card-content>
+        	<section flex="1">
+                <md-card flex>
+                    <md-toolbar>
+                        <h1 class="md-toolbar-tools">Decleratief</h1>
+                    </md-toolbar>
+                    <md-card-content>
                             
 <!-- CODE SNIPPET -->
 <pre class="ppPrettyPrint linenums">
@@ -116,15 +120,16 @@ xmlns:local=&quot;clr-namespace:CommandingAndBindingDemo&quot;</pre>
     &lt;local:TemperatureVM /&gt;
 &lt;/Window.DataContext&gt;</pre>
 
-                </md-card-content>
-            </md-card>
-            
-            <md-card flex>
-                <md-toolbar>
-                    <h1 class="md-toolbar-tools">Code-behind</h1>
-                </md-toolbar>
-                <md-card-content>
-                            
+                    </md-card-content>
+                </md-card>
+        	</section>
+            <section flex="1">    
+                <md-card flex>
+                    <md-toolbar>
+                        <h1 class="md-toolbar-tools">Code-behind</h1>
+                    </md-toolbar>
+                    <md-card-content>
+                                
 <!-- CODE SNIPPET -->
 <pre class="ppPrettyPrint linenums">
 public MainWindow()
@@ -132,10 +137,11 @@ public MainWindow()
     InitializeComponent();
     DataContext = new TemperatureVM();
 }</pre>
-                </md-card-content>
-            </md-card>
+                    </md-card-content>
+                </md-card>
+            </section>
         </section>
-        
+            
         <h4>Property</h4>
         
         <p>Als laatste stap moeten we in het Model een Public Property maken die voldoet aan de eisen van het WPF data-binding framework. 
@@ -193,28 +199,28 @@ public MainWindow()
         <pre class="ppPrettyPrint linenums">
 public class TemperatureVM : INotifyPropertyChanged
 {
-    private double _temperature;
+  private double _temperature;
 
-    public double Temperature 
+  public double Temperature 
+  {
+    get { return _temperature; }
+    set
     {
-        get { return _temperature; }
-        set
-        {
-            _temperature = value;
-            RaisePropertyChanged(&quot;Temperature&quot;);
-        }
+        _temperature = value;
+        RaisePropertyChanged(&quot;Temperature&quot;);
     }
-    
-    #region INotifyPropertyChanged Members
+  }
 
-    void RaisePropertyChanged(string prop)
-    {
-        if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
-    }
+  #region INotifyPropertyChanged Members
 
-    public event PropertyChangedEventHandler PropertyChanged;
+  void RaisePropertyChanged(string prop)
+  {
+    if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
+  }
 
-    #endregion
+  public event PropertyChangedEventHandler PropertyChanged;
+
+  #endregion
     
 }
 </pre>

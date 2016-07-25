@@ -31,7 +31,13 @@
     fill: white;
     color: white; }
 
+.pp-side-nav{
+  margin-top:56px;
+}
 @media screen and (min-width: 1280px) {
+  .pp-side-nav{
+    margin-top:0px;
+  }
   .pp-sidenav-left {
     padding: 16px; }
     .pp-sidenav-left .md-sidenav-left {
@@ -196,6 +202,7 @@ span.danger {
   max-width: 100%;
   opacity: 1; }
 
+
 #canvas .banner.ng-hide {
   opacity: 0;
   left: -100%; }
@@ -299,3 +306,32 @@ ng-md-icon.active svg {
   transform: translate(0px, 100%); }
 
 /*# sourceMappingURL=main.css.map */
+
+/** buttons **/
+
+.md-button.small{
+  min-width: 0;
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 420px) {
+  #canvas .banner{
+      display: none;
+  }
+
+  img.responsive, .photo{
+    float:none;
+    width:100%;
+    margin-left:0px;
+  }
+
+  .withSkyline{
+    background-position: 95% 100%;
+    background-size: 100px 30px;
+  }
+
+  .ppPrettyPrint{
+    font-size:10px;
+  }
+
+}

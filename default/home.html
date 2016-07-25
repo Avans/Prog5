@@ -4,28 +4,27 @@
 
 
 <section class="content-center">
-  <section class="max-sized md-padding" ng-controller="towerCtrl">
+  <section class="max-sized" ng-controller="towerCtrl as tc">
       <md-card>
 
 			
 			<section layout="row" layout-align="space-around center" hide-sm> 
-				<md-button class="md-primary" ng-click="toLevel(0)">WPF</md-button>
-				<md-button class="md-primary" ng-click="toLevel(30)">EF</md-button>
-				<md-button class="md-primary" ng-click="toLevel(70)">WCF</md-button>
-				<md-button class="md-primary" ng-click="toLevel(100)">MVC</md-button>
+				<md-button class="md-primary small" ng-click="toLevel(0)">WPF</md-button>
+				<md-button class="md-primary small" ng-click="toLevel(30)">EF</md-button>
+				<md-button class="md-primary small" ng-click="toLevel(70)">WCF</md-button>
+				<md-button class="md-primary small" ng-click="toLevel(100)">MVC</md-button>
 			</section>
 		
 			
 			
           	<section id="canvas">
+				<!-- All the images in the tower preloaded -->
 				<section id="loader" ></section>
-				<img src="default/img/Background.png"  ng-srcset="{{getSrcset('Background')}}" sb-load style="bottom: -{{0.4 * level}}">
-				<img src="default/img/wolk1.png" ng-srcset="{{getSrcset('wolk1')}}"  sb-load class="cloud" style="bottom: -{{0.5 * level}}">
-				<img src="default/img/MVC.png"  ng-srcset="{{getSrcset('MVC')}}" style="bottom: -{{ level }}">
-				<img src="default/img/WCF-AAN.png"   ng-srcset="{{getSrcset('WCF-AAN')}}" style="bottom: -{{1.2 * level }}">
-				<img src="default/img/EF-AAN.png"   ng-srcset="{{getSrcset('EF-AAN')}}" style="bottom: -{{1.4 * level }}">
-				<img src="default/img/WPF-AAN.png"  ng-srcset="{{getSrcset('WPF-AAN')}}" style="bottom: -{{1.6 * level }}">
-				<img src="default/img/wolk2.png"  ng-srcset="{{getSrcset('wolk2')}}"class="cloud reverse" style="bottom: -{{level}}">
+   				<img style="bottom: {{img.offset * lvel}}" class="{{img.classes}}"
+				   	ng-repeat="img in tc.imageLocations" 
+					ng-src="{{ img.src }}"
+					ng-show="ready"  />
+
 				<section class="banner" id="wpf"  ng-show="isNear(0)" layout="row" hide-sm>
 					
 					<section flex>

@@ -2,7 +2,7 @@
 	<h1 class="md-toolbar-tools">Opdrachten week 4</h1>
 </md-toolbar>
 <section class="content-center">
-<section class="max-sized md-padding" ng-controller="ppAuthCtrl">
+<section class="max-sized" ng-controller="ppAuthCtrl">
    
      <article class="md-padding">
         <h2>Introductie</h2>
@@ -39,63 +39,57 @@
                 <span class="ng-binding">  <a target="_blank" href="https://github.com/Avans/Prog5.CRUD">Start project</a></span>
             </section>
         </md-card-content>
-        <md-card-content class="easy sub" layout-gt-sm="row">
+        <md-card-content class="easy sub">
+
+            <img src="opdrachten/img/UpdateDelete.png"  alt="Update Delete" class="photo img-right" width="300px"  />
         
-            <section flex>
-                <h3>CRU-Delete</h3>
-                <p>
-                    De <strong>Create</strong> en <strong>Read</strong> actie van de CRUD werken. 
-                    De volgende stap is het implementeren van een <strong>Delete</strong> actie. 
-                    Zorg ervoor dat de MusicCollection applicatie deze functionaliteit ook ondersteunt. 
-                    De delete knop is al aanwezig, maar jij moet er voor zorgen dat deze ook een liedje uit de lijst verwijderd.                   
-                </p>
-                <p>
-                     <i>Tip: Maak gebruik van een <strong>RelayCommand</strong></i>   
-                </p>
+            <h3>CRU-Delete</h3>
+            <p>
+                De <strong>Create</strong> en <strong>Read</strong> actie van de CRUD werken. 
+                De volgende stap is het implementeren van een <strong>Delete</strong> actie. 
+                Zorg ervoor dat de MusicCollection applicatie deze functionaliteit ook ondersteunt. 
+                De delete knop is al aanwezig, maar jij moet er voor zorgen dat deze ook een liedje uit de lijst verwijderd.                   
+            </p>
+            <p>
+                    <i>Tip: Maak gebruik van een <strong>RelayCommand</strong></i>   
+            </p>
+
       
-                
-            </section>
-
-            <img src="opdrachten/img/UpdateDelete.png"  alt="Update Delete" class="photo" height="200px"  />
-        
         </md-card-content>
-        <md-card-content class="medium sub" layout-gt-sm="row">
+        <md-card-content class="medium sub">
+            <img src="opdrachten/img/play.png"  alt="Play songs" class="photo img-right" width="300px"  />
 
-            <section flex>
-                <h2>Tweede View</h2>
-                <p>
-                    Voeg een tweede View toe aan je applicatie waarin je met een <strong>vorige</strong> en <strong>volgende</strong> 
-                    knop door de collectie van je CRUD applicatie heen kan bladeren. Maak gebruik van hetzelfde View Model en Model. 
-                </p>
 
-                <p>
-                    Kijk goed hoe de MainWindow aan zijn data context komt. 
-                </p>
-            </section>
+            <h2>Tweede View</h2>
+            <p>
+                Voeg een tweede View toe aan je applicatie waarin je met een <strong>vorige</strong> en <strong>volgende</strong> 
+                knop door de collectie van je CRUD applicatie heen kan bladeren. Maak gebruik van hetzelfde View Model en Model. 
+            </p>
 
-            <img src="opdrachten/img/play.png"  alt="Play songs" class="photo" height="200px"  />
+            <p>
+                Kijk goed hoe de MainWindow aan zijn data context komt. 
+            </p>
 
         </md-card-content>
-        <md-card-content class="hard sub" layout-gt-sm="row">
+        <md-card-content class="hard sub">
 
-            <section flex>
-                <h3>CR-Update-D</h3>
-                <p>
-                De <strong>Create</strong> en <strong>Read</strong> actie van onze CRUD werken. Nu moet de <strong>Update</strong> 
-                actie nog ge&iuml;mplementeerd worden. Zorg ervoor dat de 'edit' knopt werkt. 
-                </p>
+            <img src="opdrachten/img/update.png"  alt="Edit song" class="photo img-right" width="300px"  />
 
-                <p>
-                    Als een gebruiker op de 'edit' knopt klikt moet er een nieuwe window openen waarmee de gebruiker een song kan aanpassen.
-                </p>
-                <p>
-                     <i>Tip: Maak slim gebruik van de property <strong>SelectedSong</strong></i>   
-                </p>
+            <h3>CR-Update-D</h3>
+            <p>
+            De <strong>Create</strong> en <strong>Read</strong> actie van onze CRUD werken. Nu moet de <strong>Update</strong> 
+            actie nog ge&iuml;mplementeerd worden. Zorg ervoor dat de 'edit' knopt werkt. 
+            </p>
 
-            </section>
+            <p>
+                Als een gebruiker op de 'edit' knopt klikt moet er een nieuwe window openen waarmee de gebruiker een song kan aanpassen.
+            </p>
+            <p>
+                    <i>Tip: Maak slim gebruik van de property <strong>SelectedSong</strong></i>   
+            </p>
 
-            <img src="opdrachten/img/update.png"  alt="Edit song" class="photo" height="200px"  />
 
+            
         </md-card-content>  
       
        
@@ -126,26 +120,18 @@
 
             <h2>Inventory</h2>
 
-            <section  layout-gt-sm="row">
-
-                <section flex>
+            <img src="opdrachten/img/inventory.png"  alt="Edit song" class="photo img-right" width="200px"  />
 
                    
 
-                    <p>Bouw een applicatie waarbij een lijst van items zichtbaar is. 
-                        Deze lijst mag gewoon hard-coded in een klasse staan (zie Dummy Repository workshop opdracht).
-                        Het moet mogelijk zijn om een van de items te selecteren en deze toe te voegen aan de inventory. 
-                    </p>
+            <p>Bouw een applicatie waarbij een lijst van items zichtbaar is. 
+                Deze lijst mag gewoon hard-coded in een klasse staan (zie Dummy Repository workshop opdracht).
+                Het moet mogelijk zijn om een van de items te selecteren en deze toe te voegen aan de inventory. 
+            </p>
 
-                    <p>
-                        De inventory moet zichtbaar zijn in een apparte window. Er mogen maximaal 6 items aan de inventory toegevoegd worden.
-                    </p>
- 
-                </section>
-
-                <img src="opdrachten/img/inventory.png"  alt="Edit song" class="photo" height="100px"  />
-
-            </section>
+            <p>
+                De inventory moet zichtbaar zijn in een apparte window. Er mogen maximaal 6 items aan de inventory toegevoegd worden.
+            </p>
 
             <h3>Eisen</h3>
             <ul>

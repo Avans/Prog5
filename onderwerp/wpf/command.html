@@ -40,44 +40,44 @@
 			<pre class="ppPrettyPrint linenums">
 public class TemperatureVM : INotifyPropertyChanged
 {
-/// &lt;summary&gt;
-/// Privates, getters en setters for temparture
-/// &lt;/summary&gt;
-private double _temperature;
+  /// &lt;summary&gt;
+  /// Privates, getters en setters for temparture
+  /// &lt;/summary&gt;
+  private double _temperature;
 
-public double Temperature 
-{
-	get { return _temperature; }
-	set
-	{
-		_temperature = value;
-		RaisePropertyChanged(&quot;Temperature&quot;);
-	}
-}
+  public double Temperature 
+  {
+    get { return _temperature; }
+    set
+    {
+      _temperature = value;
+      RaisePropertyChanged(&quot;Temperature&quot;);
+    }
+  }
 
-public ICommand SetLowCommand { get; set; }
+  public ICommand SetLowCommand { get; set; }
 
-/// &lt;summary&gt;
-/// Constructor!
-/// &lt;/summary&gt;
-public TemperatureVM()
-{
-	this._temperature = 22;
-	//Maak een nieuw SetLowCommand aan
-	SetLowCommand = new SetLowCommand(this);
-}
+  /// &lt;summary&gt;
+  /// Constructor!
+  /// &lt;/summary&gt;
+  public TemperatureVM()
+  {
+    this._temperature = 22;
+    //Maak een nieuw SetLowCommand aan
+    SetLowCommand = new SetLowCommand(this);
+  }
 
-///
-#region INotifyPropertyChanged Members
+  ///
+  #region INotifyPropertyChanged Members
 
-void RaisePropertyChanged(string prop)
-{
-	if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
-}
+  void RaisePropertyChanged(string prop)
+  {
+    if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
+  }
 
-public event PropertyChangedEventHandler PropertyChanged;
+  public event PropertyChangedEventHandler PropertyChanged;
 
-#endregion
+  #endregion
 
 }</pre>
 		<!-- End of code snippet -->
@@ -114,35 +114,35 @@ public event PropertyChangedEventHandler PropertyChanged;
 			<pre class="ppPrettyPrint linenums">
 class SetLowCommand : ICommand
 {
-	private TemperatureVM viewmodel;
+  private TemperatureVM viewmodel;
 
-	public SetLowCommand(TemperatureVM viewmodel)
-	{
-		this.viewmodel = viewmodel;
-	}
+  public SetLowCommand(TemperatureVM viewmodel)
+  {
+    this.viewmodel = viewmodel;
+  }
 
-	public bool CanExecute(object parameter)
-	{
-		if(viewmodel == null)
-		{
-			return false;
-		}
-		else
-		{
-			return viewmodel.Temperature &gt; 10;
-		}
-	}
+  public bool CanExecute(object parameter)
+  {
+    if(viewmodel == null)
+    {
+      return false;
+    }
+    else
+    {
+      return viewmodel.Temperature &gt; 10;
+    }
+  }
 
-	public void Execute(object parameter)
-	{
-		viewmodel.Temperature = 0;
-	}
+  public void Execute(object parameter)
+  {
+    viewmodel.Temperature = 0;
+  }
 
-	public event EventHandler CanExecuteChanged
-	{
-		add { CommandManager.RequerySuggested += value; }
-		remove { CommandManager.RequerySuggested -= value; }
-	}
+  public event EventHandler CanExecuteChanged
+  {
+    add { CommandManager.RequerySuggested += value; }
+    remove { CommandManager.RequerySuggested -= value; }
+  }
 }</pre>            
 		<!-- End of code snippet -->
 		</md-card-content>

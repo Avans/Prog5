@@ -25,8 +25,8 @@
     </p>
     
 
-    <div layout="row">
-        <div flex>
+    <section  layout="row" layout-xs="column">
+        <section flex="1">
             
         <h4>IValueConverter</h4>
         <p>De WPF library bevat een interface genaamd <strong>IValueConverter</strong> met een methode <strong>Convert</strong> en een 
@@ -45,8 +45,9 @@
         
         </p>
         
-        </div>
-        <md-card>
+        </section>
+        <section>
+          <md-card>
             <md-toolbar>
                 <h1 class="md-toolbar-tools">Default Converters</h1>
             </md-toolbar>
@@ -77,7 +78,8 @@
                     
                 </div>
             </md-card-content>
-        </md-card>  
+          </md-card>  
+        </section>
     </div>
 
      <md-card>
@@ -125,7 +127,7 @@ class DegreesToAngleConverter : IValueConverter
             <!-- Code Snippet -->
             <pre class="ppPrettyPrint linenums">
 &lt;Window.Resources&gt;
-     &lt;local:DegreesToAngleConverter x:Key=&quot;converter&quot; /&gt;
+  &lt;local:DegreesToAngleConverter x:Key=&quot;converter&quot; /&gt;
 &lt;/Window.Resources&gt;</pre>
         </md-card-content>
     </md-card>
@@ -163,7 +165,7 @@ class DegreesToAngleConverter : IValueConverter
             <md-tooltip>Linq</md-tooltip>
       </md-button>
       <md-button  ui-sref="opdrachten3" >
-          <ng-md-icon icon="navigate_next"  size="36"></ng-md-icon> 
+          Opdrachten
           <md-tooltip>Opdrachten</md-tooltip>
       </md-button>
     </div>

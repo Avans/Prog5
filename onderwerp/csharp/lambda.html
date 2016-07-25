@@ -47,12 +47,13 @@
 					Een lambda expressie kan dit voor ons een stuk simpeler maken. 
 				</p>
         
-        <section layout="row">
-          <md-card flex>
-            <md-toolbar>
-              <h1 class="md-toolbar-tools">Old scool</h1>
-            </md-toolbar>
-            <md-card-content>
+				<section  layout="row" layout-xs="column">
+        	<section flex="1">
+						<md-card >
+							<md-toolbar>
+								<h1 class="md-toolbar-tools">Old scool</h1>
+							</md-toolbar>
+							<md-card-content>
 <!-- CODE SNIPPET -->		
 <pre class="ppPrettyPrint linenums">
 public void DoSomething()
@@ -68,14 +69,15 @@ public bool LastnameSmulders(Person person)
     return person.Lastname == "Smulders";
 }
 </pre>		
-          </md-card-content>
-        </md-card>
-        
-        <md-card flex>
-          <md-toolbar>
-            <h1 class="md-toolbar-tools">Lambda</h1>
-          </md-toolbar>
-          <md-card-content>
+						</md-card-content>
+					</md-card>
+				</section>
+				<section flex="1">					
+					<md-card>
+						<md-toolbar>
+							<h1 class="md-toolbar-tools">Lambda</h1>
+						</md-toolbar>
+						<md-card-content>
 						
 <!-- CODE SNIPPET -->		
 <pre class="ppPrettyPrint linenums">
@@ -85,8 +87,9 @@ List&lt;Person&gt; gefilterd = new List&lt;Person&gt;();
 gefilterd = lijstje.Where(p => p.Lastname == "Smulders")
   .ToList();
 </pre>			
-				  </md-card-content>
-        </md-card>
+						</md-card-content>
+					</md-card>
+				</section>
       </section>
 
 			
