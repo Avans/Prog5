@@ -38,7 +38,7 @@
     <md-card>
         <md-tabs md-dynamic-height md-border-bottom md-swipe-content md-stretch-tabs="always">
 
-            <md-tab label="1.  EDMX">
+            <md-tab label="1">
                 <md-content class="md-padding">
    
                     <h3>1. EDMX Genereren</h3>
@@ -47,19 +47,14 @@
                     <p>Entity Framework geeft ons een mooie wizard om een EDMX file toe te voegen op basis van een bestaande database.
                         Hier onder staat een korte screencast met daarin de stappen om een EDMX file te genereren.
                     </p>
-
-
-
-                    <md-card >
-                        <div class="videoWrapper">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XZFLaeeQ2lA" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </md-card>
        
                 </md-content>
+                <div class="videoWrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XZFLaeeQ2lA" frameborder="0" allowfullscreen></iframe>
+                </div>
             </md-tab>
 
-             <md-tab label="2.  Ophalen">
+             <md-tab label="2">
                 <md-content class="md-padding">
 
                     <h3>2. Gegevens ophalen</h3>
@@ -101,7 +96,7 @@ using (var context = new Entities.Domain.MyEntities())
                 </md-content>
             </md-tab>
 
-              <md-tab label="3.  Opslaan">
+              <md-tab label="3">
                 <md-content class="md-padding">
    
                                 
@@ -135,7 +130,7 @@ context.SaveChanges(); </pre>
                 </md-content>
             </md-tab>
 
-              <md-tab label="4.  Wijziging">
+              <md-tab label="4">
                 <md-content class="md-padding">
                     <h3>4. Wijziging doorvoeren</h3>
                     <p>
@@ -143,12 +138,10 @@ context.SaveChanges(); </pre>
                         Hierna moet je de EDMX file updaten en klaar is kees! 
                         Over het doorvoeren van een wijziging is ook een korte screencast beschikbaar.
                     </p>
-                    <md-card >
-                        <div class="videoWrapper">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XZFLaeeQ2lA" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </md-card>
                 </md-content>
+                <div class="videoWrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XZFLaeeQ2lA" frameborder="0" allowfullscreen></iframe>
+                </div>
             </md-tab>
 
         </md-tabs>
