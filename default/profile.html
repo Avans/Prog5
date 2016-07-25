@@ -3,8 +3,17 @@
   <md-toolbar class="md-theme-indigo withSkyline"  >
     <h1 class="md-toolbar-tools">Profile</h1>
   </md-toolbar>
+
+
+  <section ng-show="!user || user.error"class="max-sized"  ng-controller="ppAuthCtrl" layout="row" layout-align="center center" >
+    <md-button class="md-primary md-raised"  aria-label="Login" ng-click="login()">
+        Login
+      </md-button>
+  </section>
+
   
-  <section class="max-sized">
+  <section class="max-sized" ng-hide="user.error" ng-cloak >
+
       <md-card>
         <md-toolbar class="md-theme-indigo">
         <h1 class="md-toolbar-tools">{{user.name}}</h1>
@@ -26,9 +35,14 @@
 
         </md-card-content>
       </md-card>
-  </section>
-  
-  <section class="max-sized">
+
+      <section  ng-controller="ppAuthCtrl"   layout="row" layout-align="center center">
+        <md-button class="md-raised md-warn" ng-click="logout()" aria-label="Logout" >
+              Logout
+        </md-button>
+      </section>
+      
+
       <md-card>
         <md-toolbar class="md-theme-indigo">
         <h1 class="md-toolbar-tools">Point history</h1>
@@ -53,5 +67,5 @@
   
         </md-card-content>
       </md-card>
-  </section>
+
 </section>  

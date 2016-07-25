@@ -335,3 +335,10 @@ ng-md-icon.active svg {
   }
 
 }
+
+
+
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
