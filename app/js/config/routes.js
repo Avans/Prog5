@@ -51,5 +51,8 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         addState('mvvmFrameworks');
         //Mvc
         addState('efIntroductie');
+        addState('efDatabase');
+        addState('efEntityframework');
+        addState('efDatabasefirst');
 
 };

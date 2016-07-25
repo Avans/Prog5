@@ -1,0 +1,213 @@
+<md-toolbar class="md-theme-indigo">
+	<h1 class="md-toolbar-tools">Entity Framework</h1>
+</md-toolbar>
+
+<section class="md-padding max-sized">
+  <article class="md-padding">
+
+     <h2>Entity Framework</h2>
+
+      <p>
+          Het aansluiten van een database is bijna altijd het zelfde werk. 
+          Objecten maken die tabellen in je database reflecteren en query’s uitvoeren om daarna de data uit de database te mappen op je objecten. 
+          "Entity Framework" is een Object Relational Mapper (ORM) die dit voor je oplost. 
+          Het zorgt er voor dat je maar een keer je data-model hoeft te defineren (code of database) . De rest zal "Entity Framework" voor je genereren.
+      </p>
+      
+       <h4>Werkwijze</h4>
+
+    <section layout="column"  layout-gt-xs="row">
+      <section flex="2" >
+
+
+       
+        <p>
+          Als je met Entity Framework aan de slag gaat zijn er 3 manieren om met het framework te werken. 
+          Wij gaan voornamelijk inzoomen op de werkwijze Database first. 
+          <ul>
+            <li>Model First</li>
+            <li>Code First</li>
+            <li>Database First</li>
+          </ul>
+        </p>
+
+      </section>
+      <section flex="2">
+        <img class="photo" width="100%"  src="/onderwerp/ef/img/domain_2.png" />
+      </section>
+    </section>
+
+    </article>
+
+    <md-card>
+      <md-tabs md-dynamic-height md-border-bottom md-swipe-content>
+           <md-tab label="Database First">
+            <md-content class="md-padding">
+              <p>
+                  Als je een bestaande database hebt is dit ideaal. 
+                  Op basis van een bestaande database zal Entity Framework een volledig data-model generen. Deze functie werkt heel goed. 
+                  Daarnaast is het praktisch om wijzigingen door te voeren vanuit SQL server management studio, en nadat je klaar bent met je data-model, deze wijzigingen ook door te voeren in je applicatie.
+              </p>
+            </md-content>
+          </md-tab>
+          <md-tab label="Model First">
+            <md-content class="md-padding">
+              <p>
+                Entity Framework biedt een mooie tool voor het bewerken van je data-model. 
+                Als je geen fan bent van het werken in SQL management studio dan is dit een prettige manier van het bewerken van je data-model. 
+                Daarentegen heb je geen volledige toegang tot je data-model aangezien deze gegenereerd wordt door een tool.
+              </p>
+            </md-content>
+          </md-tab>
+          <md-tab label="Code First">
+            <md-content class="md-padding">
+
+              <p>
+                Het geeft je volledig toegang tot je entiteiten (modellen) en de code er achter. Op basis van deze code wordt er een database gegenereerd. 
+                In principe is dit een goed systeem wanneer je kleine hoeveelheden data nodig hebt en de database alleen voor dat programma nodig is.
+              </p>
+            </md-content>
+          </md-tab>
+       
+      </md-tabs>
+    </md-card>
+
+    <article class="md-padding">
+
+      <h3>Installatie</h3>
+
+      Entity framework is een framework dat niet standaard in .NET wordt meegeleverd. Dit betekend dat je hem zelf zal moeten installeren. 
+      Dit kan zeer gemakkelijk via de NuGet wizard. Dit hebben we eerder al een keer behandeld tijdens het onderdeel <a ui-sref="mvvmFrameworks">MvvM Frameworks</a>.
+
+      <h3>Onderdelen</h3>
+
+      <p>Na het installeren van het Entity Framework krijg je als ontwikkelaar toegang tot een aantal componenten. 
+        Hieronder volgt een opsomming van de elementen waar we het meeste mee aan de slag gaat. 
+        Laten we er voor het gemak even vanuit gaan dat we al een database hebben om mee aan de slag te werken!
+      </p>
+
+      <h4>EDMX file</h4>
+
+      <p>Het belangrijkste component van het Entity Framework. EDMX staat voor Entity Data Model XML. </p>
+      <p>
+         De EDMX file is een bestand gebaseerd op XML, een soort <b>markup</b> taal zoals HTML. Je hoeft XML nog niet te kennen, aangezien we dit bestand niet met de hand gaan aanpassen.
+         Entity Framework heeft namelijk een mooie editor en handige Wizards om dit bestand te doen.
+      </p>
+
+      <md-card>
+        <img src="onderwerp/ef/img/edmx.png" />
+        <md-card-content>
+
+          <p>Het aanmaken van de EDMX file doen we via de Entity Data Model Wizard en het aanpassen van de file doen we via de Entity Designer.</p>
+          <p>In het volgende hoofdstuk gaan we zien hoe we de EDMX file kunnen genereren op basis van een bestaande database.</p>
+
+        </md-card-content>
+      </md-card>
+
+
+    <h4>Data Context</h4>
+
+    <p>Na het genereren van de EDMX file krijgen we toegang tot een aantal klasse. 
+      Een van deze klasse is je toegang tot de database. 
+      Het is een klasse die overerft van de klasse <b>DbContext</b>.
+    </p>
+
+    <p>
+       Deze klasse wordt gegenereerd door Entity Framework en we mogen deze klasse dus ook niet met de hand aanpassen!
+       Hoe we dan wel aanpassing doorvoeren bekijken we in het volgende hoofdstuk.
+    </p>
+
+  <md-card>
+    <md-card-content>
+  <pre class="ppPrettyPrint linenums">
+public partial class DatabaseContext : DbContext
+{
+    public DatabaseContext()
+        : base(&quot;name=DatabaseContext&quot;)
+    {
+    }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        throw new UnintentionalCodeFirstException();
+    }
+
+    public virtual DbSet&lt;C__RefactorLog&gt; C__RefactorLog { get; set; }
+    public virtual DbSet&lt;Competition&gt; Competitions { get; set; }
+    public virtual DbSet&lt;Team&gt; Teams { get; set; }
+}
+</pre>
+    </md-card-content>
+  </md-card>
+
+  <h4>DbSet</h4>
+
+  <p>
+    Deze context klasse bevat voor elke tabel in je database een property van het type DbSet.
+    Dit is een lijst van elementen van een bepaalde entiteit.
+  </p>
+
+  <h4>Entities</h4>
+
+  <p>
+    Naast de Database context word voor elke tabel ook een klasse gegenereer die de tabel vertegenwoordigt. 
+    Hoe we hier in de praktijk gebruik van maken lees je in het volgende hoofdstuk.
+  </p>
+
+  <md-card>
+    <md-card-content>
+<pre class="ppPrettyPrint linenums">
+//------------------------------------------------------------------------------
+// &lt;auto-generated&gt;
+//     This code was generated from a template.
+//
+//     Manual changes to this file may cause unexpected behavior in your application.
+//     Manual changes to this file will be overwritten if the code is regenerated.
+// &lt;/auto-generated&gt;
+//------------------------------------------------------------------------------
+
+namespace LeagueOfEntities.Domain
+{
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class Team
+    {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Micr.....")]
+        public Team()
+        {
+            this.Competitions = new HashSet&lt;Competition&gt;();
+        }
+    
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Ranking { get; set; }
+        public string Country { get; set; }
+        public string LogoURL { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Micr.....")]
+        public virtual ICollection&lt;Competition&gt; Competitions { get; set; }
+    }
+}
+</pre>
+    </md-card-content>
+  </md-card>
+
+
+  </article>
+
+
+  </md-card>
+
+    <div class="md-actions navigate" layout="row" layout-align="center center">      
+      <md-button ui-sref="efDatabase">
+          <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+           <md-tooltip>Database</md-tooltip>
+      </md-button>
+      <md-button  ui-sref="efDatabasefirst" >
+          <ng-md-icon icon="navigate_next"  size="36"></ng-md-icon> 
+          <md-tooltip>Database first</md-tooltip>
+      </md-button>
+    </div>
+
+</section>
