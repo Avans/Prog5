@@ -10,13 +10,15 @@
     <article class="md-padding">
       <h2>Linq</h2>
       	
-				<p>
-					Genoeg gebazel over lambda expressies. Laten we gewoon code gaan tikken!
-				</p>
-				
-				<p>Voor we de nieuwe stijl demonstreren, eerst even een demonstratie hoe we het vroeger deden.</p>
-				
-        
+		<p>
+			Genoeg gebazel over lambda expressies. Laten we gewoon code gaan tikken!
+		</p>
+		
+		<p>Voor we de nieuwe stijl demonstreren, eerst even een demonstratie hoe we het vroeger deden.</p>
+
+    </article>
+		
+
         <md-card>	
 					<md-toolbar>
             <h1 class="md-toolbar-tools">Oude stijl</h1>
@@ -34,12 +36,12 @@ return result;
 </pre>
 				</md-content>
 			</md-card>
-				
-			
-			<p>
-				Nu gaan we gebruik maken van Linq. Linq is een assembly (system.linq) waarmee je filter-functies kunt uitvoeren op lijsten. 
-				Deze functies kun je uitvoeren doormiddel van een linq query of een lambda expressies. 
-			</p>
+	<article class="md-padding">
+
+		<p>
+			Nu gaan we gebruik maken van Linq. Linq is een assembly (system.linq) waarmee je filter-functies kunt uitvoeren op lijsten. 
+			Deze functies kun je uitvoeren doormiddel van een linq query of een lambda expressies. 
+		</p>
 		
 
 <!-- code snipper -->
@@ -47,16 +49,18 @@ return result;
 	using System.Linq;
 </pre>
 
-	
-				<p>
-					Deze Linq query's maken je leven een stuk makkelijker! 
-					Deze voorbeelden zijn maar het topje van de ijsberg wat je allemaal kan met Linq, 
-					en ik kan je aanraden om ook even op het wereld wijde web verder te zoeken!
-				</p>
-				
-				<p><strong>Let op! </strong> De return value van een linq statement is van het type IEnumerable. 
-				Dit is een ander type dan List. Wil je toch een <strong>List</strong> als result? 
-				</p>
+
+		<p>
+			Deze Linq query's maken je leven een stuk makkelijker! 
+			Deze voorbeelden zijn maar het topje van de ijsberg wat je allemaal kan met Linq, 
+			en ik kan je aanraden om ook even op het wereld wijde web verder te zoeken!
+		</p>
+		
+		<p><strong>Let op! </strong> De return value van een linq statement is van het type IEnumerable. 
+		Dit is een ander type dan List. Wil je toch een <strong>List</strong> als result? 
+		</p>
+	</article>
+
 				
 			<md-card>
 					<md-toolbar>
@@ -78,18 +82,13 @@ lijstje.Select(p => p.Lastname).toList();
 			</md-card>
 						
 		
-				<md-card >
-          <md-toolbar>
-            <h1 class="md-toolbar-tools">Screencast Linq</h1>
-          </md-toolbar>
+		<md-card >
           <div class="videoWrapper">
 						<iframe width="640" height="360" src="https://www.youtube.com/embed/Xu68PtOfINc" frameborder="0" allowfullscreen></iframe>
            </div>
         </md-card>
 
 		
-			   
-	  </article>
 
       <div class="md-actions navigate" layout="row" layout-align="center center">
         <md-button  ui-sref="csharpLambda" >

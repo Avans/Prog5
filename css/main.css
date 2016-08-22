@@ -31,24 +31,6 @@
     fill: white;
     color: white; }
 
-.pp-side-nav{
-  margin-top:56px;
-}
-@media screen and (min-width: 1280px) {
-  .pp-side-nav{
-    margin-top:0px;
-  }
-  .pp-sidenav-left {
-    padding: 16px; }
-    .pp-sidenav-left .md-sidenav-left {
-      margin: 8px;
-      width: 352px; }
-
-  .pp-sidenav-left {
-    position: fixed; }
-
-  .left-column {
-    width: 400px; } }
 .pp-sidenav-left .md-sidenav-backdrop {
   position: fixed; }
 .pp-sidenav-left .md-sidenav-left {
@@ -202,7 +184,6 @@ span.danger {
   max-width: 100%;
   opacity: 1; }
 
-
 #canvas .banner.ng-hide {
   opacity: 0;
   left: -100%; }
@@ -307,6 +288,7 @@ ng-md-icon.active svg {
 
 /*# sourceMappingURL=main.css.map */
 
+
 /** buttons **/
 
 .md-button.small{
@@ -334,11 +316,24 @@ ng-md-icon.active svg {
     font-size:10px;
   }
 
+  md-card{
+    margin-left:0px;
+    margin-right:0px;
+  }
+
 }
 
+@media screen and (min-width: 1280px) {
+  .pp-sidenav-left {
+    padding: 16px; }
+    .pp-sidenav-left .md-sidenav-left {
+      margin: 8px;
+      width: 352px; }
 
+  .pp-sidenav-left {
+    position: fixed; }
 
+  .left-column {
+    width: 400px; } 
 
-[ng\:cloak], [ng-cloak], .ng-cloak {
-  display: none !important;
 }

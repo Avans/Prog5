@@ -8,25 +8,29 @@
     
     
     <article class="md-padding">
-      <h2>Lambda expressies</h2>
+      	<h2>Lambda expressies</h2>
       
-      	<blockquote>
-					"A lambda expression is an anonymous function that you can use to create delegates or expression tree types. By using lambda expressions, you can write local functions that can be passed as arguments or returned as the value of function calls. Lambda expressions are particularly helpful for writing LINQ query expressions.""
-				</blockquote>
+		<blockquote>
+			"A lambda expression is an anonymous function that you can use to create delegates or expression tree types. By using lambda expressions, you can write local functions that can be passed as arguments or returned as the value of function calls. Lambda expressions are particularly helpful for writing LINQ query expressions.""
+		</blockquote>
 				
-				<p>Duidelijk toch? Dat dacht ik al</p>
-				
-				<p>
-					lambda expressies worden gebruikt om Linq queries (zie volgende blokje) te schrijven en om deze toe te kunnen passen is de basiskennis nodig.  
-					Laten we beginnen met de vorm van een lambda expressie.
-				</p>
-        
+		<p>Duidelijk toch? Dat dacht ik al</p>
+		
+		<p>
+			lambda expressies worden gebruikt om Linq queries (zie volgende blokje) te schrijven en om deze toe te kunnen passen is de basiskennis nodig.  
+			Laten we beginnen met de vorm van een lambda expressie.
+		</p>
+	</article>
+
         <md-card>
 <!-- CODE SNIPPET -->		
 <pre class="ppPrettyPrint linenums">
   n => n % 2 == 1 
 </pre>			
         </md-card>
+
+	<article class="md-padding">
+
         
         <p>Wat doet deze expressie nu eigenlijk? Als je een lambda expressie defini&euml;ert, defini&euml;er je onder water een 'anonieme' functie. 
 					Dit is een functie zonder naam, die na het uitvoeren wordt weggegooid. 
@@ -46,8 +50,10 @@
 				<p>
 					Een lambda expressie kan dit voor ons een stuk simpeler maken. 
 				</p>
+
+	</article>
         
-				<section  layout="row" layout-xs="column">
+		<section  layout="row" layout-xs="column">
         	<section flex="1">
 						<md-card >
 							<md-toolbar>
@@ -92,28 +98,30 @@ gefilterd = lijstje.Where(p => p.Lastname == "Smulders")
 				</section>
       </section>
 
+      <article class="md-padding">
+
+
+	
+		<p>
+			De 'Where' functie op de lijst is onderdeel van Linq. Hier gaan we het zo over hebben. Deze vervangt voor ons de 'for loop'.
+		</p>
+
+		<p>
+			Onze lambda statement vervangt in dit voorbeeld de functie "LastnameSmulders". 
+			de p die we meegeven is de naam van de parameter die onze 'anonieme functie' meekrijgt. 
+			De 'Where' statement roept onze anonieme functie aan met elke keer 1 persoon uit de lijst. 
+			Onze expressie wordt omgezet in een boolean. Je zou dit dus als een 'if' statement kunnen lezen. 
+			Alle personen waarbij deze expressie 'true' is worden verzameld in een nieuwe lijst als return value van de functie Where. 
+		</p>
+		<p>
+			Als je vaker gebruik gaat maken van lambda expressies, voelt de syntax vanzelf vertrouwd aan. 
+			lambda expressies kunnen je een hoop tijd besparen!
+		</p>
 			
-				<p>
-					De 'Where' functie op de lijst is onderdeel van Linq. Hier gaan we het zo over hebben. Deze vervangt voor ons de 'for loop'.
-				</p>
-
-				<p>
-					Onze lambda statement vervangt in dit voorbeeld de functie "LastnameSmulders". 
-					de p die we meegeven is de naam van de parameter die onze 'anonieme functie' meekrijgt. 
-					De 'Where' statement roept onze anonieme functie aan met elke keer 1 persoon uit de lijst. 
-					Onze expressie wordt omgezet in een boolean. Je zou dit dus als een 'if' statement kunnen lezen. 
-					Alle personen waarbij deze expressie 'true' is worden verzameld in een nieuwe lijst als return value van de functie Where. 
-				</p>
-				<p>
-					Als je vaker gebruik gaat maken van lambda expressies, voelt de syntax vanzelf vertrouwd aan. 
-					lambda expressies kunnen je een hoop tijd besparen!
-				</p>
-       				
-				<p>
-					Het meegeven van een functie als 'parameter' valt onder de categorie 'delegates'. Hier gaan we later dit blok nog op in. 
-				</p>
-				
-
+		<p>
+			Het meegeven van een functie als 'parameter' valt onder de categorie 'delegates'. Hier gaan we later dit blok nog op in. 
+		</p>
+		
       
 	  </article>
 
