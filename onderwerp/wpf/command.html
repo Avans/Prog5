@@ -30,6 +30,8 @@
 		Een <strong>Command</strong> in WPF is een voorgedefinieerde .NET interface die je toe kan voegen op je model. Je maakt dan de command verantwoordelijk voor de                 aanpassingen op je model, of tot het uitvoeren van een functie op je model. Op regel 18 van de onderstaande code snippit staat de verwijzing naar een implementatie van het interface
 		<strong>ICommand</strong> met de naam SetLowCommand.
 	</p>
+
+</article>
 	
 	<md-card>
 		<md-toolbar>
@@ -83,6 +85,8 @@ public class TemperatureVM : INotifyPropertyChanged
 		<!-- End of code snippet -->
 		</md-card-content>
 	</md-card>
+
+	<article class="md-padding">
 				
 	<p>
 		Command objecten bestaan uit 4 onderdelen:
@@ -103,7 +107,8 @@ public class TemperatureVM : INotifyPropertyChanged
 		Het kan zo zijn dat er meerdere knoppen een binding hebben met je gedefinieerde command. Het <strong>CanExecuteChanged</strong> event zorgt er voor dat
 		alle XAML elementen ge&uuml;pdatet worden wanneer de waarde van <strong>CanExecute</strong> wijzigt.
 	</p>
-				
+	
+	</article>
 	
 	<md-card>
 		<md-toolbar>

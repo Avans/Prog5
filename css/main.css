@@ -31,6 +31,27 @@
     fill: white;
     color: white; }
 
+@media screen and (min-width: 1280px) {
+  .pp-sidenav-left {
+    padding: 16px; }
+    .pp-sidenav-left .md-sidenav-left {
+      margin: 8px;
+      width: 352px; }
+
+  .pp-sidenav-left {
+    position: fixed; }
+
+  .left-column {
+    width: 400px; } }
+/** When on mobile**/
+@media only screen and (max-width: 420px) {
+  md-card {
+    margin: 8px 0px; }
+
+  .responsive {
+    float: none;
+    width: 100%;
+    margin: 8px 0px; } }
 .pp-sidenav-left .md-sidenav-backdrop {
   position: fixed; }
 .pp-sidenav-left .md-sidenav-left {
@@ -241,14 +262,15 @@ span.danger {
   text-decoration: line-through; }
 
 /** Video wrapper iframe **/
-.videoWrapper {
+.embed-container {
   position: relative;
   padding-bottom: 56.25%;
-  /* 16:9 */
-  padding-top: 25px;
-  height: 0; }
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto; }
 
-.videoWrapper iframe {
+.embed-container iframe, .embed-container object, .embed-container embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -287,53 +309,3 @@ ng-md-icon.active svg {
   transform: translate(0px, 100%); }
 
 /*# sourceMappingURL=main.css.map */
-
-
-/** buttons **/
-
-.md-button.small{
-  min-width: 0;
-}
-
-/* Smartphones (portrait) ----------- */
-@media only screen and (max-width : 420px) {
-  #canvas .banner{
-      display: none;
-  }
-
-  img.responsive, .photo{
-    float:none;
-    width:100%;
-    margin-left:0px;
-  }
-
-  .withSkyline{
-    background-position: 95% 100%;
-    background-size: 100px 30px;
-  }
-
-  .ppPrettyPrint{
-    font-size:10px;
-  }
-
-  md-card{
-    margin-left:0px;
-    margin-right:0px;
-  }
-
-}
-
-@media screen and (min-width: 1280px) {
-  .pp-sidenav-left {
-    padding: 16px; }
-    .pp-sidenav-left .md-sidenav-left {
-      margin: 8px;
-      width: 352px; }
-
-  .pp-sidenav-left {
-    position: fixed; }
-
-  .left-column {
-    width: 400px; } 
-
-}

@@ -12,7 +12,8 @@
 		<p>
         WPF bied je de mogelijkheid tot het data-binden van informatie aan je view. 
         In de andere variant van .NET (Windows Forms) had je ook al de mogelijkheid tot het binden van je data aan je view.
-        Er werd alleen de mogelijkheid ondersteund tot <b>one-way binding.</b </p>
+        Er werd alleen de mogelijkheid ondersteund tot <b>one-way binding.</b> </p>
+		</p>
         <p>
         In WPF kun je nu ook <b>two-way</b> bindingen implementeren. Dit zorgt er voor dat je model altijd up-2-date is van de laatste aanpassingen door de gebruiker.
         Hierdoor word je model je 'single-source-of-truth' en hoef je je niet af te vragen of het model al is geüpdate door de view.
@@ -45,6 +46,7 @@
                 <li>Een XAML element om de data te tonen</li>  
             </ul>
         </p>
+    </article>
                  
         <section  layout="row" layout-xs="column">
         	<section flex="1">
@@ -80,6 +82,8 @@ public class TemperatureVM
                 </md-card>
             </section>
         </section>
+
+        <article class="md-padding">
         
             <h4>View Model</h4>
     
@@ -100,12 +104,13 @@ public class TemperatureVM
                 Je kunt elke include een eigen naam geven zodat je via deze naam de onderliggende classes kunt benaderen. 
                 In het voorbeeld noem ik de namespace 'local'.
             </p>
+    </article>
             
         <section  layout="row" layout-xs="column">
         	<section flex="1">
                 <md-card flex>
                     <md-toolbar>
-                        <h1 class="md-toolbar-tools">Decleratief</h1>
+                        <h1 class="md-toolbar-tools">Declaratief</h1>
                     </md-toolbar>
                     <md-card-content>
                             
@@ -141,6 +146,8 @@ public MainWindow()
                 </md-card>
             </section>
         </section>
+
+        <article class="md-padding">
             
         <h4>Property</h4>
         
@@ -187,6 +194,7 @@ public MainWindow()
         <strong>UpdateSourceTrigger</strong>. 
     </p>
     
+    </article>
     
     
 

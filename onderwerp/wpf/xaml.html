@@ -16,6 +16,8 @@
 			Je bouwt een boom van <strong>Elementen</strong>  en de eigenschappen van deze elementen plaats je in <strong>Attributen</strong>.
 			Deze geneste objecten leiden tot een 'element tree' die gecompileerd wordt tot een user interface.
 		</p>
+
+    </article>
       
        <md-card>
 			<img src="onderwerp/wpf/img/windows8-winrt_thumb.png" class="img-thumbnail"/>
@@ -38,22 +40,7 @@
 				</p>
 			</md-card-content>
 		</md-card>
-			
-		
-		<p>
-			Je kunt de volgende elementen met XAML defini&euml;ren:
-		</p>
-		
-		<ul>
-			<li>Windows</li>
-			<li>dialog boxes</li>
-			<li>pages</li>
-			<li class="important">user controls!</li>
-      <li>controls</li>
-			<li>Shapes</li>
-			<li>graphics</li>
-		</ul>
-		
+				
 		<md-card>
 			<md-toolbar>
 					<h1 class="md-toolbar-tools">XAML</h1>
@@ -72,6 +59,8 @@
 &lt;/Window&gt;</pre>
 			</md-card-content>
 		</md-card>
+
+	<article class="md-padding">
 		
 		<p class="top-buffer" >
 				WPF wordt voornamelijk gebruikt voor desktop-applicaties en Windows Apps. Daarnaast heb je ook nog 
@@ -91,10 +80,13 @@
 			Een dergelijke class heb je ook in elementen met XAML. Dit is de <strong>Application</strong> class en heeft een bijbehorend XAML element wat hem tot stand brengt.
 			In dit element kun je aangeven bij welk window je wilt beginnen.
 		</p>
-		
-		<h4>Console application</h4>
+
+	</article>
 		
 		<md-card>
+			<md-toolbar>
+				<h1 class="md-toolbar-tools">Console application</h1>
+			</md-toolbar>
 			<md-card-content>
 			<!-- code snippet -->
 			<pre class="ppPrettyPrint linenums">
@@ -105,34 +97,36 @@ class Program
     {
     }
 }</pre>
-			</md-card-content>
-		</md-card>
-		
-		<h4>WPF application</h4>
-	
-	<md-card>
-		<md-card-content>
-			<!-- code snippet -->
-			<pre class="ppPrettyPrint linenums">
-
-&lt;Application
-    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; 
-    StartupUri=&quot;MainWindow.xaml&quot; /&gt;    </pre>
 		</md-card-content>
 	</md-card>
+	
 
 	<md-card>
+		<md-toolbar>
+				<h1 class="md-toolbar-tools">WPF application</h1>
+			</md-toolbar>
 		<md-card-content>
 			<!-- code snippet -->
 			<pre class="ppPrettyPrint linenums">
+//App.xaml
+&lt;Application
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; 
+    StartupUri=&quot;MainWindow.xaml&quot; /&gt;    
+</pre>
+
+			<!-- code snippet -->
+			<pre class="ppPrettyPrint linenums">
+//App.xaml.cs
 public partial class App : Application
 {
 	//code behind logic
 }</pre>    	
 		</md-card-content>
 	</md-card>
-	
-			<img src="onderwerp/wpf/img/XAMLFiles.png"  class="photo img-right center-block" />
+
+	<img src="onderwerp/wpf/img/XAMLFiles.png"  class="photo responsive img-right center-block" />
+
+	<article class="md-padding">
 
 			
 			<p>

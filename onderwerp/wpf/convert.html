@@ -23,27 +23,33 @@
         <strong>#SOC</strong> is hip en trending. Ook in dit geval willen we onze logica lostrekken uit de view, maar ook uit het model. 
         Dit is de plek waar we <strong>Converters</strong> kunnen gebruiken.  
     </p>
+
+  </article>
     
 
-    <section  layout="row" layout-xs="column">
+    <section  layout-xs="column">
         <section flex="1">
+
+            <article class="md-padding">
+                
             
-        <h4>IValueConverter</h4>
-        <p>De WPF library bevat een interface genaamd <strong>IValueConverter</strong> met een methode <strong>Convert</strong> en een 
-            methode <strong>ConvertBack</strong>. Deze method's hebben een input parameter van het type object, en een return value van het type object.
-            Hier kun je eventuele logica in kwijt voor het bewerken van je data die uitgevoerd wordt tijdens de two-way binding.     
-        </p>
-        
-        <md-card class="md-padding">
-            <img class="top-buffer" src="onderwerp/wpf/img/valueconverters.png" />
-        </md-card>
-        
-        <p class="top-buffer">
-            Naast een collectie van voorgedefinieerde converters kun je dus ook je eigen converter bouwen volgens de regels hierboven. 
-            Je kunt zelf een klasse uitbreiden met de interface <strong>IValueConverter</strong> en de bijbehorende methodes implementeren. 
-            Je kunt nu je eigen logica kwijt in deze converter.
-        
-        </p>
+                <h4>IValueConverter</h4>
+                <p>De WPF library bevat een interface genaamd <strong>IValueConverter</strong> met een methode <strong>Convert</strong> en een 
+                    methode <strong>ConvertBack</strong>. Deze method's hebben een input parameter van het type object, en een return value van het type object.
+                    Hier kun je eventuele logica in kwijt voor het bewerken van je data die uitgevoerd wordt tijdens de two-way binding.     
+                </p>
+                
+                <md-card class="md-padding">
+                    <img class="top-buffer" src="onderwerp/wpf/img/valueconverters.png" />
+                </md-card>
+                
+                <p class="top-buffer">
+                    Naast een collectie van voorgedefinieerde converters kun je dus ook je eigen converter bouwen volgens de regels hierboven. 
+                    Je kunt zelf een klasse uitbreiden met de interface <strong>IValueConverter</strong> en de bijbehorende methodes implementeren. 
+                    Je kunt nu je eigen logica kwijt in deze converter.   
+                </p>
+
+            </article>
         
         </section>
         <section>
@@ -80,7 +86,8 @@
             </md-card-content>
           </md-card>  
         </section>
-    </div>
+    </section>
+  </article>
 
      <md-card>
         <md-toolbar>
@@ -109,6 +116,8 @@ class DegreesToAngleConverter : IValueConverter
         </md-card-content>
     </md-card>
 
+    <article class="md-padding">
+
     <p>
         Hierna kun je deze converter gebruiken in je project. Je kunt vanuit de XAML code aangeven dat je een converter 
         wilt toepassen op een bepaalde binding. In het voorbeeld wordt een XAML element genaamd <strong>Image.RenderTransform</strong> gebruikt om het plaatje
@@ -121,6 +130,8 @@ class DegreesToAngleConverter : IValueConverter
     <h4>Converter Resource</h4>
     
     <p>Met een referentie naar je gedefinieerde class en een naam om hem terug te vinden (key). </p>
+
+    </article>
     
       <md-card>
         <md-card-content>                    
@@ -131,11 +142,15 @@ class DegreesToAngleConverter : IValueConverter
 &lt;/Window.Resources&gt;</pre>
         </md-card-content>
     </md-card>
+
+    <article class="md-padding">
+        <h4>XAML</h4>
     
-    <h4>XAML</h4>
+        <p>Een van de manieren om een converter in te zetten. Bij elke binding kun je een eventuele converter mee geven.</p>
     
-    <p>Een van de manieren om een converter in te zetten. Bij elke binding kun je een eventuele converter mee geven.</p>
+    </article>
     
+  
    <md-card>
         <md-toolbar>
             <h1 class="md-toolbar-tools">Voorbeeld angle converter</h1>
