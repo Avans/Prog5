@@ -1,7 +1,7 @@
 .container{
 	background-color: #eee;
 	min-height: 100%;
-	margin-top:53px;
+	margin-top:48px;
 }
 
 .theHeader{
@@ -16,12 +16,6 @@
 
 .max-sized{max-width: 60em;}
 .padding-top{padding-top:30px;}
-
-.pp-side-nav{
-	padding:30px;
-	
-}
-
 
 .cardholder{
 	position:relative;

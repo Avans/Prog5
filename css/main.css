@@ -33,13 +33,10 @@
 
 @media screen and (min-width: 1280px) {
   .pp-sidenav-left {
-    padding: 16px; }
+    position: fixed; }
     .pp-sidenav-left .md-sidenav-left {
       margin: 8px;
       width: 352px; }
-
-  .pp-sidenav-left {
-    position: fixed; }
 
   .left-column {
     width: 400px; } }
@@ -55,8 +52,18 @@
 .pp-sidenav-left .md-sidenav-backdrop {
   position: fixed; }
 .pp-sidenav-left .md-sidenav-left {
+  position: fixed;
+  z-index: 999; }
+.pp-sidenav-left span {
   border-left: 7px solid darkgray;
-  position: fixed; }
+  padding: 5px 20px; }
+.pp-sidenav-left a {
+  padding: 5px;
+  display: block; }
+.pp-sidenav-left span:hover, .pp-sidenav-left .open {
+  border-left: 7px solid #2196f3; }
+.pp-sidenav-left ol {
+  border-left: 7px solid #2196f3; }
 
 .assignment {
   margin-bottom: 22px; }

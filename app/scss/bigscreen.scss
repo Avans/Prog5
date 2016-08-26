@@ -1,21 +1,17 @@
 @media screen and (min-width: 1280px) {
     
     .pp-sidenav-left{
-        padding: $default-padding;
+        position: fixed;
 
         .md-sidenav-left{
             margin:8px;
             width:400 - $default-padding * 3; //400 minus padding
         }
-    }
 
-    .pp-sidenav-left{
-        position: fixed;
     }
 
     .left-column{
         width:400px;
     }
-
 
 }

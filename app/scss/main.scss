@@ -8,14 +8,31 @@
 
 .pp-sidenav-left{
 	
-
 	.md-sidenav-backdrop{
 		position: fixed;
 	}
 
 	.md-sidenav-left{
-		border-left:$category-border-size solid darkgray;
 		position: fixed;
+		z-index: 999;
+	}
+
+	span{
+		border-left:$category-border-size solid darkgray;
+		padding:5px 20px;
+	}
+
+	a{
+		padding:5px;
+		display: block;
+	}
+
+	span:hover, .open{
+		border-left:$category-border-size solid $primary-color;
+	}
+
+	ol{
+		border-left:$category-border-size solid $primary-color;
 	}
 
 }
