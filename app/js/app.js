@@ -33,6 +33,8 @@ var sbLoad = require('./directives/sbLoad');
 var twentytwenty = require('./directives/twentytwenty');
 var hoverCtrl = require('./controllers/hoverCtrl');
 
+var emailShort = require('./filters/emailshort');
+
 //Add the controller and config to the module
 app.controller('appCtrl', appCtrl);
 app.controller('towerCtrl', towerCtrl);
@@ -43,6 +45,8 @@ app.controller('assignmentCtrl', require("./controllers/assignmentCtrl"));
 
 app.directive('sbLoad', sbLoad);
 app.directive('twentytwenty', twentytwenty);
+
+app.filter('emailShort',  emailShort);
 
 app.config(routesConfig);
 

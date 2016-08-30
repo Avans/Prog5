@@ -37,7 +37,14 @@
 
 }
 
-.assignment{ margin-bottom:22px; }
+@for $i from 1 through 4{
+	 .indent-#{$i} { 
+    	padding-left: 6 * $i + px;
+		margin-bottom:28px;
+	}
+}
+  
+
 .header{ 
 	padding: $default-padding; 
 	position: relative; 
@@ -48,14 +55,42 @@
 .header h2{ font-size:36px; margin-bottom:5px;}
 
 
+.reviews{
+
+	h3{
+		margin:4px;
+	}
+
+	table{
+		width:100%;
+		border-collapse: collapse; 
+
+		
+		td{
+			padding:11px;
+			text-align: center;
+		}
+
+		td.td, td.top{
+			max-width:35%;
+		}
+
+		tr{
+			border-bottom:1px solid lightgray;
+		}
+
+	}
+}
 
 .assignmentOverview .assignment{
+	margin-bottom:6px;
+	padding:22px;
 	position: relative;
 	border-left:$category-border-size solid darkgray;
 
 	&.complete {
 		border-color: #259b24;
-		padding:5px;
+		padding:11px;
 
 		h2{
 			margin:0px;
@@ -76,6 +111,10 @@
 
 .sub{
 	border-bottom:1px solid #eee;
+}
+
+.sub.reviews{
+	border-bottom:1px solid $warning;
 }
 
 .toggle:hover{
@@ -150,22 +189,34 @@ span.danger{ color: $danger; }
     animation-duration: 70s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
-	left:-100%;
+	-ms-transform: translate(-100%, 0px); /* IE 9 */
+    -webkit-transform: translate(-100%, 0px); /* Safari */
+    transform: translate(-100%, 0px);
 }
 
 #canvas .cloud.reverse{
 	animation-name: cloud-reverse;
-	left:100%;
+	-ms-transform: translate(100%, 0px); /* IE 9 */
+    -webkit-transform: translate(100%, 0px); /* Safari */
+    transform: translate(100%, 0px);
 }
 
 @keyframes cloud {
-    0%   {left:-100%}
-    100% {left:100%;}
+    0%   {	-ms-transform: translate(-100%, 0px); /* IE 9 */
+    -webkit-transform: translate(-100%, 0px); /* Safari */
+    transform: translate(-100%, 0px);}
+    100% {	-ms-transform: translate(100%, 0px); /* IE 9 */
+    -webkit-transform: translate(100%, 0px); /* Safari */
+    transform: translate(100%, 0px);}
 }
 
 @keyframes cloud-reverse {
-    0%   {left:100%}
-    100% {left:-100%;}
+    0%   {	-ms-transform: translate(100%, 0px); /* IE 9 */
+    -webkit-transform: translate(100%, 0px); /* Safari */
+    transform: translate(100%, 0px);}
+    100% {	-ms-transform: translate(-100%, 0px); /* IE 9 */
+    -webkit-transform: translate(-100%, 0px); /* Safari */
+    transform: translate(-100%, 0px);}
 }
 
 

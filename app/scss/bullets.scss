@@ -12,7 +12,7 @@
         color:black;
     }
   
-    .points{
+    .points, .reviews{
         width:56px;
         height:56px;
         margin:6px;
@@ -27,12 +27,23 @@
         color:black;
         background-color:white;
         vertical-align: middle;
+
+        ng-md-icon{
+            fill: white;
+        }
     }
+    
+    .reviews{
+        background-color: $warning;
+    }
+
 
     .completed{
         background-color: $primary-color;
         fill:white; color: white;
     }
+
+
 
 }
 

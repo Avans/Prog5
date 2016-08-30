@@ -11,7 +11,7 @@
   .bullets .md-fab {
     background-color: white;
     color: black; }
-  .bullets .points {
+  .bullets .points, .bullets .reviews {
     width: 56px;
     height: 56px;
     margin: 6px;
@@ -26,6 +26,10 @@
     color: black;
     background-color: white;
     vertical-align: middle; }
+    .bullets .points ng-md-icon, .bullets .reviews ng-md-icon {
+      fill: white; }
+  .bullets .reviews {
+    background-color: #FFB901; }
   .bullets .completed {
     background-color: #2196f3;
     fill: white;
@@ -65,8 +69,21 @@
 .pp-sidenav-left ol {
   border-left: 7px solid #2196f3; }
 
-.assignment {
-  margin-bottom: 22px; }
+.indent-1 {
+  padding-left: 6px;
+  margin-bottom: 28px; }
+
+.indent-2 {
+  padding-left: 12px;
+  margin-bottom: 28px; }
+
+.indent-3 {
+  padding-left: 18px;
+  margin-bottom: 28px; }
+
+.indent-4 {
+  padding-left: 24px;
+  margin-bottom: 28px; }
 
 .header {
   padding: 16px;
@@ -78,12 +95,27 @@
   font-size: 36px;
   margin-bottom: 5px; }
 
+.reviews h3 {
+  margin: 4px; }
+.reviews table {
+  width: 100%;
+  border-collapse: collapse; }
+  .reviews table td {
+    padding: 11px;
+    text-align: center; }
+  .reviews table td.td, .reviews table td.top {
+    max-width: 35%; }
+  .reviews table tr {
+    border-bottom: 1px solid lightgray; }
+
 .assignmentOverview .assignment {
+  margin-bottom: 6px;
+  padding: 22px;
   position: relative;
   border-left: 7px solid darkgray; }
   .assignmentOverview .assignment.complete {
     border-color: #259b24;
-    padding: 5px; }
+    padding: 11px; }
     .assignmentOverview .assignment.complete h2 {
       margin: 0px; }
   .assignmentOverview .assignment:hover {
@@ -95,6 +127,9 @@
 
 .sub {
   border-bottom: 1px solid #eee; }
+
+.sub.reviews {
+  border-bottom: 1px solid #FFB901; }
 
 .toggle:hover {
   fill: white;
@@ -181,22 +216,46 @@ span.danger {
   animation-duration: 70s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  left: -100%; }
+  -ms-transform: translate(-100%, 0px);
+  /* IE 9 */
+  -webkit-transform: translate(-100%, 0px);
+  /* Safari */
+  transform: translate(-100%, 0px); }
 
 #canvas .cloud.reverse {
   animation-name: cloud-reverse;
-  left: 100%; }
+  -ms-transform: translate(100%, 0px);
+  /* IE 9 */
+  -webkit-transform: translate(100%, 0px);
+  /* Safari */
+  transform: translate(100%, 0px); }
 
 @keyframes cloud {
   0% {
-    left: -100%; }
+    -ms-transform: translate(-100%, 0px);
+    /* IE 9 */
+    -webkit-transform: translate(-100%, 0px);
+    /* Safari */
+    transform: translate(-100%, 0px); }
   100% {
-    left: 100%; } }
+    -ms-transform: translate(100%, 0px);
+    /* IE 9 */
+    -webkit-transform: translate(100%, 0px);
+    /* Safari */
+    transform: translate(100%, 0px); } }
 @keyframes cloud-reverse {
   0% {
-    left: 100%; }
+    -ms-transform: translate(100%, 0px);
+    /* IE 9 */
+    -webkit-transform: translate(100%, 0px);
+    /* Safari */
+    transform: translate(100%, 0px); }
   100% {
-    left: -100%; } }
+    -ms-transform: translate(-100%, 0px);
+    /* IE 9 */
+    -webkit-transform: translate(-100%, 0px);
+    /* Safari */
+    transform: translate(-100%, 0px); } }
 #canvas .banner {
   color: black;
   position: absolute;

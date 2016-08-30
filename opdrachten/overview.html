@@ -6,18 +6,16 @@
 <section class="content-center" ng-controller="ppAuthCtrl">
 <section class="max-sized assignmentOverview" ng-controller="assignmentCtrl">
 
-    
-    
+    <div ng-repeat="assignment in assignments | orderBy: '+metatag'">
     <md-card class="assignment grayed" 
         layout="row"
         pp-assignment="assignment.name"
-        ng-repeat="assignment in assignments | orderBy: '+metatag'" 
         ng-class="{complete: assignment.isComplete }">
 
 
         <div class="md-padding">
             <h2 class="md-title">{{assignment.descr}}</h2>
-            <span ng-hide="assignment.isComplete" class="completed">Completed by {{assignment.completedBy.length}} students</span>
+            <span class="completed">Completed by {{assignment.completedBy.length}} students</span>
         </div>
 
         <div flex class="">
@@ -54,6 +52,58 @@
             </div>
         </div>
     </md-card>
+    <section class="indent-4 reviews" >
+        <md-card ng-show="assignment.mySubmission.reviews.length != 0" >
+            <md-card-content>
+
+                <h3>Reviews</h3>
+
+                <table>
+                    <tr>
+                        <th>
+                            <ng-md-icon icon="person" size="22">
+                                <md-tooltip>
+                                        Writer
+                                </md-tooltip>
+                            </ng-md-icon>
+                        </th>
+                        <th>Score</th>
+                        <th>
+                            <ng-md-icon icon="thumb_up" size="22">
+                                <md-tooltip>
+                                        Top
+                                </md-tooltip>
+                            </ng-md-icon>
+                        </th>
+                        <th>
+                            <ng-md-icon icon="warning" size="22">
+                                <md-tooltip>
+                                        Tip
+                                </md-tooltip>
+                            </ng-md-icon>
+                        </th>
+                    </tr>
+                    <tr class="review" ng-repeat="review in assignment.mySubmission.reviews">
+                        <td>{{review.userId | emailShort}}</td>
+                        <td>{{review.score}}</td>
+                        <td class="top">
+                          
+                            {{review.top}}
+                        </td>
+                        <td class="tip">
+                         
+                            {{review.tip}}
+                        </td>
+                    </tr>
+                </table>
+
+             
+                
+            </md-card-content>
+        </md-card>
+    </section>
+    </div>
+
     
     
 </section>
