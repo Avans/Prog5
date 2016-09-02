@@ -95,32 +95,26 @@
   font-size: 36px;
   margin-bottom: 5px; }
 
-.reviews h3 {
-  margin: 4px; }
-.reviews table {
-  width: 100%;
-  border-collapse: collapse; }
-  .reviews table td {
-    padding: 11px;
-    text-align: center; }
-  .reviews table td.td, .reviews table td.top {
-    max-width: 35%; }
-  .reviews table tr {
-    border-bottom: 1px solid lightgray; }
+.reviews {
+  text-align: left; }
+  .reviews td {
+    padding: 5px;
+    padding-right: 25px; }
 
 .assignmentOverview .assignment {
   margin-bottom: 6px;
-  padding: 22px;
-  position: relative;
   border-left: 7px solid darkgray; }
+  .assignmentOverview .assignment .assignmentHeader {
+    padding: 22px;
+    position: relative; }
+  .assignmentOverview .assignment md-card-content {
+    background-color: white; }
   .assignmentOverview .assignment.complete {
-    border-color: #259b24;
-    padding: 11px; }
+    border-color: #259b24; }
+    .assignmentOverview .assignment.complete .assignmentHeader {
+      padding: 8px; }
     .assignmentOverview .assignment.complete h2 {
       margin: 0px; }
-  .assignmentOverview .assignment:hover {
-    background-color: white;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2); }
 
 .grayed {
   background-color: #f9f9f9; }

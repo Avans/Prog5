@@ -57,49 +57,37 @@
 
 .reviews{
 
-	h3{
-		margin:4px;
-	}
+	text-align: left;
 
-	table{
-		width:100%;
-		border-collapse: collapse; 
-
-		
-		td{
-			padding:11px;
-			text-align: center;
-		}
-
-		td.td, td.top{
-			max-width:35%;
-		}
-
-		tr{
-			border-bottom:1px solid lightgray;
-		}
-
+	td{
+		padding:5px;
+		padding-right:25px;
 	}
 }
 
 .assignmentOverview .assignment{
 	margin-bottom:6px;
-	padding:22px;
-	position: relative;
 	border-left:$category-border-size solid darkgray;
+
+	.assignmentHeader{
+		padding:22px;
+		position: relative;
+	}
+
+	md-card-content{
+		background-color:white;
+	}
 
 	&.complete {
 		border-color: #259b24;
-		padding:11px;
+
+		.assignmentHeader{
+			padding:8px;
+		}
 
 		h2{
 			margin:0px;
 		}
-	}
-
-	&:hover{
-		background-color:white;
-		box-shadow: $shadow-2;
 	}
 	
 }
