@@ -28,7 +28,7 @@
                 </ng-md-icon> 
             </md-button>
 
-            <div class="reviews" ng-show="assignment.mySubmission.reviews" >
+            <div class="reviews" ng-show="assignment.mySubmission && assignment.mySubmission.reviews.length != 0" >
                 <ng-md-icon icon="warning" size="22">
                 <md-tooltip><b>Reviews available!</b> Check assignment overview.</md-tooltip>
             </div>
