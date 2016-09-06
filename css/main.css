@@ -368,4 +368,16 @@ ng-md-icon.active svg {
 .animate-show.ng-hide {
   transform: translate(0px, 100%); }
 
+.feeling img {
+  max-height: 50px;
+  max-width: 30%;
+  margin: 10px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); }
+.feeling img.selected {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%); }
+.feeling img:hover {
+  cursor: pointer; }
+
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,45 @@
+<md-dialog class="feedbackDialog"  aria-label="Give feedback"ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Give feedback</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancelDialog()">
+           <ng-md-icon icon="close" size="24">
+                <md-tooltip>
+                   Close dialog
+                </md-tooltip>
+            </ng-md-icon> 
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content class="md-padding">
+        
+        <p>Feedback is anoniem, en wordt gebruikt om de lesstof en het webdictaat te verbeteren.</p>
+
+        <p>Wat is je gevoel op dit moment?</p>
+
+        <div class="form-group feeling">
+
+            <div class="col-lg-10">
+                <img src="default/img/sad.png" ng-class="{selected: feeling == 'sad'}" ng-click="feeling = 'sad'" >
+                <img src="default/img/okay.png"  ng-class="{selected: feeling == 'okay'}" ng-click="feeling = 'okay'" >
+                <img src="default/img/happy.png"  ng-class="{selected: feeling == 'happy'}" ng-click="feeling = 'happy'" >
+            </div>
+        </div>   
+
+        <md-input-container class="md-block">
+        <label>Toelichtin</label>
+          <textarea ng-model="description" required md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+
+    </md-dialog-content>
+    <md-dialog-actions layout="row">  
+        <md-button class="md-raised md-warn" ng-click="cancelDialog()">Cancel</md-button>
+        <span flex></span>
+        <md-button class="md-raised md-primary" ng-click="sendFeedback()">Submit</md-button>
+
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+  

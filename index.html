@@ -75,9 +75,15 @@
           <md-button ng-show="!user"  aria-label="Login" ng-click="login()">
             Login
           </md-button>
+          
+          <h3 class="md-title points" ng-show="user">{{user.totalPoints}} punten!</h3>
+
+          <md-button ng-click="$root.showDialog('feedback', $event)" class="md-icon-button" aria-label="Settings">
+            <ng-md-icon icon="feedback" style="fill: white" size="32"></ng-md-icon> 
+          </md-button>
         
           <a ui-sref="profile" ng-show="user">
-            <md-button  ng-show="user" class="md-icon-button" aria-label="Settings">
+            <md-button  class="md-icon-button" aria-label="Settings">
               <ng-md-icon icon="account_circle" style="fill: white" size="32"></ng-md-icon> 
             </md-button>
           </a>

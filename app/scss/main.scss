@@ -349,5 +349,26 @@ ng-md-icon.active svg{
 }
 
 
+.feeling{
+
+	img{
+		max-height:50px;
+		max-width:30%;
+		margin:10px;
+		-webkit-filter: grayscale(100%);
+		filter: grayscale(100%);
+	}
+
+
+	img.selected{
+		-webkit-filter: grayscale(0%);
+		filter: grayscale(0%);
+	}
+
+
+	img:hover{
+		cursor:pointer;
+	}
+}
 
 

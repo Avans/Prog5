@@ -32,6 +32,7 @@ var towerCtrl = require('./controllers/towerCtrl');
 var sbLoad = require('./directives/sbLoad');
 var twentytwenty = require('./directives/twentytwenty');
 var hoverCtrl = require('./controllers/hoverCtrl');
+var feedbackCtrl =  require('./controllers/feedbackCtrl');
 
 var emailShort = require('./filters/emailshort');
 
@@ -41,6 +42,8 @@ app.controller('towerCtrl', towerCtrl);
 app.controller('hoverCtrl', hoverCtrl);
 app.controller('submitCtrl', submitCtrl);
 app.controller('reviewCtrl', reviewCtrl);
+app.controller('feedbackCtrl', feedbackCtrl);
+
 app.controller('assignmentCtrl', require("./controllers/assignmentCtrl"));
 
 app.directive('sbLoad', sbLoad);
