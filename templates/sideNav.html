@@ -9,14 +9,15 @@
 
 
 	<md-toolbar layout="row" hide-gt-md class="md-hue-2">
-      <div class="md-toolbar-tools">
-        
-        <md-button  ng-click="toggleLeft()" class="md-icon-button" aria-label="Settings">
-          <ng-md-icon icon="menu" style="fill: white" size="36"></ng-md-icon> 
+      <div class="md-toolbar-tools" layout="row">
+        <section flex></section>
+		<md-button ng-click="toggleLeft()" class="md-icon-button md-accent" aria-label="Menu">
+          <ng-md-icon icon="close" style="fill: white" size="26"></ng-md-icon> 
             <md-tooltip>
                 Side Nav
             </md-tooltip>
         </md-button>
+
       </div>
 	</md-toolbar>
 
