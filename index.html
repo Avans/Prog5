@@ -1,264 +1,108 @@
 <html lang="en" ng-app="Prog5">
 <head>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
-	<link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.min.css"></link>
-	<link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css"></link>
-	<link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/roboto.min.css"></link>
-	<link rel="stylesheet" href="bower_components/twentytwenty/twentytwenty.css" />
-	<link rel="stylesheet" href="bower_components/prettify/prettify.css" />
-	<link rel="stylesheet" href="http://advans.herokuapp.com/css/style.css" />
-	<link rel="stylesheet" href="css/theme.css"/>
-	<link rel="stylesheet" href="css/main.css"/>
-	<link rel="stylesheet" href="css/timeline.css"/>
-	
-	
-	<title>Prog5</title>
-	
-	
-	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-animate.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-	<!-- Das pointy pony -->
-	<!-- Change this line to prod before release -->
-
-	<script src="http://advans.herokuapp.com/js/pointypony.js"></script>
-	<!--<script src="http://localhost:3000/js/pointypony.js"></script>-->
 
 	
-	<!-- Material design -->
-	<script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
-	<script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
-	<script src="bower_components/prettify/prettify.js"></script>
-	
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular.min.js" defer></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-animate.js" defer></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js" defer></script> 
+  <script src="bower_components/prettify/prettify.js"></script>
+
 	<!-- Twenty Twenty -->
 	<script src="bower_components/twentytwenty/jquery.event.move.js"></script>
 	<script src="bower_components/twentytwenty/jquery.twentytwenty.js"></script>
-	
-	
- 	<script src="app.js" defer></script>
+  
+  <!-- Angular Material Dependencies -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.8/angular-material.min.js" defer></script>
+
+	<!-- Das pointy pony -->
+	<script src="http://advans.herokuapp.com/js/pointypony.js"></script>
+	<!--<script src="http://localhost:3000/js/pointypony.js"></script>-->
+
+  <meta name="viewport" content="initial-scale=1" />
+ 	<script src="js/app.js" defer></script>
+   
+   	<title>Prog 5</title>
+   
+   	<!-- Angular material design css -->
+	<!-- https://material.angularjs.org/latest/ -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.8/angular-material.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+
+ 	<!-- Common styles -->
+  <link rel="stylesheet" href="bower_components/prettify/prettify.css" />
+  <link rel="stylesheet" href="bower_components/twentytwenty/twentytwenty.css" />
+	<link rel="stylesheet" href="http://advans.herokuapp.com/css/style.css" />
+	<link rel="stylesheet" href="css/theme.css"/>
+	<link rel="stylesheet" href="css/main.css"/>
+	<link rel="stylesheet" href="css/leaderboard.css"/>
+    
 
 </head>
-<body>
-	
-	<div class="navbar navbar-inverse" ng-controller="authCtrl">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" ui-sref="home">Prog5</a>
-        </div>
-        <div class="navbar-collapse collapse navbar-inverse-collapse">
-          <ul class="nav navbar-nav smallnav">
-            <li >
-              <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Week 1<b class="caret"></b><div class="ripple-wrapper"></div></a>
-              <ul class="dropdown-menu">
-                <li><a ui-sref="week1">Informatie</a></li>
-                <li><a ui-sref="week1Opdrachten">Opdrachten</a></li>
-              </ul>
-            </li>
-			<li class="dropdown">
-              <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Week 2<b class="caret"></b><div class="ripple-wrapper"></div></a>
-              <ul class="dropdown-menu">
-                <li><a ui-sref="week2">Informatie</a></li>
-                <li><a ui-sref="week2Opdrachten">Opdrachten</a></li>
-              </ul>
-            </li>
-			<li class="dropdown">
-              <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Week 3<b class="caret"></b><div class="ripple-wrapper"></div></a>
-              <ul class="dropdown-menu">
-                <li><a ui-sref="week3a">Introductie WPF</a></li>
-				<li><a ui-sref="week3b">WPF Basics</a></li>
-                <li><a ui-sref="week3Opdrachten">Opdrachten</a></li>
-              </ul>
-            </li>
-			<li class="dropdown">
-              <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Week 4<b class="caret"></b><div class="ripple-wrapper"></div></a>
-              <ul class="dropdown-menu">
-                <li><a ui-sref="week4">MvvM</a></li>
-                <li><a ui-sref="week4Opdrachten">Opdrachten</a></li>
-              </ul>
-            </li>
-			<li class="dropdown">
-              <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Week 5<b class="caret"></b><div class="ripple-wrapper"></div></a>
-              <ul class="dropdown-menu">
-                <li><a ui-sref="week5">Entity Framework</a></li>
-                <li><a ui-sref="week5Opdrachten">Opdrachten</a></li>
-              </ul>
-            </li>
-			<li class="dropdown">
-              <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Week 6<b class="caret"></b><div class="ripple-wrapper"></div></a>
-              <ul class="dropdown-menu">
-                <li><a ui-sref="week6">Introductie WPF</a></li>
-                <li><a ui-sref="week6Opdrachten">Opdrachten</a></li>
-              </ul>
-            </li>
-          </ul>
-		  
-		  <ul class="nav navbar-nav navbar-left" >
-			  <li class="dropdown">
-		  		<a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Extra<b class="caret"></b><div class="ripple-wrapper"></div></a>
-				<ul class="dropdown-menu">
-					<li><a ui-sref="pullrequest">Pull Request</a></li>
-					<li><a ui-sref="punten">Avans punten</a></li>
-					<li><a ui-sref="leaderboards">Leaderboards</a></li>
-				</ul>
-			</li>
-		  </ul>
-		  
-		  
-		  
-		
-		  
-		  <ul class="nav navbar-nav navbar-right" ng-show="user">
-			  <li class="dropdown">
-			  <li><a class="navbar-brand" ui-sref="profile">{{user._id}} - <b>{{user.totalPoints}} AP</b></a></li>
-			  <li><a class="navbar-brand" ng-click="logout()">Logout</a></li>
-		  </ul>
-		  
-		  <ul class="nav navbar-nav navbar-right" ng-show="!user">
-			<li><a class="navbar-brand" ng-click="login()">Login</a></li>
-		  </ul>
-		  
-		  <ul class="nav navbar-nav navbar-right">
-			 <li><img src="default/img/smile.png" data-toggle="modal" data-target="#feedback-dialog"></li>
-		  </ul>
+<body ng-controller="appCtrl as app" >
+
+  <md-content id="toastBound" ></md-content>
+
+  <section layout="column" class="container" ng-controller="ppCourseCtrl">
+    
+    <md-toolbar layout="row" ng-controller="ppAuthCtrl" class="theHeader">
+      <div class="md-toolbar-tools">
+
+        <md-button hide-gt-md ng-click="toggleLeft()" class="md-icon-button md-accent" aria-label="Menu">
+          <ng-md-icon icon="menu" style="fill: white" size="26"></ng-md-icon> 
+            <md-tooltip>
+                Side Nav
+            </md-tooltip>
+        </md-button>
+        
+        <a hide show-gt-sm class="md-title" ui-sref="home"><md-button >
+            Prog5
+        </md-button></a>  
+    
+        <a hide show-gt-sm class="md-title" ui-sref="leaderboards"><md-button >
+            Leaderboards
+        </md-button></a>  
+    
+  
+        <span flex></span>
+        
+          <md-button ng-show="!user"  aria-label="Login" ng-click="login()">
+            Login
+          </md-button>
+          
+          <h3 class="md-title points" ng-show="user">{{user.totalPoints}} punten!</h3>
+
+          <md-button ng-click="$root.showDialog('feedback', $event)" class="md-icon-button" aria-label="Settings">
+            <ng-md-icon icon="feedback" style="fill: white" size="28"></ng-md-icon> 
+          </md-button>
+        
+          <a ui-sref="profile" ng-show="user">
+            <md-button  class="md-icon-button" aria-label="Settings">
+              <ng-md-icon icon="account_circle" style="fill: white" size="28"></ng-md-icon> 
+            </md-button>
+          </a>
+      
       </div>
-	</div>
-	
-	<div id="feedback-dialog" class="modal fade" tabindex="-1"  ng-include="'templates/feedback.html'"></div>
+    </md-toolbar>
 
+    <section layout="row content-container">
+      
+      <!-- Side Nav -->
+      <section ng-include="'templates/sideNav.html'" ></section>
+          
+      <!-- Main content -->
+      <div ui-view flex class="main"></div>
+      
+    </section>
+    
 
-
-
-	<div class="row content" >
-		
-		<!-- First the side nav with col md 3 -->
-		<div class="col-md-3" ng-controller="overviewCtrl">
-			
-			
-			<div class="sideNav">
-				
-				<!-- header -->
-				<article class="sample shadow-z-1">
-					<section class="header">
-						<span>Overview</span>
-					</section>
-				</article>
-				
-				<!-- fixed content -->
-				<article id="overview" class="shadow-z-1 fixedContent">
-					<section class="main">
-						
-						<av-side-nav>
-							
-							<ul>
-								<li><span id="nav-week1">Week 1 - .NET</span>
-									<ol>
-										<li><a ui-sref="week1" ng-click="scrollTo('inleiding')">Inleiding</a></li>
-										<li><a ui-sref="week1" ng-click="scrollTo('net')">Introductie .NET</a></li>	
-										<li><a ui-sref="week1" ng-click="scrollTo('visualStudio')">Introductie Visual Studio</a></li>
-										<li><a ui-sref="week1" ng-click="scrollTo('helloworld')">Demo: Hello World</a></li>
-										<li><a ui-sref="week1" ng-click="scrollTo('assemblies')">Assemblies</a></li>
-										<li><b><a ui-sref="week1Opdrachten">Opdrachten</a></b></li>
-									</ol>
-								</li>
-								<li><span id="nav-week2">Week 2 - C#</span>
-									<ol>
-										<li><a ui-sref="week2" ng-click="scrollTo('inleiding')">Inleiding</a></li>
-										<li><a ui-sref="week2" ng-click="scrollTo('properties')">Properties</a></li>	
-										<li><a ui-sref="week2" ng-click="scrollTo('lambda')">Lambda</a></li>	
-										<li><a ui-sref="week2" ng-click="scrollTo('linq')">Linq</a></li>
-										<li><a ui-sref="week2" ng-click="scrollTo('coding')">Coding Guidelines</a></li>
-										<li><a ui-sref="week2" ng-click="scrollTo('test')">Unit Test</a></li>
-										<li><a ui-sref="week2" ng-click="scrollTo('testaaa')">Unit Test - AAA</a></li>		
-										<li><b><a ui-sref="week2Opdrachten">Opdrachten</a></b></li>
-									</ol>
-								</li>
-								<li><span id="nav-week3">Week 3 - WPF</span>
-									
-									<ol>
-										<li>Introductie
-											<ol>
-												<li><a ui-sref="week3a" ng-click="scrollTo('inleiding')">Inleiding</a></li>
-												<li><a ui-sref="week3a" ng-click="scrollTo('introductie')">Introductie WPF</a></li>	
-												<li><a ui-sref="week3a" ng-click="scrollTo('geschiedenis')">Geschiedenis WPF</a></li>	
-												<li><a ui-sref="week3a" ng-click="scrollTo('interface')">Interface design</a></li>
-												<li><a ui-sref="week3a" ng-click="scrollTo('databinding')">Data Binding</a></li>
-												<li><a ui-sref="week3a" ng-click="scrollTo('xaml')">Introductie XAML</a></li>
-											</ol>
-										</li>
-										<li>WPF Basics
-											<ol>
-												<li><a ui-sref="week3b" ng-click="scrollTo('inleiding')">Inleiding</a></li>
-												<li><a ui-sref="week3b" ng-click="scrollTo('xaml')">XAML</a></li>
-												<li><a ui-sref="week3b" ng-click="scrollTo('binding')">Binding</a></li>
-												<li><a ui-sref="week3b" ng-click="scrollTo('commanding')">Commanding</a></li>
-												<li><a ui-sref="week3b" ng-click="scrollTo('converting')">Converting</a></li>
-											</ol>
-										</li>
-										<li><b><a ui-sref="week3Opdrachten">Opdrachten</a></b></li>			
-									</ol>
-								</li>
-								<li><span id="nav-week4">Week 4 - MvvM</span>
-									
-									<ol>
-										<li><a ui-sref="week4" ng-click="scrollTo('inleiding')">Inleiding</a></li>
-										<li><a ui-sref="week4" ng-click="scrollTo('architectuur')">Architectuur</a></li>	
-										<li><a ui-sref="week4" ng-click="scrollTo('spelregels')">Spelregels</a></li>	
-										<li><a ui-sref="week4" ng-click="scrollTo('app')">MvvM App</a></li>	
-										<li><a ui-sref="week4" ng-click="scrollTo('frameworks')">Frameworks</a></li>
-										<li><a ui-sref="week4" ng-click="scrollTo('relay')">Extra: RelayCommand</a></li>	
-
-										<li><b><a ui-sref="week4Opdrachten">Opdrachten</a></b></li>
-
-									</ol>
-								</li>
-								<li><span id="nav-week5">Week 5 - EF</span>
-									
-									<ol>
-										<li><a ui-sref="week5" ng-click="scrollTo('inleiding')">Inleiding</a></li>
-										<li><a ui-sref="week5" ng-click="scrollTo('domain')">Domain model</a></li>	
-										<li><a ui-sref="week5" ng-click="scrollTo('entity')">Entity Framework</a></li>	
-										<li><a ui-sref="week5" ng-click="scrollTo('nuget')">NuGet</a></li>	
-										<li><a ui-sref="week5" ng-click="scrollTo('codefirst')">Code First</a></li>	
-										<li><a ui-sref="week5" ng-click="scrollTo('tips')">Tips and Tricks</a></li>	
-
-										<li><b><a ui-sref="week5Opdrachten">Opdrachten</a></b></li>
-
-									</ol>
-								</li>
-								<li><span id="nav-week5">Week 6 - Finale</span>
-									
-									<ol>
-										<li><a ui-sref="week6" ng-click="scrollTo('inleiding')">Inleiding</a></li>
-										<li><a ui-sref="week6" ng-click="scrollTo('finale')">The Grand Finale</a></li>	
-
-										<li><b><a ui-sref="week6Opdrachten">Opdrachten</a></b></li>
-
-									</ol>
-								</li>
-							</ul>
-							
-						</av-side-nav>
-						
-						
-						
-					</section>
-				</article>
-			</div>
-		</div>
-
-
-		<!-- Col MD 6 en Col md 3 reserved for other content -->
-		<div ui-view ></div>
-			
-	</div>
+   </section>
 
 </body>
 </html>

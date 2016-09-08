@@ -1,0 +1,67 @@
+.container{
+	background-color: #eee;
+	min-height: 100%;
+	margin-top:52px;
+}
+
+.theHeader{
+	position: fixed;
+	top:0px;
+	z-index: 99;
+    min-height: 52px;
+}
+/*
+@media only screen and (max-width : 420px) {
+	}*/
+
+h3.points{
+    padding-top:0px;
+}
+
+.max-sized{max-width: 60em;}
+.padding-top{padding-top:30px;}
+
+.cardholder{
+	position:relative;
+}
+.cardholder md-card{
+	height:350px;
+}
+
+.output{ margin-bottom:12px;}
+.output label{
+	display:block;
+	font-size:70%;
+	color:gray;
+	padding-left:3px;
+}
+
+.output span{
+	display:block;
+}
+
+table.less thead th{
+
+	color: lightgray;
+	text-decoration: none;
+	font-size: 80%;
+	font-weight: normal;
+}
+
+table.less{text-align:center;	}
+table.less td { padding:6px 18px; }
+
+.md-button:disabled  {
+	fill: rgba(0,0,0,0.26);
+}
+/**
+Assignment style
+
+**/
+
+.link{text-decoration: underline;color: #0000FF;}
+.link:hover{cursor: pointer;}
+
+.md-actions.navigate{
+	border-top:1px solid black;
+}

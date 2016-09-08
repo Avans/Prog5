@@ -1,0 +1,115 @@
+<md-toolbar  class="withSkyline">
+	<h1 class="md-toolbar-tools">WPF</h1>
+</md-toolbar>
+
+
+<section class="max-sized">
+  
+
+  <article class="md-padding">
+    <h2>Introductie</h2>
+    
+	<p>
+        WPF is een afkorting voor <strong>Windows Presentation Foundation</strong>. 
+        Dit Framework biedt je de tools om een rijke user interface te bouwen.  
+        Dit is niet de enige unieke eigenschap van WPF. De mogelijkheid tot het data-binden van je view aan je model geeft
+        je een beter scheiding tussen je GUI en je bedrijfslogica.
+    </p>
+    
+    <p>
+        Naast de onderliggende structuur, die je helpt een nette en onderhoudbare interface te bouwen, ondersteunt WPF ook meerdere mediaformaten. 
+        Een van deze formaten is XAML, een markup language die gebaseerd is op XML*. Maar denk hierbij ook aan 2-D en 3-D Graphics, 
+        animaties, losse stylesheets, templates, documenten en media files (mp3, mp4).
+    </p>
+    
+    <p>
+        <i>*XML (Extensible Markup Language) Een markup language die regels en encoding voor een document vastlegt, net als HTML.</i>
+    </p>
+    
+    <p>      
+        WPF is resolutieonafhankelijk. Dit houdt in dat op verschillende resoluties hetzelfde resultaat getoond zal worden. 
+        De XAML interfaces worden <a target="_blank"  href="http://en.wikipedia.org/wiki/Vector_graphics">vector-based</a> gerenderd. 
+    </p>
+    
+    <h4>Interface design</h4>
+    
+    <p>
+        WPF biedt je de mogelijkheid om je interfaces op 2 manieren te ontwikkelen.
+        Het defini&euml;ren van je GUI in XAML of het opbouwen van je GUI in code ('code-behind').
+    </p>
+    
+  </article>
+
+    <md-card>
+        <md-toolbar>
+            <h1 class="md-toolbar-tools">XAML</h1>
+        </md-toolbar>
+        <md-card-content>
+<!-- CODE SNIPPET -->		
+<pre class="ppPrettyPrint linenums">
+&lt;Window x:Class=&quot;XAMLCodeBehind.MainWindow&quot;
+	xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+	xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+	Title=&quot;MainWindow&quot; Height=&quot;350&quot; Width=&quot;525&quot;&gt;
+	
+	&lt;Grid&gt;
+		&lt;Button&gt;Click Me&lt;/Button&gt;
+	&lt;/Grid&gt;
+&lt;/Window&gt;</pre>
+        </md-card-content>
+    </md-card>
+
+    <md-card>
+        <md-toolbar>
+            <h1 class="md-toolbar-tools">Code behind</h1>
+        </md-toolbar>
+        <md-card-content>
+<!-- CODE SNIPPET -->		
+<pre class="ppPrettyPrint linenums">
+public partial class MainWindow : Window
+{
+	public MainWindow()
+	{
+		InitializeComponent();
+
+		Button button = new Button();
+		button.Content = &quot;Click me!&quot;;
+		Griddy.Children.Add(button);
+	}
+}</pre>
+        </md-card-content>
+    </md-card>
+    
+    <article class="md-padding">
+
+    <p>
+        Het is netjes en onderhoudbaar om het uiterlijk van de applicatie volledig in XAML te defini&euml;ren. 
+        Het gedrag van de applicatie kan in de 'code-behind' van de applicatie worden gedefinieerd. 
+    </p>
+    <p>           
+        Het design van je applicatie heeft op deze manier een losse koppeling met het gedrag van de applicatie.
+        Hierdoor kan een designer los aan de GUI werken terwijl een ontwikkelaar het gedrag van de applicatie tot stand brengt. 
+        Er zijn ook verschillende tools om aan de GUI te werken. Een van deze tools is <strong>Microsoft Blend</strong>.
+    </p>
+    <p>               
+        Je kunt nu vanuit de code-behind file bij de XAML elementen die hebt je gedefinieerd.
+        De waardes die je op je model (bijv. properties) hebt staan kun je nu dus mee geven aan deze elementen.
+        Het is daar en tegen netter om deze informatie niet te 'setten' maar te 'data-binden'.
+    </p>
+
+
+  </article>
+
+  <div class="md-actions navigate" layout="row" layout-align="center center">      
+      <md-button disabled>
+          <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+      </md-button>
+      <md-button  ui-sref="wpfXaml" >
+          <ng-md-icon icon="navigate_next"  size="36"></ng-md-icon> 
+          <md-tooltip>XAML</md-tooltip>
+      </md-button>
+    </div>
+    
+</section>
+
+

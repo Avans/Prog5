@@ -1,0 +1,159 @@
+<md-toolbar class="withSkyline">
+	<h1 class="md-toolbar-tools ">WPF</h1>
+  
+</md-toolbar>
+
+<section class="max-sized">
+    
+    
+    
+    <article class="md-padding">
+		
+		<h2>XAML</h2>
+  
+  		<p class="top-buffer">
+			De opbouw van een XAML document is vergelijkbaar met een HTML document.
+			Je bouwt een boom van <strong>Elementen</strong>  en de eigenschappen van deze elementen plaats je in <strong>Attributen</strong>.
+			Deze geneste objecten leiden tot een 'element tree' die gecompileerd wordt tot een user interface.
+		</p>
+
+    </article>
+      
+       <md-card>
+			<img src="onderwerp/wpf/img/windows8-winrt_thumb.png" class="img-thumbnail"/>
+      			<md-card-content>
+
+        		<p>
+					XAML is een afkorting voor XML based Markup language. Even voor de duidelijkheid, je spreek het uit als 'zammel'. Het is een onderdeel van het WPF
+					platform. Je kunt XAML defini&euml;ren in een .XAML file net als in een .HTML file. Elke XAML file heeft meestal een bijbehorende .CS file waar de 'code-behind'                 staat, maar dit is niet verplicht. De onderstaande technieken ondersteunen XAML.
+				</p>
+							
+				<ul>
+					<li>Windows Store apps</li>
+					<li>Windows Phone apps</li>
+					<li>Silverlight</li>
+					<li>WPF</li>
+				</ul>
+				
+				<p>
+					Wij gaan het voornamelijk inzetten voor WPF.  
+				</p>
+			</md-card-content>
+		</md-card>
+				
+		<md-card>
+			<md-toolbar>
+					<h1 class="md-toolbar-tools">XAML</h1>
+			</md-toolbar>
+			<md-card-content>
+			<!-- code snippet -->
+			<pre class="ppPrettyPrint linenums">
+&lt;Window
+  xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+  Title=&quot;Window with Button&quot;
+  Width=&quot;250&quot; Height=&quot;100&quot;&gt;
+
+	&lt;!-- Add button to window --&gt;
+	&lt;Button Name=&quot;button&quot;&gt;Click Me!&lt;/Button&gt;
+
+&lt;/Window&gt;</pre>
+			</md-card-content>
+		</md-card>
+
+	<article class="md-padding">
+		
+		<p class="top-buffer" >
+				WPF wordt voornamelijk gebruikt voor desktop-applicaties en Windows Apps. Daarnaast heb je ook nog 
+				browser-hosted-applicaties. 
+				Deze applicaties hebben de naam XBAP'S. 
+				Wij gaan voornamelijk aan de slag met de desktop applicaties. 
+		</p>
+		
+		
+		<p>
+			Je kunt een volledige applicatie opbouwen met verschillende windows en pages. 
+			Je kunt zoveel elementen toevoegen als je zelf wilt. Je bent daarentegen wel verplicht tot het gebruiken van een <strong>Application</strong> element.         
+			
+		</p>      
+		<p>
+			In een console-applicatie heb je een <strong>Program</strong> class met een <strong>Main</strong> functie. Dit is de plek waar je applicatie begint.
+			Een dergelijke class heb je ook in elementen met XAML. Dit is de <strong>Application</strong> class en heeft een bijbehorend XAML element wat hem tot stand brengt.
+			In dit element kun je aangeven bij welk window je wilt beginnen.
+		</p>
+
+	</article>
+		
+		<md-card>
+			<md-toolbar>
+				<h1 class="md-toolbar-tools">Console application</h1>
+			</md-toolbar>
+			<md-card-content>
+			<!-- code snippet -->
+			<pre class="ppPrettyPrint linenums">
+//console app
+class Program
+{
+    static void Main(string[] args)
+    {
+    }
+}</pre>
+		</md-card-content>
+	</md-card>
+	
+
+	<md-card>
+		<md-toolbar>
+				<h1 class="md-toolbar-tools">WPF application</h1>
+			</md-toolbar>
+		<md-card-content>
+			<!-- code snippet -->
+			<pre class="ppPrettyPrint linenums">
+//App.xaml
+&lt;Application
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; 
+    StartupUri=&quot;MainWindow.xaml&quot; /&gt;    
+</pre>
+
+			<!-- code snippet -->
+			<pre class="ppPrettyPrint linenums">
+//App.xaml.cs
+public partial class App : Application
+{
+	//code behind logic
+}</pre>    	
+		</md-card-content>
+	</md-card>
+
+	<img src="onderwerp/wpf/img/XAMLFiles.png"  class="photo responsive img-right center-block" />
+
+	<article class="md-padding">
+
+			
+			<p>
+				De aangeleverde MainWindow.xaml file bevat al standaard een titel, breedte, hoogte en Grid als child element. 
+				Nu kunnen we zelf een elementenboom gaan opbouwen in deze grid om een volledige user interface te krijgen.
+				Deze boom bestaat uit <strong>XAML elementen</strong>.
+			</p>
+		
+		
+		<p>
+			Elk XAML element bevat een bijbehorende referentie naar een .NET class. Je kunt dus ook zelf een class omzetten naar een XAML element.
+			De meest voorkomende manier waarop dit gebeurt zijn <strong>user controls</strong>.
+			Het .NET framework bevat al een grote lijst aan voorgedefinieerde classes.
+		</p>
+		
+
+	</article>
+
+      <div class="md-actions navigate" layout="row" layout-align="center center">
+        <md-button  ui-sref="wpfIntroductie" >
+            <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+            <md-tooltip>Introductie</md-tooltip>
+        </md-button>
+        <md-button  ui-sref="wpfComponenten" >
+            <ng-md-icon icon="navigate_next" size="36"></ng-md-icon> 
+            <md-tooltip>Componenten</md-tooltip>
+        </md-button>  
+        
+      </div>
+</section

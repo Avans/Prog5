@@ -1,0 +1,75 @@
+<md-toolbar class="md-theme-indigo">
+	<h1 class="md-toolbar-tools">MvvM</h1>
+</md-toolbar>
+
+<section class="max-sized">
+  <article class="md-padding">
+        <h2>Introductie</h2>
+        
+        <p>
+          	Deze week gaan we aan de slag met het framework MvvM Light. 
+            Dit framework geeft ons de structuur om onze applicatie op te delen in models, views en view models. 
+        </p>
+        
+        <h4>Architectuur</h4>
+
+				<p>
+					Een <strong>Model View View Model (MvvM)</strong>  software architectuur kun je gebruiken om een duidelijk onderscheid te maken 
+					tussen de bedrijfslogica en de user interface (<a target="_blank" href="https://en.wikipedia.org/wiki/Separation_of_concerns">#SOC</a> <a target="_blank" href="https://en.wikipedia.org/wiki/Separation_of_concerns">#SOC</a> <a target="_blank" href="https://en.wikipedia.org/wiki/Separation_of_concerns">#SOC</a>). Het lijkt heel erg veel op de software architectuur <strong>Model View Controller (MVC)</strong>, 
+					met misschien als grootste verschil dat er binnen MvvM bijna altijd gebruik gemaakt wordt van Data-binding. 
+			
+				</p>
+				
+				<p>
+				MvvM is zeer geschikt voor het bouwen van een complexe user interface waar veel elementen een afhankelijkheid hebben van elkaar. 
+				</p>
+        
+        <img class="responsive" src="onderwerp/mvvm/img/MvvM.png" />
+				
+				<h4>Voordelen MvvM</h4>
+				
+				<ul>
+					<li>Loskoppelen UI / Business Logic / Data Logic</li>
+					<li>
+						Mogelijk om UI te vervangen
+						<ul>
+							<li>Logica in code hoeft hierdoor niet aangepast te worden</li>
+							<li>ASP.NET naar Silverlight</li>
+							<li>WPF naar Windows Phone</li>
+							<li>etc.</li>
+						</ul>
+					</li>
+					<li>Unit Testing</li>
+					<li>Minder code in de UI</li>
+				</ul>
+
+  </article>
+			
+        <md-card>
+          <md-toolbar>
+            <h1 class="md-toolbar-tools">De spelregels</h1>
+          </md-toolbar>
+          <md-card-content>
+            <ul>
+              <li><strong>View</strong> weet niets van het <strong>Model</strong></li>
+              <li><strong>Model</strong> weet niets van de <strong>View</strong></li>
+              <li><strong>Model</strong> weet niets van het <strong>View Model</strong></li>
+              <li><strong>View Model</strong> weet niets van de <strong>View</strong></li>
+              <li>Communicatie van de <strong>View</strong> naar het <strong>VM</strong> is via data binding</li>
+            </ul>
+          </md-card-content>
+        </md-card>
+        
+    <div class="md-actions navigate" layout="row" layout-align="center center">      
+      <md-button disabled>
+          <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+      </md-button>
+      <md-button  ui-sref="mvvmArchitectuur" >
+          <ng-md-icon icon="navigate_next"  size="36"></ng-md-icon> 
+          <md-tooltip>Controllers</md-tooltip>
+      </md-button>
+    </div>
+
+  </article>
+</section>
+

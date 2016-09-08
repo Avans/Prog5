@@ -3,8 +3,8 @@ module.exports = function(grunt){
 	grunt.initConfig({
 		browserify: {
 			js: {
-		        src: 'app/app.js',
-		        dest: 'app.js',
+		        src: 'app/js/app.js',
+		        dest: 'js/app.js',
 		        options: {
 		          external: ['angular'],
 		          debug: true,
@@ -14,13 +14,26 @@ module.exports = function(grunt){
 		},
 		watch: {
 			js: {
-				files: ['app/**/*.js', 'app/app.js'],
+				files: ['app/js/**/*.js', 'app/js/app.js'],
 				tasks: ['browserify']
+			},
+			css: {
+				files: ['app/scss/**/*.scss'],
+				tasks: ['sass']
 			}
 		},
+		sass: {                             
+			dist: {                            
+				files: {                         
+					'css/main.css': 'app/scss/main.scss',       
+				}
+			}
+		}
 	});
 	
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browserify');
-	grunt.registerTask('default', ['browserify', 'watch' ]);	
+	grunt.loadNpmTasks('grunt-contrib-sass');
+
+	grunt.registerTask('default', ['sass', 'browserify', 'watch' ]);	
 }

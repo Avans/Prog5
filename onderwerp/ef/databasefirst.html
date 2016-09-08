@@ -1,0 +1,162 @@
+<md-toolbar class="md-theme-indigo">
+	<h1 class="md-toolbar-tools">Entity Framework</h1>
+</md-toolbar>
+
+<section class="max-sized">
+  <article class="md-padding">
+      <h2>Database first</h2>
+
+      <p>
+          De onderdelen van het Entity Framework zijn nu in kaart gebracht. 
+          Hoe passen we deze onderdelen toe in de praktijk?
+      </p>
+
+      <p>
+          Er zijn dus 3 verschillende manieren om met Entity Framework te werken. 
+          Wij gaan de Database first werkwijze toepassen. Waarom?
+      </p>
+
+      <ul>
+          <li>Een data architect kan de database ontwerpen</li>
+          <li>Je database design staat los van Entity Framework en .NET</li>
+          <li>Extra voordelen van een Database project (publish scripts, etc..)</li>
+      </ul>
+
+      <p>
+          De eerste stap in het werken met Entity Framework is dus het maken van de Database!
+          Gelukkig hebben we dit al behandeld. Wat moet er nog wel gebeuren?
+      </p> 
+
+      <ol>
+          <li>EDMX genereren</li>
+          <li>Gegevens ophalen uit de database.</li>
+          <li>Gegevens opslaan in de database.</li>
+          <li>Wijzigingen doorvoeren in de database.</li>
+      </ol>
+  </article>
+
+
+    <md-card>
+        <md-tabs md-dynamic-height md-border-bottom md-swipe-content md-stretch-tabs="always">
+
+            <md-tab label="1">
+                <md-content class="md-padding">
+   
+                    <h3>1. EDMX Genereren</h3>
+
+                
+                    <p>Entity Framework geeft ons een mooie wizard om een EDMX file toe te voegen op basis van een bestaande database.
+                        Hier onder staat een korte screencast met daarin de stappen om een EDMX file te genereren.
+                    </p>
+       
+                </md-content>
+                  <div class='embed-container'>
+                    <iframe src="https://www.youtube.com/embed/XZFLaeeQ2lA" frameborder='0' />	
+                </div>
+            </md-tab>
+
+             <md-tab label="2">
+                <md-content class="md-padding">
+
+                    <h3>2. Gegevens ophalen</h3>
+
+                    <p>
+                        Nu we onze EDMX hebben gegenereerd hebben we toegang tot een aantal klasse. 
+                        Deze klasse gaan we gebruiken om gegevens op te halen. Kijk eens goed naar de onderstaande code snippet.
+                    </p>
+
+
+   
+            <pre class="ppPrettyPrint linenums">
+//Summary van alle workshops
+using (var context = new Entities.Domain.MyEntities())
+{
+    //Niet vergeten de 'teacher' ook op te vragen!
+    List&lt;Workshop&gt; workshops = context.Workshops.Include(&quot;Teacher&quot;).ToList();
+}</pre>
+  
+
+                    <p>
+                        In deze snippet maken we gebruik van 2 van de gegenereerde klasse.
+                        We gebruiken de klasse DataContext om een lijst van de workshops op te halen. 
+                        Tot nu toe doen we nog niks met deze lijst behalve hem in een collectie van het type List te zetten.
+                    </p>
+
+                    <p>
+                        De 'using' clausule is een speciale syntax binnen C#. Aangezien we stiekem onderwater verbinding maken met een database, 
+                        zal de connectie met deze database ook een keer gesloten moeten worden. De 'using' syntax lost dit probleem voor ons op.
+                        Aan het einde van de 'using' clausule wordt de verbinding met de database automatisch verbroken.
+                    </p>
+
+                    <p>
+                        De include methode staat er ook niet voor niets. Deze code snippet komt uit de workshop opdracht. 
+                        In deze opdracht staat een bijbehorend database project waar je kan zien dat een workshop een foreign key heeft naar 
+                        de tabel teacher. Entity Framework herkent deze foreign keys en maakt een zogenaamd 'navigation property' aan.
+                        Dit houd in dat je (als je tijdens het ophalen van de data de include methode aanroept) ook meteen de bijbehorende teacher krijgt!
+                    </p>
+                </md-content>
+            </md-tab>
+
+              <md-tab label="3">
+                <md-content class="md-padding">
+   
+                                
+                    <h3>3. Gegevens opslaan</h3>
+
+                    <p>
+                        Gegevens opslaan kost met Entity Framework bijna geen moeite!
+                        Maak een object van de klasse die je wilt toevoegen.
+                        Voeg hem toe aan de juiste lijst in de context. 
+                        De wijziging wordt pas doorgevoerd als je 'SaveChanges' aanroept op de context!
+                    </p>
+
+                    <p>
+                        Het kan zijn dat het opslaan van de gegevens fout gaat.
+                        Bijvoorbeeld als je niet alle velden van het object goed hebt ingevuld.
+                        In dat geval zal Entity Framework een Exception geven na het aanroepen van 'SaveChanges'.
+                    </p>
+
+                    <pre class="ppPrettyPrint linenums">
+Workshop ws = new Workshop()
+{
+    Name = "Ei bakken",
+    Summary = "Leer hoe je een ei bakt",
+    TeacherId = 1,
+};
+
+context.Workshops.Add(ws);
+//Altijd save changes aanroepen na een wijziging!
+context.SaveChanges(); </pre>
+
+                </md-content>
+            </md-tab>
+
+              <md-tab label="4">
+                <md-content class="md-padding">
+                    <h3>4. Wijziging doorvoeren</h3>
+                    <p>
+                        Het doorvoeren van een wijziging begint bij het aanpassen van het Database project.
+                        Hierna moet je de EDMX file updaten en klaar is kees! 
+                        Over het doorvoeren van een wijziging is ook een korte screencast beschikbaar.
+                    </p>
+                </md-content>
+                <div class='embed-container'>
+                    <iframe src="https://www.youtube.com/embed/XZFLaeeQ2lA" frameborder='0' />	
+                </div>
+            </md-tab>
+
+        </md-tabs>
+    </md-card>
+
+    <div class="md-actions navigate" layout="row" layout-align="center center">      
+        <md-button ui-sref="efEntityframework">
+            <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+            <md-tooltip>Entity Framework</md-tooltip>
+        </md-button>
+        <md-button  ui-sref="opdrachten5" >
+            Opdrachten
+            <md-tooltip>Opdrachten</md-tooltip>
+        </md-button>
+    </div>
+
+</section>

@@ -1,0 +1,106 @@
+<md-toolbar class="md-theme-indigo withSkyline">
+	<h1 class="md-toolbar-tools">Opdrachten overview</h1>
+</md-toolbar>
+
+
+<section class="content-center" ng-controller="ppAuthCtrl">
+<section class="max-sized assignmentOverview" ng-controller="assignmentCtrl">
+
+    <div ng-repeat="assignment in assignments | orderBy: '+metatag'">
+    <md-card class="assignment grayed" 
+        pp-assignment="assignment.name"
+        ng-class="{complete: assignment.isComplete }">
+
+        <div class="assignmentHeader" layout="row">
+            
+            <div class="md-padding">
+                <h2 class="md-title">{{assignment.descr}}</h2>
+                <span class="completed">Completed by {{assignment.completedBy.length}} students</span>
+            </div>
+
+            <div flex class="">
+                <div class="bullets central">
+                
+                    <md-button class="md-fab submit" 
+                            ng-class="{completed: assignment.mySubmission}" 
+                            ng-show="user" 
+                            ng-click="$root.showDialog('submit', $event, { assignment: assignment, cb: getAssignment})">
+                        <ng-md-icon icon="file_upload" size="26">
+                            <md-tooltip>
+                                Submit assignment
+                            </md-tooltip>
+                        </ng-md-icon> 
+                    </md-button>
+                    
+                    <md-button class="md-fab review" 
+                            ng-disabled="!assignment.mySubmission" 
+                            ng-show="user" 
+                            ng-click="$root.showDialog('review', $event, { assignment: assignment, cb: getAssignment})"
+                            ng-class="{completed: assignment.myReview.completed}" >
+                        <ng-md-icon icon="rate_review" size="26">
+                            <md-tooltip>
+                                    Review assignment
+                            </md-tooltip>
+                        </ng-md-icon> 
+                    </md-button>
+                    
+                    <div class="points" ng-class="{completed: assignment.isComplete}" >
+                        <div>{{assignment.points}}</div>
+                        <md-tooltip>Avans points</md-tooltip>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <md-card-content  ng-show="assignment.mySubmission && !assignment.mySubmission.reviews">
+            <p>Waiting on review from peer student...</p>
+        </md-card-content>
+        <md-card-content  ng-show="assignment.mySubmission.reviews">
+             <table class="reviews" ng-repeat="review in assignment.mySubmission.reviews">
+                <tr>
+                    <th>
+                        <ng-md-icon icon="person" size="22">
+                            <md-tooltip>
+                                    Writer
+                            </md-tooltip>
+                        </ng-md-icon>
+                    </th>
+                    <td>{{review.userId | emailShort}}</td>
+                      <th>
+                        <ng-md-icon icon="thumb_up" size="22">
+                            <md-tooltip>
+                                    Top
+                            </md-tooltip>
+                        </ng-md-icon>
+                    </th>
+                    <td class="top">
+                        
+                        {{review.top}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>  
+                        <ng-md-icon icon="star_rate" size="22">
+                            <md-tooltip>
+                                    Score
+                            </md-tooltip>
+                        </ng-md-icon>
+                    </th>
+                     <td>{{review.score}}</td>
+                    <th>
+                        <ng-md-icon icon="warning" size="22">
+                            <md-tooltip>
+                                    Tip
+                            </md-tooltip>
+                        </ng-md-icon>
+                    </th>
+                    <td class="tip">
+                        
+                        {{review.tip}}
+                    </td>
+                </tr>
+            </table>
+        </md-card-content>
+    </md-card>
+
+</section>
+</section>

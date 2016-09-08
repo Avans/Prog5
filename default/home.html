@@ -1,161 +1,148 @@
+<md-toolbar class="md-theme-indigo withSkyline" >
+	<h1 class="md-toolbar-tools">Home</h1>
+</md-toolbar>
 
 
-	
-	
-	<div class="col-md-6" ng-controller="courseCtrl">
-		
-		<section class="preHeader">
-		<h2>Prog5 - Webdictaat</h2>
-		</section>
-		
-		<article class="sample shadow-z-1">
-			<section class="header">
-				<span>Welkom</span>
-			</section>
-			
-			<section class="main">
-				Welkom op het webdictaat voor het vak programmeren 5. Op deze website vind je alle opdrachten en extra informatie voor het vak prog5. 
-				Daarnaast vind je hier links naar github repo's en externe bronnen met informatie. 
-			</section>
-			
-			<section class="footer">
-				
-				
-			</section>
-		
-		</article>
-		
-		<div class="row">
-			<div class="col-md-6">
-				
-				<article class="sample shadow-z-1 full-height">
-					<section class="header">
-						<span>Help mee!</span>
-					</section>
-					
-					<section class="main">
-						Als docent doe ik mijn best om de hoogste kwaliteit aan lesstof op te leveren. Dit gaat helaas niet altijd. 
-						Daarom hebben studenten nu de mogelijkheid om actief mee te bouwen aan de lesstof van dit vak. 
-						<a ui-sref="pullrequest">Lees meer.</a>
-						
-					</section>
-					
-					<section class="footer">
-						
-					</section>
-					
-				</article>
-				
-			</div>
-			<div class="col-md-6">
-				
-				<article class="sample shadow-z-1 full-height">
-					<section class="header">
-						<span>Avans punten!</span>
-					</section>
-					
-					<section class="main">
-						Punten verdienen gaat op de volgende manieren. 
-						<ol>
-							<li>Opdrachten laten afvinken</li>
-							<li>Webdictaat verbeteren door Pull request</li>
-							<li>Omkopen vakdocent</li>
-						</ol>
-					</section>
-					
-					<section class="footer">
-						
-					</section>
-					
-				</article>
-				
-			</div>
-		</div>
-		
-			
-		<article class="sample shadow-z-1" ng-controller="leaderboardCtrl">
-			<section class="header">
-				<span>Leaderboards</span>
-			</section>
-		
-			<section class="main">
-				<table class="leaderboard">
-					<thead>
-						<tr>
-							<td>#</td>
-							<td>Naam</td>
-							<td>Avans punten</td>
-							
-						</tr>
-					
-					</thead>
-					<tbody>
-						
-						<tr ng-repeat="user in users">
-							<td>{{$index + 1}}</td>
-							<td>{{user.name}}</td>
-							<td>{{user.points}}</td>
-						</tr>
-						
-						<tr ng-show="consolation" class="consolation">
-							<td> :( </td>
-							<td>{{consolation.name}}</td>
-							<td>{{consolation.points}}</td>
-						</tr>
-				
-					</tbody>
-				</table>
-			</section>
-			
-			<section class="footer">
+<section class="content-center">
 
-				
+	<section class="md-padding">
+		<h2>Welkom</h2>
+
+		<p>Welkom op het programmeren 5 webdictaat.</p>
+
+		<p>Hier vind je alle opdrachten en inhoudelijke informatie over dit vak. Veel plezier in c#!</p>
+	</section>
+  <!--<section class="max-sized" ng-controller="towerCtrl as tc">
+      <md-card>
+
+			
+			<section layout="row" layout-align="space-around center" hide-sm> 
+				<md-button class="md-primary small" ng-click="toLevel(0)">WPF</md-button>
+				<md-button class="md-primary small" ng-click="toLevel(30)">EF</md-button>
+				<md-button class="md-primary small" ng-click="toLevel(70)">WCF</md-button>
+				<md-button class="md-primary small" ng-click="toLevel(100)">MVC</md-button>
 			</section>
 		
-		</article>
-		
-		<div class="row">
-			<div class="col-md-6">
-				
-				<article class="sample shadow-z-1">
-					<section class="header">
-						<span>{{course.name}}</span>
-					</section>
+			
+			
+          	<section id="canvas">
+
+				<section id="loader" ></section>
+   				<img style="bottom: {{img.offset * lvel}}" class="{{img.classes}}"
+				   	ng-repeat="img in tc.imageLocations" 
+					ng-src="{{ img.src }}"
+					ng-show="ready"  />
+
+				<section class="banner" id="wpf"  ng-show="isNear(0)" layout="row" hide-sm>
 					
-					<section class="main">
-						<p>
-						{{course.descr}}
-						</p>
-						<label>owner</label>
-						<span>{{course.owner}}</span>
-					</section>
+					<section flex>
 					
-					<section class="footer">
+						<p>WPF</p>
 						
+						<ul>
+							<li>XAML</li>
+							<li>Binding</li>
+							<li>MVVM</li>
+						</ul>
 					</section>
 					
-				</article>
+					
+					<ng-md-icon icon="check_circle" style="fill: green";  size="36">
+						<md-tooltip>
+							This subject is completed
+						</md-tooltip>
+					</ng-md-icon> 
+					
+
+				</section>
 				
-			</div>
-			<div class="col-md-6">
+				<section class="banner" id="ef"  ng-show="isNear(30)" layout="row"  hide-sm>
+					
+					<section>
+						<p>Entity Framework</p>
+					
+						<ul>
+							<li>Database</li>
+							<li>ORM</li>
+							<li>Code First</li>
+						</ul>
+					</section>
+					
+					
+					<ng-md-icon icon="check_circle" style="fill: green";  size="36">
+						<md-tooltip>
+							This subject is completed
+						</md-tooltip>
+					</ng-md-icon> 
+					
+					
+				</section>
 				
-				<article class="sample shadow-z-1">
-					<section class="header">
-						<span>News</span>
-					</section>
+				<section class="banner" id="wcf" ng-show="isNear(70)" layout="row"  hide-sm>
 					
-					<section class="main">
-						Nothing to show
-					</section>
-					
-					<section class="footer">
+					<section>
 						
+						<p>Windows Communication Foundation</p>
+						
+						<ul>
+							<li>ASP.NET</li>
+							<li>Service</li>
+							<li>Azure</li>
+						</ul>
 					</section>
 					
-				</article>
+					<ng-md-icon icon="check_circle" style="fill: green";  size="36">
+						<md-tooltip>
+							This subject is completed
+						</md-tooltip>
+					</ng-md-icon> 
+					
+				</section>
 				
-			</div>
-		</div>
+				<section class="banner" id="mvc" ng-show="isNear(100)" layout="row" hide-sm>
+					
+					<section flex>
+						<p>MVC</p>
+						
+						<ul>
+							<li>ASP.NET</li>
+							<li>Website</li>
+							<li>Razor</li>
+						</ul>
+					</section>
+					
 		
-	</div>
-	<div class="col-md-3"></div>
+					
+				
+				</section>
+			</section>
+			
+			<md-slider flex ng-model="level" min="0" max="{{realHeight}}" aria-label="level" class="md-primary">
+			</md-slider>
+
+      </md-card>-->
+	  
+	  <section class="max-sized margin-top"  ng-controller="ppLeaderboardCtrl" ng-init="getTopTen()">
+		<md-card>
+		<md-toolbar class="md-theme-indigo">
+			<h1 class="md-toolbar-tools">Top 10</h1>
+		</md-toolbar>
+		<md-card-content>
+			<table class="leaderboard">
+				<thead>
+					<tr><td>#</td><td>Naam</td><td>Avans punten</td></tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="user in users">
+						<td>{{$index + 1}}</td>
+						<td>{{user.name}}</td>
+						<td>{{user.points}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</md-card-content>
+		</md-card>
+	</section>
+
+  </section>
+  </section>

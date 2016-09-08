@@ -1,0 +1,212 @@
+<md-toolbar class="md-theme-indigo">
+	<h1 class="md-toolbar-tools">MvvM</h1>
+</md-toolbar>
+
+<section class="max-sized">
+  <article class="md-padding">
+        <h2>Architectuur</h2>
+        
+         <h4>MvvM App</h4>
+      
+        <p>De volgende onderdelen komen voor in een MvvM <strong>CRUD</strong> applicatie. </p>
+      
+
+        <h1 class="md-toolbar-tools">Onderdelen</h1>
+
+  </article>
+
+  <md-card>
+  <md-tabs md-dynamic-height md-border-bottom md-swipe-content md-stretch-tabs="always">
+    <md-tab label="M">
+      <md-content class="md-padding">  
+
+        <h4>Model</h4>
+
+        <p>
+          Hoe ziet een MvvM applicatie er nu uit? Laten we beginnen met het <strong>Model</strong>, 
+          een klassiek <strong><a target="_blank" href="https://en.wikipedia.org/wiki/Plain_Old_CLR_Object">POCO</a></strong> object wat je zo een database in kan schuiven. 
+          
+        </p>
+        <p>  
+          Om dit object te tonen in de view moeten we ons aan de spelregels houden. 
+          De eerste stap is het maken van een View Model die we toegang geven tot dit object.
+        </p>
+            
+        <pre class="ppPrettyPrint linenums">
+public class Song
+{
+
+  public int Id { get; set; }
+
+  public string Artist { get; set; }
+
+  public string Title { get; set; }
+  
+}</pre>              
+      </md-content>
+    </md-tab>
+    <md-tab label="VM">
+      <md-content class="md-padding">  
+        <h4>View Model</h4>
+
+        <p>
+          De properties op het model kunnen we toegankelijk maken via <strong>properties</strong> op het View Model. 
+          Dit lijkt misschien onpraktisch maar het is eigenlijk heel handig. Eventuele wijzigingen op het model hebben geen rechtstreekse 
+          invloed op de <strong>View</strong>. 
+        </p>
+        
+        <p>
+        Dit view Model kan ook business logica bevatten die je wilt hergebruiken over meerdere views. 
+          Het zou <strong>niet</strong> netjes zijn als je deze logica op de POCO objecten zou defini&euml;ren, aangezien het dan geen POCO objecten meer zijn!
+        </p>
+
+        <pre class="ppPrettyPrint linenums">      
+public class SongViewModel : INotifyPropertyChanged
+{
+  private Song _song;
+    
+  public SongViewModel(Song song)
+  {
+    _song = song;
+  }
+    
+  public String Title { get{ return _song.Title }}
+  
+}</pre>
+      </md-content>
+    </md-tab>
+
+    <md-tab label="VMC">
+      <md-content class="md-padding">  
+
+        <h4>View Model Container</h4>
+        
+        <p>We hebben een extra view model nodig om 'crud' functionaliteiten voor een model te implementeren.</p>
+        
+        <p>Onderaan deze pagina staat een uitgebreide implementatie van de View Model Container</p>
+      
+        <p>
+          Dit View Model bevat niet zomaar een lijst van objecten, maar een <strong>ObservableCollection</strong>. 
+          Daarnaast bevat dit model ook een Property om toegang te verlenen tot 1 element uit de lijst (Song). 
+          Dit object is de basis voor een nieuw element voor in de lijst. 
+        </p>
+            
+        <pre class="ppPrettyPrint linenums">
+public class SongListviewModel
+{
+  public SongViewModel SelectedSong { get; set; }
+
+  public ObservableCollection&lt;SongViewModel&gt; Songs { get; set; }
+
+  public ICommand AddSong { get; set; }
+
+  private void AddNewSong(object parameter)
+  {
+    Songs.Add(Song);
+  }
+}</pre>
+      </md-content>
+    </md-tab>
+    <md-tab label="V">
+      <md-content class="md-padding">  
+        <h4>View</h4>
+
+        <p>
+          Omdat we in het View Model gebruik hebben gemaakt van een <strong> ObservableCollection</strong> kunnen we nu 
+          rechtstreeks tegen deze collectie aan binden. Dit doen we via een <strong>DataGrid</strong>. 
+        </p>
+        <p>
+          De Collection kunnen we rechtstreeks aan de <strong>ItemSource</strong> van deze DataGrid binden. 
+          De kolommen kunnen individueel worden aangegeven, alsmede aan welke property deze gebonden moet worden.
+        </p>
+
+        <pre class="ppPrettyPrint linenums">
+&lt;DataGrid AutoGenerateColumns=&quot;False&quot; ItemsSource=&quot;{Binding Songs}&quot; Margin=&quot;5&quot;&gt;
+  &lt;DataGrid.Columns&gt;
+  
+    &lt;DataGridTextColumn Header=&quot;Id&quot; 
+      Binding=&quot;{Binding Id}&quot; /&gt;
+      
+    &lt;DataGridTextColumn Header=&quot;Artist&quot; 
+       Binding=&quot;{Binding Artist}&quot; Width=&quot;300&quot; /&gt;
+    
+    &lt;DataGridTextColumn Header=&quot;Title&quot; 
+      Binding=&quot;{Binding Title}&quot; Width=&quot;*&quot; /&gt;
+      
+  &lt;/DataGrid.Columns&gt;
+&lt;/DataGrid&gt;</pre>
+
+      </md-content>
+    </md-tab>
+  </md-tabs>
+  </md-card>
+
+  <article class="md-padding">
+    
+      <h4>View Model Container</h4>
+      
+      <p>
+        Een van de meest complexe object uit deze onderdelen is de view model container.
+        Dit onderdeel helpt ons bij het implementeren van een <b>CRUD</b> aplicatie. 
+        Een <strong>CRUD</strong> applicatie vereist de volgende Functionaliteit:
+      </p>
+      
+      <ul>
+        <li>Een lijst van objecten</li>
+        <li>Nieuwe objecten toevoegen</li>
+        <li>Bestaande objecten wijzigen</li>
+        <li>Bestaande objecten verwijderen</li>
+      </ul>
+    
+      <p>Deze functionaliteit kunnen op de volgende manier gebouwd worden.</p>
+
+  </article>
+      
+      <md-card>
+        <md-toolbar>
+          <h1 class="md-toolbar-tools">SongListviewModel</h1>
+        </md-toolbar> 
+        <md-card-content>   
+ 	    <pre class="ppPrettyPrint linenums">
+public class SongListviewModel
+{
+  public SongViewModel SelectedSong { get; set; }
+
+  public ObservableCollection&lt;SongViewModel&gt; Songs { get; set; }
+
+  public ICommand AddSong { get; set; }
+
+  public SongListviewModel()
+  {
+    songRepository = new DummySongRepository();
+    var songList = songRepository.ToList().Select(s =&gt; new SongViewModel(s));
+
+    SelectedSong = new SongViewModel();
+    Songs = new ObservableCollection&lt;SongViewModel&gt;(songList);
+    AddSong = new RelayCommand(AddNewSong);
+  }
+
+
+  private void AddNewSong(object parameter)
+  {
+    Songs.Add(SelectedSong);
+  }</pre>
+            
+        </md-card-content>
+      </md-card>	
+    </article>
+	
+        
+      
+  </article>
+  <div class="md-actions navigate" layout="row" layout-align="center center">      
+    <md-button ui-sref="mvvmIntroductie">
+        <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+          <md-tooltip>Introductie</md-tooltip>
+    </md-button>
+    <md-button  ui-sref="mvvmFrameworks" >
+        <ng-md-icon icon="navigate_next"  size="36"></ng-md-icon> 
+        <md-tooltip>Frameworks</md-tooltip>
+    </md-button>
+  </div>
+</section>

@@ -1,0 +1,100 @@
+<md-toolbar class="md-theme-indigo left-column">
+
+</md-toolbar>
+
+<section class="pp-sidenav-left">
+<md-sidenav class="md-sidenav-left md-whiteframe-z2 md-closed ng-isolate-scope md-locked-open" 
+	md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" tabindex="-1" ">
+
+
+
+	<md-toolbar layout="row" hide-gt-md class="md-hue-2">
+      <div class="md-toolbar-tools" layout="row">
+        <section flex></section>
+		<md-button ng-click="toggleLeft()" class="md-icon-button md-accent" aria-label="Menu">
+          <ng-md-icon icon="close" style="fill: white" size="26"></ng-md-icon> 
+            <md-tooltip>
+                Side Nav
+            </md-tooltip>
+        </md-button>
+
+      </div>
+	</md-toolbar>
+
+	
+	<!-- Dit menu heeft 2 displays, als schuif menu, en inline menu -->
+	<!-- De items met hide-gt-sm zijn niet zichtbaar als het scherm groot is -->
+
+	<pp-side-nav>
+		<ul>
+			<li hide-gt-sm>
+				<span id="net">Algemeen</span>
+				<ol>
+					<li><a ui-sref="home">Home</a></li>
+					<li><a ui-sref="leaderboards">Leaderboards</a></li>
+				</ol>
+			</li>
+			<li><span id="net">.NET</span>
+				<ol>
+					<li><a ui-sref="netIntroductie">Introductie</a></li>
+					<li><a ui-sref="netVisualstudio">Visual Studio</a></li>
+					<li><a ui-sref="netAssemblies">Assemblies</a></li>
+				</ol>
+			</li>
+			<li><span id="csharp">C#</span>
+				<ol>
+					<li><a ui-sref="csharpIntroductie">Introductie</a></li>
+					<li><a ui-sref="csharpProperties">Properties</a></li>
+					<li><a ui-sref="csharpLambda">Lambda</a></li>
+					<li><a ui-sref="csharpLinq">Linq</a></li>
+					<li><a ui-sref="csharpGuidelines">Coding guidelines</a></li>
+					
+				</ol>
+			</li>
+			<li>
+				<span id="wpf">WPF</span>
+				<ol>
+					<li><a ui-sref="wpfIntroductie">Introductie</a></li>
+					<li><a ui-sref="wpfXaml">XAML</a></li>
+					<li><a ui-sref="wpfComponenten">Componenten</a></li>
+					<li><a ui-sref="wpfBinding">Data binding</a></li>
+					<li><a ui-sref="wpfCommand">Commands</a></li>
+					<li><a ui-sref="wpfConvert">Converting</a></li>
+				</ol>
+			</li>
+			<li>
+				<span id="mvvm">MVVM</span>
+				<ol>
+					<li><a ui-sref="mvvmIntroductie">Introductie</a></li>
+					<li><a ui-sref="mvvmArchitectuur">Architectuur</a></li>
+					<li><a ui-sref="mvvmFrameworks">Frameworks</a></li>
+				</ol>
+			</li>
+			<li>
+				<span id="ef">EF</span>
+				<ol>
+					<li><a ui-sref="efIntroductie">Introductie</a></li>
+					<li><a ui-sref="efDatabase">Database</a></li>
+					<li><a ui-sref="efEntityframework">Entity Framework</a></li>
+					<li><a ui-sref="efDatabasefirst">DB First</a></li>
+				</ol>
+			</li>
+			<li>
+				<span id="opdrachten">Opdrachten</span>
+				<ol>
+					<li><a ui-sref="opdrachtenOverview">Overview</a></li>
+					<li><a ui-sref="opdrachten1">Week 1</a></li>
+					<li><a ui-sref="opdrachten2">Week 2</a></li>
+					<li><a ui-sref="opdrachten3">Week 3</a></li>
+					<li><a ui-sref="opdrachten4">Week 4</a></li>
+					<li><a ui-sref="opdrachten5">Week 5</a></li>
+					<!--<li><a ui-sref="opdrachten6">Week 6</a></li>-->
+					<!--<li><a target="_blank" href="https://github.com/Avans/Prog6_Uitwerkingen">Uitwerkingen</a></li>-->
+				</ol>
+			</li>
+		</ul>
+	</pp-side-nav>
+
+
+</section>
+</md-sidenav>

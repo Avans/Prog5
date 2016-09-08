@@ -1,0 +1,44 @@
+<md-dialog class="assignmentDialog"  aria-label="Submit assignment"  ng-cloak >
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Submit assignment</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancelDialog()">
+           <ng-md-icon icon="close" size="24">
+                <md-tooltip>
+                   Close dialog
+                </md-tooltip>
+            </ng-md-icon> 
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content class="md-padding">
+        
+        <p>
+            Opdrachten kunnen ingeleverd worden via een github repo.
+        </p>
+        
+        <p>
+            Deze repo is beschikbaar via het startproject, </br>
+            maar mag ook zelf aangemaakt worden. 
+        </p>
+        
+        <div class="output">
+            <label>Previous attempt</label>
+            <div ng-show="submission.timestamp">{{submission.timestamp | date:'medium'}}</div>
+            <div ng-hide="submission.timestamp">No previous attempts</div>
+        </div>
+            
+        <md-input-container class="md-block">
+            <label>Github Url</label>
+            <input required md-no-asterisk name="Github url" ng-model="submission.githubUrl">
+        </md-input-container>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">  
+        <md-button class="md-raised md-warn" ng-click="cancelDialog()">Cancel</md-button>
+        <span flex></span>
+        <md-button class="md-raised md-primary" ng-click="submitAssignment()">Submit</md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

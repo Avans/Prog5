@@ -1,0 +1,43 @@
+<section class="header">
+    <div>
+        <h2 class="md-title">{{assignment.descr}}</h2>
+        <span class="completed">Completed by {{assignment.completedBy.length}} students</span>
+    </div>
+
+    <div flex ng-show="$root.user">
+        <div class="bullets bottom">
+
+            <md-button class="md-fab submit" 
+                    ng-class="{completed: assignment.mySubmission}"       
+                    ng-click="$root.showDialog('submit', $event, { assignment: assignment, cb: getAssignment})">
+                <ng-md-icon icon="file_upload" size="26">
+                    <md-tooltip>
+                        Submit assignment
+                    </md-tooltip>
+                </ng-md-icon> 
+            </md-button>
+            
+            <md-button class="md-fab review" 
+                    ng-disabled="!assignment.mySubmission" 
+                    ng-click="$root.showDialog('review', $event, { assignment: assignment, cb: getAssignment})"
+                    ng-class="{completed: assignment.myReview.completed}" >
+                <ng-md-icon icon="rate_review" size="22">
+                    <md-tooltip>
+                            Review assignment
+                    </md-tooltip>
+                </ng-md-icon> 
+            </md-button>
+
+            <div class="reviews" ng-show="assignment.mySubmission && assignment.mySubmission.reviews.length != 0" >
+                <ng-md-icon icon="warning" size="22">
+                <md-tooltip><b>Reviews available!</b> Check assignment overview.</md-tooltip>
+            </div>
+            
+            <div class="points" ng-class="{completed: assignment.isComplete}" >
+                <div>{{assignment.points}}</div>
+                <md-tooltip>Avans points</md-tooltip>
+            </div>
+
+        </div>
+    </div>
+</section>

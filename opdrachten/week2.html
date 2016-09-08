@@ -1,0 +1,131 @@
+<md-toolbar class="md-theme-indigo withSkyline">
+	<h1 class="md-toolbar-tools">Opdrachten week 2</h1>
+</md-toolbar>
+<section class="content-center">
+<section class="max-sized" ng-controller="ppAuthCtrl">
+      <article class="md-padding">
+
+        <h2>Introductie</h2>
+        
+        <p>
+            Elke week zijn er nieuwe opdrachten uit een bepaalde categorie. 
+            Voor deze week staan er 3 opdrachten klaar:
+        </p>
+        
+        <ul>
+            <li>Een Workshop opdracht (WS) </li>
+            <li>Een Huiswerk opdracht - (Avans punten).</li>
+        </ul>
+      </article>
+    
+     <md-card class="assignment workshop relative">
+
+        <section class="header">
+            <div>
+                <h2 class="md-title">C# City</h2>
+                <span class="completed">Workshop assignment</span>
+            </div>
+
+            <div class="bullets bottom">
+                    <div class="points">
+                        <div>ws</div>
+                        <md-tooltip>Work shop</md-tooltip>
+                    </div>
+            </div>
+        </section>
+
+        <img src="opdrachten/img/csharpcity.png" />
+
+        <md-card-content class="sub">
+                      
+            <section class="output">
+                <label>Github</label>
+                <span class="ng-binding">  <a target="_blank" href="https://github.com/Avans/Prog5.CSharpCity">Start project</a></span>
+            </section>
+
+        </md-card-content>
+        <md-card-content>
+
+
+      	    <p>Welkom in CSharp City. Een stad vol mogelijkheden en valkuilen. </p>
+
+            <p>Als nieuwe hacker in de stad wil je je skills testen op het allerhoogste niveau. Inbreken in een bank</p>
+
+            <p>Maak gebruik van je kennis van C# om de kluis te openen en het geld te stelen. Om dit te doen zul je een aantal 'hacks' moeten uitvoeren.</p>
+
+            <p>Je gaat aan de slag in de klasse 'Thief'. Hier vind je de volgende methodes die je zelf zult moeten uitbreiden.</p>
+
+            <h4>OpenGate()</h4>
+            <p>
+                De guard heeft een (private) sleutel. Voeg een public property toe aan de klasse <b>Guard</b> waarmee je de sleutel kan ophalen.
+            </p>
+
+            <h4>OpenVault()</h4>
+
+            <p>Bekijk de klasse <b>Vault</b>. Is er een manier om het private field '_isOpen' op true te krijgen?</p>
+
+            <h4>DodgeLazors()</h4>
+
+            <p>De meeste hackers zijn niet echt atletisch, dus laten we de "lazors" uitschakelen.</p>
+
+            <p>Gebruik een Linq query om elke lazors te 'disablen'.
+
+            <h4>FindAndOpenSafe()</h4>
+
+            <p>Daar sta je dan. Oog in oog met de kluis. Maar het zijn er zo veel!</p>
+
+            <p>Gebruik een linq query om de kluis met het meeste geld te vinden en te openen. </p>
+
+            <p><i>Tip: Gebruik de linq methode .first </i></p>
+        
+        </md-card-content>
+     </md-card>
+
+ <md-card pp-assignment="'telephone'" class="assignment easy">
+
+      <!-- Default header for assignment -->
+      <section ng-include="'templates/partials/assignmentHeader.html'"></section>
+
+      <md-card-content class="sub">
+                      
+            <section class="output">
+                <label>Github classroom</label>
+                <span class="ng-binding">  <a target="_blank" href=" https://classroom.github.com/assignment-invitations/ed9f65f7dbcfed511948f5c7bb156f8d">Start project</a></span>
+            </section>
+
+      </md-card-content>
+      <md-card-content>
+          
+        <p>Who you gonna call?!</p>
+          
+        <p>	
+            In deze oefening ga je een eenvoudig telefoonboek maken in .NET. Het doel van deze oefening is te leren omgaan met C# properties en LINQ expressies.
+        </p>
+
+        <p>
+            Net als in de voorgaande oefening (1.1) is het van belang om netjes en gestructureerd te coderen. Houd je daarbij ook aan de C# Naming Conventions.
+            Maak een class Person. De class moet de volgende properties bevatten: FirstName, LastName en TelephoneNumber. Zorg daarnaast voor een Read-Only property FullName die de combinatie FirstName en LastName terug geeft. Zorg ook voor een constructor waarmee je een firstname & lastname 	mee kan geven.
+        </p>
+        <p>
+            Maak een class TelephoneBook deze bevat intern een collectie van Person objecten Tip: gebruik hiervoor List<Person>. Vul deze list hard-coded met gegevens van minimaal 10 personen.
+            De TelephoneBook class moet de volgende functionaliteiten hebben. implementeer deze functionaliteiten zoveel mogelijk met LINQ expressies.
+
+        <ul>
+            <li>Een methode die alle personen uit het telefoonboek gesorteerd op achternaam terug geeft.</li>
+            <li>Een methode die alle personen uit het telefoonboek terug geeft waarvan de voornaam begint met een opgegeven letter. Deze lijst moet ook weer gesorteerd op achternaam zijn.</li>
+            <li>Een methode die alle achternamen van personen uit het telefoonboek terug geeft waarvan de lengte van de achternaam groter is dan een opgegeven waarde. </li>
+            <li>De lijst van achternamen moet gesorteerd op lengte teruggegeven worden waarbij de langste achternaam onderaan staat en de kortste achternaam bovenaan.</li>
+            <li>Een read-only property die aangeeft hoeveel personen er in het telefoonboek zitten.</li>
+        </ul>
+
+        <p>
+            Test je code door de functies van je telefoonboek aan te roepen en het resultaat te tonen in een Console.
+        </p>
+
+        <img src="opdrachten/img/telefoonboek.jpg" class="photo" width="50%" />
+ 
+    </md-card>
+  
+   </article>
+</section>
+</section>

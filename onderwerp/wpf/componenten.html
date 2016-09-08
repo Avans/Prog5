@@ -1,0 +1,283 @@
+<md-toolbar class="withSkyline">
+	<h1 class="md-toolbar-tools ">WPF</h1>
+  
+</md-toolbar>
+
+<section class="max-sized">
+
+    <article class="md-padding">
+		
+        <h2>Componenten</h2>
+        
+        <p>
+            XAML bied je een enorme set aan standaard componenten die je kan gebruiken. 
+            Hieronder een (niet uitputtende) lijst met componenten.
+        </p>
+  
+	    <p>
+			Om onze user interface te implementeren kunnen we een onderscheid maken tussen 2 soorten elementen.
+			Hieronder volgen een aantal voorbeelden van beide typen elementen.
+		</p>
+				
+    </article>
+	
+		<section  layout="row" layout-xs="column">
+        	<section flex="1">
+				
+			<md-card class="sample shadow-z-1 codexamp" ng-controller="hoverCtrl" >
+				<md-toolbar class="md-toolbar-tools">
+					<h1>Container</h1>
+					<span flex></span>
+					<ng-md-icon icon="info" size="28" />			
+				</md-toolbar>
+				<md-card-content>
+					<p>
+						Deze elementen hebben de eigenschap dat ze bedoeld zijn om andere elementen te positioneren. 
+						Ze hebben over het algemeen geen 'styling'. 
+					</p><p>Daarnaast kunnen andere elementen doormiddel van 
+						'attached properties' hun positie afhankelijk maken van deze containers.
+					</p>
+				</md-card-content>
+			</md-card>
+
+			<!-- Dockpanel -->
+			<md-card class="sample shadow-z-1 codexamp" ng-controller="hoverCtrl" >
+				<md-toolbar class="md-toolbar-tools">
+					<h1>Dockpanel</h1>
+					<span flex></span>
+					<ng-md-icon icon="code"  class="toggle" class="toggle" ng-click="toggle()" ng-class="{active: !isShowing}" size="28"></ng-md-icon> 
+				</md-toolbar>
+				<md-card-content class="content">					
+					<!-- Code Snippet -->
+<pre class="ppPrettyPrint linenums" >
+&lt;DockPanel Width=&quot;100&quot; Height=&quot;50&quot;&gt;
+&lt;Button Content=&quot;A&quot; DockPanel.Dock=&quot;Left&quot; 
+Width=&quot;50&quot;/&gt;
+&lt;Button Content=&quot;B&quot; DockPanel.Dock=&quot;Right&quot; 
+Width=&quot;50&quot;/&gt;
+&lt;/DockPanel&gt;</pre>
+					<!-- End of Snippet -->		
+					<section class="slider animate-show" ng-show="isShowing">
+						<img src="onderwerp/wpf/img/dockpanel.png" />	
+					</section>
+				</md-card-content>	
+		</md-card>
+		<!-- end of dockpanel -->
+			
+		
+		<!-- Wrappanels -->
+		<md-card class="sample shadow-z-1 codexamp" ng-controller="hoverCtrl" >
+			<md-toolbar class="md-toolbar-tools">
+				<h1>WrapPanel</h1>
+				<span flex></span>
+				<ng-md-icon icon="code"   class="toggle" ng-click="toggle()" ng-class="{active: !isShowing}" size="28"></ng-md-icon> 
+			</md-toolbar>
+			<md-card-content class="content">					
+				<!-- Code Snippet -->
+<pre class="ppPrettyPrint linenums" >
+&lt;WrapPanel Width=&quot;100&quot; Height=&quot;60&quot;&gt;
+   &lt;Button Content=&quot;Left&quot; Width=&quot;50&quot;/&gt;
+   &lt;Button Content=&quot;Right&quot; Width=&quot;50&quot;/&gt;
+   &lt;Button Content=&quot;Left&quot; Width=&quot;30&quot;/&gt;
+   &lt;Button Content=&quot;Right&quot; Width=&quot;70&quot;/&gt;
+   &lt;Button Content=&quot;Right&quot; Width=&quot;100&quot;/&gt;
+&lt;/WrapPanel&gt;</pre>
+				<!-- End of Snippet -->		
+				<section class="slider animate-show" ng-show="isShowing">
+					<img src="onderwerp/wpf/img/wrappanel.png" />	
+				</section>
+			</md-card-content>	
+		</md-card>
+			
+		<!-- Stackpanel -->
+		<md-card class="sample shadow-z-1 codexamp" ng-controller="hoverCtrl" >
+			<md-toolbar class="md-toolbar-tools">
+				<h1>StackPanel</h1>
+				<span flex></span>
+				<ng-md-icon icon="code"   class="toggle" ng-click="toggle()" ng-class="{active: !isShowing}" size="28"></ng-md-icon> 
+			</md-toolbar>
+			<md-card-content class="content">					
+				<!-- Code Snippet -->
+<pre class="ppPrettyPrint linenums" >
+&lt;StackPanel Width=&quot;100&quot; Height=&quot;120&quot;&gt;
+  &lt;Button Content=&quot;Left&quot; Width=&quot;50&quot;/&gt;
+  &lt;Button Content=&quot;Right&quot; Width=&quot;50&quot;/&gt;
+  &lt;Button Content=&quot;Left&quot; Width=&quot;30&quot;/&gt;
+  &lt;Button Content=&quot;Right&quot; Width=&quot;70&quot;/&gt;
+  &lt;Button Content=&quot;Right&quot; Width=&quot;100&quot;/&gt;
+&lt;/StackPanel&gt;</pre>
+				<!-- End of Snippet -->		
+				<section class="slider animate-show" ng-show="isShowing">
+					<img src="onderwerp/wpf/img/stackpanel.png" />	
+				</section>
+			</md-card-content>	
+		</md-card>
+					
+		<!-- Grid -->
+		<md-card class="sample shadow-z-1 codexamp" ng-controller="hoverCtrl" >
+			<md-toolbar class="md-toolbar-tools">
+				<h1>Grid</h1>
+				<span flex></span>
+				<ng-md-icon icon="code"   class="toggle" ng-click="toggle()" ng-class="{active: !isShowing}" size="28"></ng-md-icon> 
+			</md-toolbar>
+			<md-card-content class="content">					
+				<!-- Code Snippet -->
+<pre class="ppPrettyPrint linenums" >
+&lt;Grid Width=&quot;100&quot; Height=&quot;50&quot;&gt;
+  &lt;Grid.RowDefinitions&gt;
+    &lt;RowDefinition /&gt;
+  &lt;/Grid.RowDefinitions&gt;
+  &lt;Grid.ColumnDefinitions&gt;
+    &lt;ColumnDefinition /&gt;
+    &lt;ColumnDefinition /&gt;
+  &lt;/Grid.ColumnDefinitions&gt;
+   
+ &lt;Button Grid.Row=&quot;0&quot; Grid.Column=&quot;0&quot; 
+    Content=&quot;A&quot; /&gt;
+ &lt;Button Grid.Row=&quot;0&quot; Grid.Column=&quot;1&quot; 
+    Content=&quot;B&quot; /&gt;
+&lt;/Grid&gt;</pre>      
+				<!-- End of Snippet -->		
+				<section class="slider animate-show" ng-show="isShowing">
+					<img src="onderwerp/wpf/img/grid.png" />	
+				</section>
+			</md-card-content>	
+		</md-card>		
+				
+		<!-- Border -->
+		<md-card class="sample shadow-z-1 codexamp" ng-controller="hoverCtrl" >
+			<md-toolbar class="md-toolbar-tools">
+				<h1>Border</h1>
+				<span flex></span>
+				<ng-md-icon icon="code"   class="toggle" ng-click="toggle()" ng-class="{active: !isShowing}" size="28"></ng-md-icon> 
+			</md-toolbar>
+			<md-card-content class="content">					
+				<!-- Code Snippet -->
+<pre class="ppPrettyPrint linenums" >
+&lt;Border BorderThickness=&quot;5&quot; 
+  BorderBrush=&quot;Green&quot;
+  Width=&quot;50&quot; Height=&quot;50&quot;&gt;
+     &lt;Button Grid.Row=&quot;0&quot; Grid.Column=&quot;0&quot; 
+	   Content=&quot;A&quot; /&gt;
+&lt;/Border&gt;</pre>      
+				<!-- End of Snippet -->		
+				<section class="slider animate-show" ng-show="isShowing">
+					<img src="onderwerp/wpf/img/border.png" />	
+				</section>
+			</md-card-content>	
+		</md-card>		
+		
+		</section>	
+		<section flex="1">
+		
+		<!-- User Controls -->
+		<md-card class="sample shadow-z-1 codexamp" ng-controller="hoverCtrl" >
+			<md-toolbar class="md-toolbar-tools">
+				<h1>User Controls</h1>
+				<span flex></span>
+				<ng-md-icon icon="info"  /> 
+			</md-toolbar>
+			<md-card-content>					
+				<p>
+					Deze elementen hebben een functie binnen je pagina. Of ze tonen informatie, of geven de gebruiker de mogelijkheid input te leveren. 
+				</p><p>
+					De C# code die je ziet is gelinkt aan een event vanuit de XAML.
+				</p>
+			</md-card-content>	
+		</md-card>		
+		
+		<!-- Button -->
+		<md-card class="sample shadow-z-1 codexamp" ng-controller="hoverCtrl" >
+			<md-toolbar class="md-toolbar-tools">
+				<h1>Button</h1>
+				<span flex></span>
+				<ng-md-icon icon="code"   class="toggle" ng-click="toggle()" ng-class="{active: !isShowing}" size="28"></ng-md-icon> 
+			</md-toolbar>
+			<md-card-content class="content">					
+				<!-- Code Snippet -->
+<pre class="ppPrettyPrint linenums" >
+&lt;Button Content=&quot;A&quot; Click=&quot;ClickA&quot;/&gt;</pre>
+<!-- End of Snippet -->
+                      
+<!-- Code Snippet -->
+<pre class="ppPrettyPrint linenums"  >
+private void ClickA(object sender, RoutedEventArgs e)
+{
+    //Add Behavior here
+}</pre>
+				<!-- End of Snippet -->		
+				<section class="slider animate-show" ng-show="isShowing">
+					<img src="onderwerp/wpf/img/button.png" />	
+				</section>
+			</md-card-content>	
+		</md-card>		
+		
+		<!-- listbox -->
+		<md-card class="sample shadow-z-1 codexamp" ng-controller="hoverCtrl" >
+			<md-toolbar class="md-toolbar-tools">
+				<h1>ListBox</h1>
+				<span flex></span>
+				<ng-md-icon icon="code" class="toggle" ng-click="toggle()" ng-class="{active: !isShowing}" size="28"></ng-md-icon> 
+			</md-toolbar>
+			<md-card-content class="content">					         
+			<!-- Code Snippet -->
+<pre class="ppPrettyPrint linenums"  >
+&lt;ListBox Name=&quot;Listy&quot;&gt;
+  &lt;ListBoxItem&gt;Item 1&lt;/ListBoxItem&gt;
+  &lt;ListBoxItem&gt;Item 2&lt;/ListBoxItem&gt;
+&lt;/ListBox&gt;</pre>
+<pre class="ppPrettyPrint linenums"  >
+Listy.Items.Add(new ListBoxItem()
+{
+	Content = &quot;Item 3&quot;
+});</pre>
+				<!-- End of Snippet -->	
+				<section class="slider animate-show" ng-show="isShowing">
+					<img src="onderwerp/wpf/img/listbox.png" />	
+				</section>
+			</md-card-content>	
+		</md-card>		
+		
+		<!-- textbpx -->
+		<md-card class="sample shadow-z-1 codexamp" ng-controller="hoverCtrl" >
+			<md-toolbar class="md-toolbar-tools">
+				<h1>TextBox</h1>
+				<span flex></span>
+				<ng-md-icon icon="code"   class="toggle" ng-click="toggle()" ng-class="{active: !isShowing}" size="28"></ng-md-icon> 
+			</md-toolbar>
+			<md-card-content class="content">					         
+			<!-- Code Snippet -->
+<pre class="ppPrettyPrint linenums"  >
+&lt;Grid Width=&quot;100&quot; Height=&quot;50&quot;&gt;
+    &lt;TextBox Name=&quot;Boxy&quot; Text=&quot;Hell world&quot; 
+    TextChanged=&quot;TextBox_TextChanged&quot;/&gt;
+&lt;/Grid&gt;</pre>
+<pre class="ppPrettyPrint linenums"  >
+private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+{
+    Console.WriteLine(Boxy.Text);
+};</pre>
+				<!-- End of Snippet -->	
+				<section class="slider animate-show" ng-show="isShowing">
+					<img src="onderwerp/wpf/img/textbox.png" />	
+					<img src="onderwerp/wpf/img/output.png" />	
+				</section>
+			</md-card-content>	
+		</md-card>		
+		</section>
+	</section>
+
+	</article>
+
+      <div class="md-actions navigate" layout="row" layout-align="center center">
+        <md-button  ui-sref="wpfXaml" >
+            <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+            <md-tooltip>XAML</md-tooltip>
+        </md-button>
+        <md-button  ui-sref="wpfBinding" >
+            <ng-md-icon icon="navigate_next" size="36"></ng-md-icon> 
+            <md-tooltip>Data Binding</md-tooltip>
+        </md-button>  
+        
+      </div>
+</section

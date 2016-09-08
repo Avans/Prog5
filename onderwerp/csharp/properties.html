@@ -1,0 +1,179 @@
+<md-toolbar  class="withSkyline">
+	<h1 class="md-toolbar-tools">C#</h1>
+</md-toolbar>
+
+<section class="max-sized">
+
+    
+    <article class="md-padding">
+        
+        <h2>Properties</h2>
+        		
+		<p>
+			Een klasse heeft over het algemeen private en public fields. Private fields kunnen alleen benaderd worden vanuit de klasse zelf. 
+			Public fields zijn ook toegankelijk van buitenaf. 
+		</p>
+		
+		<p>
+			Als je in java een field alleen leesbaar wil maken dan is het gebruikelijk om een private field te maken met een bijbehorende functie als 'getter'.
+			Daarnaast is het mogelijk een functie als 'setter' toe te voegen en eventuele validatie uit te voeren op de nieuwe waarde van het veld. 
+		</p>
+
+		<p>
+			In C# doen we dit net even anders. Hier hebben we namelijk een speciale syntax voor het maken van getters en setters. 
+			Dit zijn properties.
+			Je bent bijna verplicht om in C# altijd properties te gebruiken in plaats van normale 'fields'. 
+			Sommige frameworks (waar we in de toekomst gebruik van gaan maken) werken bijvoorbeeld alleen goed samen met properties en niet met fields.
+		</p>
+
+    </article>
+
+    <section  layout="row" layout-xs="column">
+        <section flex="1">
+            <md-card>
+                <md-toolbar>
+                    <h1 class="md-toolbar-tools">Java</h1>
+                </md-toolbar>
+                <md-card-content>
+                        
+<!-- CODE SNIPPET -->
+<pre class="ppPrettyPrint linenums" flex>
+public class Person
+{
+    private String myField; 
+
+    public String getMyField()
+    {
+        return this.myField;
+    }
+
+    public void setMyField(String value)
+    {
+        this.myField = value;
+    }
+
+}</pre>
+                </md-card-content>
+            </md-card>
+        </section>
+        <section flex="1">
+            
+            <md-card flex>
+                <md-toolbar>
+                <h1 class="md-toolbar-tools">.NET</h1>
+                </md-toolbar>
+                <md-card-content>
+			
+<!-- CODE SNIPPET -->		
+<pre class="ppPrettyPrint linenums" flex>
+public class Person
+{
+    private string _firstname;
+
+    public string Firstname
+    {
+        get
+        {
+            return _firstname;
+        }
+        set
+        {
+            _firstname = value;
+        }
+    }
+}</pre>
+	
+</pre>
+                </md-card-content>
+            </md-card>
+        </section>
+    </section>
+
+    <article class="md-padding">
+
+	
+	<p>Dit kan ook in een kortere variant. 
+		In het onderstaande voorbeeld zal er onder water een private field gemaakt worden waarmee de getter en setter hun waarde benaderen. 
+		Het is slim om jezelf aan te leren deze korte syntax te gebruiken voor properties i.p.v public fields. Hiermee kun je in de toekomst makkelijker 
+		bijvoorbeeld de 'set' private maken.  
+		
+	</p>
+
+    </article>
+    
+    
+    <section  layout="row" layout-xs="column">
+        <section flex="1">
+            <md-card flex>
+                <md-toolbar>
+                    <h1 class="md-toolbar-tools">Long</h1>
+                </md-toolbar>
+                <md-card-content>
+                        
+ <!-- CODE SNIPPET -->
+<pre class="ppPrettyPrint linenums">
+public class Person
+{
+    private string _firstname;
+
+    //De lange variant (ingeklapt)
+    public string Firstname...
+	
+    //De korte variant
+    public string Lastname { get; set; }
+	
+}</pre>  
+                </md-card-content>
+            </md-card>  
+        </section>
+        <section flex="1">
+            <md-card>
+                <md-toolbar>
+                <h1 class="md-toolbar-tools">Logic</h1>
+                </md-toolbar>
+                <md-card-content>
+			
+<!-- CODE SNIPPET -->		
+<pre class="ppPrettyPrint linenums">
+public class Person
+{
+    private string _firstname;
+
+    //De lange variant (ingeklapt)
+    public string Firstname..
+
+    public string Lastname { get; set; }
+
+    public string Fullname 
+    { 
+        get
+        {
+            return _firstname + Lastname;
+        }
+    }
+}</pre>
+                </md-card-content>
+            </md-card>
+        </section>
+    </section>
+
+    <article class="md-padding">
+
+	<p>
+		Daarnaast is het ook mogelijk om zelf te bepalen of je een get of een set implementeert. De implementatie mag ook meer logica bevatten. 
+	</p>
+
+    </article>
+      
+      <div class="md-actions navigate" layout="row" layout-align="center center">
+        <md-button  ui-sref="csharpIntroductie" >
+            <ng-md-icon icon="navigate_before" size="36"></ng-md-icon> 
+            <md-tooltip>Introductie</md-tooltip>
+        </md-button>
+        <md-button  ui-sref="csharpLambda" >
+            <ng-md-icon icon="navigate_next" size="36"></ng-md-icon> 
+            <md-tooltip>Lambda</md-tooltip>
+        </md-button>  
+     </div>   
+                
+</section>

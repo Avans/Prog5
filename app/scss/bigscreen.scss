@@ -1,0 +1,17 @@
+@media screen and (min-width: 1280px) {
+    
+    .pp-sidenav-left{
+        position: fixed;
+
+        .md-sidenav-left{
+            margin:8px;
+            width:400 - $default-padding * 3; //400 minus padding
+        }
+
+    }
+
+    .left-column{
+        width:400px;
+    }
+
+}

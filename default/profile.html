@@ -1,58 +1,71 @@
-<div class="row" ng-controller="profileCtrl">
+<section ng-controller="ppProfileCtrl">
+    
+  <md-toolbar class="md-theme-indigo withSkyline"  >
+    <h1 class="md-toolbar-tools">Profile</h1>
+  </md-toolbar>
 
-	<div class="col-md-3"></div>
-	<div class="col-md-6">
-		
-		<section class="preHeader">
-		<h2>{{user.name}}</h2>
-		</section>
-		
-		<article class="sample shadow-z-1">
-			<section class="header">
-				<span>Basic Information</span>
-			</section>
-			
-			<section class="main">
-				<div class="row">
-					<div class="col-md-6">
-		
-							<label>Email</label></br>
-							<span>{{user._id}}</span></br>
-				
 
-						<label>Role</label></br>
-						<span ng-show="user.isTeacher">Teacher</span>
-						<span ng-show="!user.isTeacher">Student</span>
-					</div>
-					
-					<div class="col-md-6">
-						<label>Points</label></br>
-						<span class="points">{{user.totalPoints}}</span>
-					</div>
-				</div>
-			</section>
-			
-			<section class="footer">
-				
-				
-			</section>
-		
-		</article>
-		
-		<article class="sample shadow-z-1" ng-repeat="pointItem in user.totalPointCollection">
+  <section ng-show="!user || user.error"class="max-sized"  ng-controller="ppAuthCtrl" layout="row" layout-align="center center" >
+    <md-button class="md-primary md-raised"  aria-label="Login" ng-click="login()">
+        Login
+      </md-button>
+  </section>
 
-			
-			<section class="main">
-				{{pointItem.assignmentName}} - {{pointItem.points}} - {{pointItem.timestamp | date:'short'}}
-			</section>
-			
-			<section class="footer">
-				
-				
-			</section>
-		
-		</article>
-		
-	</div>
-	<div class="col-md-3"></div>
-</div>
+  
+  <section class="max-sized" ng-hide="user.error" ng-cloak >
+
+      <md-card>
+        <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">{{user.name}}</h1>
+        </md-toolbar>
+        <md-card-content>
+          
+          
+          <section class="output">
+            <label>Email</label>
+            <span>{{user._id}}</span>
+          </section>
+          
+         <section class="output">
+            <label>Role</label>
+            <span ng-show="user.isTeacher">Teacher</span>
+             <span ng-show="!user.isTeacher">Student</span>
+          </section>
+          
+
+        </md-card-content>
+      </md-card>
+
+      <section  ng-controller="ppAuthCtrl"   layout="row" layout-align="center center">
+        <md-button class="md-raised md-warn" ng-click="logout()" aria-label="Logout" >
+              Logout
+        </md-button>
+      </section>
+      
+
+      <md-card>
+        <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Point history</h1>
+        </md-toolbar>
+        <md-card-content>
+      
+          <table class="less">
+            <thead>
+              <tr>
+                <th>Points</th><th>Name</th><th >Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="pointItem in user.totalPointCollection">
+                <td>{{pointItem.points}}</td>
+                <td>{{pointItem.assignmentName}}</td>
+                <td>{{pointItem.timestamp | date:'short'}}</td>
+              </tr>
+            </tbody>
+          </table>						
+  
+  
+        </md-card-content>
+      </md-card>
+
+</section>  

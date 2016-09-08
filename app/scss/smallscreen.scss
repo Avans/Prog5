@@ -1,0 +1,13 @@
+/** When on mobile**/
+@media only screen and (max-width : 420px) {
+   md-card{
+    margin:8px 0px;
+  }
+
+  .responsive{
+      float:none;
+      width:100%;
+      margin:8px 0px;
+
+  }
+}
