@@ -1,15 +1,16 @@
 module.exports = function($scope, $mdDialog, $mdToast, ppFeedbackService){
 	
-	$scope.feeling = "unknown";
-	$scope.description = "";
 	
+    $scope.feeling = null;
+
 	$scope.sendFeedback = function(){
-		
+
+	
 		var feedback = {
 			feeling: $scope.feeling, 
 			description: $scope.description
 		};
-		
+
 		ppFeedbackService.postFeedback(feedback, function(result){
 			$mdDialog.cancel();
             if(result.msg == "success"){
