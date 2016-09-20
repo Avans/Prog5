@@ -59,13 +59,13 @@
             <md-input-container class="md-block">
                 <label>Tip</label>
                 <md-icon><ng-md-icon icon="thumb_down" size="20" flex></ng-md-icon>     </md-icon>
-                <input md-no-asterisk name="Github url" ng-model="review.tip">
+                <textarea ng-model="review.tip" required md-maxlength="150" rows="5" md-select-on-focus></textarea>
             </md-input-container>
             
             <md-input-container class="md-block">
                 <label>Top</label>
                 <md-icon><ng-md-icon icon="thumb_up" size="20" flex></ng-md-icon>     </md-icon>
-                <input md-no-asterisk name="Github url" ng-model="review.top">
+                <textarea ng-model="review.top" required md-maxlength="150" rows="5" md-select-on-focus></textarea>
             </md-input-container>
         </section>
        
