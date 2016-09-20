@@ -16,6 +16,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         //Default pages
         .state('home', { url: '/home',  templateUrl:'default/home.html' })
         .state('leaderboards', { url: '/leaderboards',  templateUrl:'default/leaderboards.html' })
+        .state('extra', { url: '/extra',  templateUrl:'default/extra.html' })
         .state('profile', { url: '/profile',  templateUrl:'default/profile.html' })
         
         .state('opdrachten1', { url: '/opdrachten/week1', templateUrl:'opdrachten/week1.html' } )

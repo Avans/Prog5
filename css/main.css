@@ -173,6 +173,10 @@ Assignment style
   border-bottom: 2px solid #CD7F32;
   font-weight: bold; }
 
+.shortcut {
+  width: 100px;
+  text-align: center; }
+
 .pp-sidenav-left .md-sidenav-backdrop {
   position: fixed; }
 .pp-sidenav-left .md-sidenav-left {
