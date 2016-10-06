@@ -41,30 +41,39 @@
         </md-card-content>
         <md-card-content>
 
-            <p>We gaan aan de slag met het ORM Entity Framework. Als je er even niet uit komt lees dan de <a ui-sref="efIntroductie">bijbehorende theorie</a> goed door!</p>
+            <p>We gaan aan de slag met het ORM Entity Framework. Als je er even niet uit komt lees dan de <a ui-sref="efIntroductie">bijbehorende theorie</a> goed door!
+                We gaan gebruik maken van de volgende 3 projecten:
+            </p>
+
+            <ul> 
+                <li>Entities.Database - Deze gaan we op onze lokale server deployen</li>
+                <li>Entities.Domain - Hier gaan we onze entities genereren </li>
+                <li>Entities.ConsoleApp - Hier gaan we onze db context benaderen</li>
+            </ul>
+
+
 
             <h3>Voordat we beginnen</h3>
 
-            <p>Omdat we gaan werken met een database moet je deze zelf eerst deployen voordat je aan de slag kunt.</p> 
-                
             <p>
-                In het start project zit een project met de naam Entitiese.Database.
-                Hier staat een 'publish' file waar je gebruik van kan maken. 
-                Publish de database op je lokale server (localhost of localdb). 
+                Deploy het database project op je lokale server. Entities.Database - Rechter muisknop - Publish.
+                Als je even niet meer weet hoe je lokale server heet, kijk dan in de <b>SQL Management studio</b> tool. 
+                Vaak is het [computernaam]\\SQLEXPRESS.
             </p>
-
-            <p>
-                Indien je niet op de standaard localdb server gaat werken zijn er nog wat extra handelingen nodig. 
-                De projecten Entities.Domain en Entities.Console hebben beide een configuration file met een connection string.
-                Deze verwijzen naar de standaard localdb server. Pas deze connection strings aan zodat ze naar de juiste server verwijzen. 
-            </p>
-
+                     
             <h3>En dan...</h3>
 
             <p>
                 Nu is het tijd om een EDMX te genereren op basis van je eigen database. 
                 Als je dit echt netjes wilt doen genereer je je EDMX altijd in een apparte library genaamd 'Domain'.
                 Weet je even niet meer hoe dit moet? Er staan <a ui-sref="efDatabasefirst">mooie filmpjes en lesstof</a> voor je klaar!
+            </p>
+
+            <h3>Als laatste!</h3>
+
+            <p>
+                Tijdens het aanmaken van je EDMX heeft Entity Framework een zogenaamde 'connection string' gegenereerd in de app.config file 
+                van het domein project. Copiër deze connection string naar de app.config van het console project.
             </p>
             
                 
