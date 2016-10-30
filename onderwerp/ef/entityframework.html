@@ -8,10 +8,10 @@
      <h2>Entity Framework</h2>
 
       <p>
-          Het aansluiten van een database is bijna altijd het zelfde werk. 
+          Het aansluiten van een database is bijna altijd hetzelfde werk. 
           Objecten maken die tabellen in je database reflecteren en query’s uitvoeren om daarna de data uit de database te mappen op je objecten. 
           "Entity Framework" is een Object Relational Mapper (ORM) die dit voor je oplost. 
-          Het zorgt er voor dat je maar een keer je data-model hoeft te defineren (code of database) . De rest zal "Entity Framework" voor je genereren.
+          Het zorgt ervoor dat je maar een keer je datamodel hoeft te defini&euml;ren (code of database) . De rest zal "Entity Framework" voor je genereren.
       </p>
       
        <h4>Werkwijze</h4>
@@ -23,7 +23,7 @@
        
         <p>
           Als je met Entity Framework aan de slag gaat zijn er 3 manieren om met het framework te werken. 
-          Wij gaan voornamelijk inzoomen op de werkwijze Database first. 
+          Wij gaan voornamelijk inzoomen op de werkwijze: Database First. 
           <ul>
             <li>Model First</li>
             <li>Code First</li>
@@ -45,17 +45,17 @@
             <md-content class="md-padding">
               <p>
                   Als je een bestaande database hebt is dit ideaal. 
-                  Op basis van een bestaande database zal Entity Framework een volledig data-model generen. Deze functie werkt heel goed. 
-                  Daarnaast is het praktisch om wijzigingen door te voeren vanuit SQL server management studio, en nadat je klaar bent met je data-model, deze wijzigingen ook door te voeren in je applicatie.
+                  Op basis van een bestaande database zal Entity Framework een volledig datamodel generen. Deze functie werkt heel goed. 
+                  Daarnaast is het praktisch om wijzigingen door te voeren vanuit SQL server management studio, en nadat je klaar bent met je datamodel, deze wijzigingen ook door te voeren in je applicatie.
               </p>
             </md-content>
           </md-tab>
           <md-tab label="Model First">
             <md-content class="md-padding">
               <p>
-                Entity Framework biedt een mooie tool voor het bewerken van je data-model. 
-                Als je geen fan bent van het werken in SQL management studio dan is dit een prettige manier van het bewerken van je data-model. 
-                Daarentegen heb je geen volledige toegang tot je data-model aangezien deze gegenereerd wordt door een tool.
+                Entity Framework biedt een mooie tool voor het bewerken van je datamodel. 
+                Als je geen fan bent van het werken in SQL management studio dan is dit een prettige manier van het bewerken van je datamodel. 
+                Daarentegen heb je geen volledige toegang tot je datamodel aangezien deze gegenereerd wordt door een tool.
               </p>
             </md-content>
           </md-tab>
@@ -63,7 +63,7 @@
             <md-content class="md-padding">
 
               <p>
-                Het geeft je volledig toegang tot je entiteiten (modellen) en de code er achter. Op basis van deze code wordt er een database gegenereerd. 
+                Het geeft je volledig toegang tot je entiteiten (modellen) en de code erachter. Op basis van deze code wordt er een database gegenereerd. 
                 In principe is dit een goed systeem wanneer je kleine hoeveelheden data nodig hebt en de database alleen voor dat programma nodig is.
               </p>
             </md-content>
@@ -76,7 +76,7 @@
 
       <h3>Installatie</h3>
 
-      Entity framework is een framework dat niet standaard in .NET wordt meegeleverd. Dit betekend dat je hem zelf zal moeten installeren. 
+      Entity framework is een framework dat niet standaard in .NET wordt meegeleverd. Dit betekent dat je hem zelf zult moeten installeren. 
       Dit kan zeer gemakkelijk via de NuGet wizard. Dit hebben we eerder al een keer behandeld tijdens het onderdeel <a ui-sref="mvvmFrameworks">MvvM Frameworks</a>.
 
       <h3>Onderdelen</h3>
@@ -111,8 +111,8 @@
 
     <h4>Data Context</h4>
 
-    <p>Na het genereren van de EDMX file krijgen we toegang tot een aantal klasse. 
-      Een van deze klasse is je toegang tot de database. 
+    <p>Na het genereren van de EDMX file krijgen we toegang tot een aantal klassen. 
+      Een van deze klassen is je toegang tot de database. 
       Het is een klasse die overerft van de klasse <b>DbContext</b>.
     </p>
 
@@ -158,7 +158,7 @@ public partial class DatabaseContext : DbContext
   <h4>Entities</h4>
 
   <p>
-    Naast de Database context word voor elke tabel ook een klasse gegenereer die de tabel vertegenwoordigt. 
+    Naast de Database context word voor elke tabel ook een klasse gegenereerd die de tabel vertegenwoordigt. 
     Hoe we hier in de praktijk gebruik van maken lees je in het volgende hoofdstuk.
   </p>
 
